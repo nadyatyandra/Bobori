@@ -7,15 +7,10 @@
 
 import SwiftUI
 
-struct InformationView: View {
+struct SecondTabView: View {
     var body: some View {
         Text("InsertInfo")
             .navigationTitle("Information")
     }
 }
 
-struct InformationView_Previews: PreviewProvider {
-    static var previews: some View {
-        InformationView()
-    }
-}

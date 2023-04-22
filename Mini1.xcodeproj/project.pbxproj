@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		53795DF729F450F4000B1BB4 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF629F450F4000B1BB4 /* CalendarView.swift */; };
-		53795DF929F45100000B1BB4 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF829F45100000B1BB4 /* InformationView.swift */; };
+		53795DF729F450F4000B1BB4 /* FirstTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF629F450F4000B1BB4 /* FirstTabView.swift */; };
+		53795DF929F45100000B1BB4 /* SecondTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF829F45100000B1BB4 /* SecondTabView.swift */; };
 		53795DFB29F45368000B1BB4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DFA29F45368000B1BB4 /* HomeView.swift */; };
+		53795DFD29F457D2000B1BB4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DFC29F457D2000B1BB4 /* HomeViewModel.swift */; };
+		53795DFF29F457ED000B1BB4 /* FirstTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DFE29F457ED000B1BB4 /* FirstTabViewModel.swift */; };
 		537FD5A729EE2E49001E6321 /* Mini1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537FD5A629EE2E49001E6321 /* Mini1App.swift */; };
 		537FD5A929EE2E49001E6321 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537FD5A829EE2E49001E6321 /* ContentView.swift */; };
 		537FD5AB29EE2E4A001E6321 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 537FD5AA29EE2E4A001E6321 /* Assets.xcassets */; };
@@ -37,9 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		53795DF629F450F4000B1BB4 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		53795DF829F45100000B1BB4 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		53795DF629F450F4000B1BB4 /* FirstTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabView.swift; sourceTree = "<group>"; };
+		53795DF829F45100000B1BB4 /* SecondTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabView.swift; sourceTree = "<group>"; };
 		53795DFA29F45368000B1BB4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		53795DFC29F457D2000B1BB4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		53795DFE29F457ED000B1BB4 /* FirstTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabViewModel.swift; sourceTree = "<group>"; };
 		537FD5A329EE2E49001E6321 /* Mini1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		537FD5A629EE2E49001E6321 /* Mini1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini1App.swift; sourceTree = "<group>"; };
 		537FD5A829EE2E49001E6321 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,8 +107,10 @@
 				537FD5A629EE2E49001E6321 /* Mini1App.swift */,
 				537FD5A829EE2E49001E6321 /* ContentView.swift */,
 				53795DFA29F45368000B1BB4 /* HomeView.swift */,
-				53795DF629F450F4000B1BB4 /* CalendarView.swift */,
-				53795DF829F45100000B1BB4 /* InformationView.swift */,
+				53795DFC29F457D2000B1BB4 /* HomeViewModel.swift */,
+				53795DFE29F457ED000B1BB4 /* FirstTabViewModel.swift */,
+				53795DF629F450F4000B1BB4 /* FirstTabView.swift */,
+				53795DF829F45100000B1BB4 /* SecondTabView.swift */,
 				537FD5AA29EE2E4A001E6321 /* Assets.xcassets */,
 				537FD5AC29EE2E4A001E6321 /* Preview Content */,
 			);
@@ -267,10 +273,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				537FD5A929EE2E49001E6321 /* ContentView.swift in Sources */,
-				53795DF929F45100000B1BB4 /* InformationView.swift in Sources */,
+				53795DFD29F457D2000B1BB4 /* HomeViewModel.swift in Sources */,
+				53795DF929F45100000B1BB4 /* SecondTabView.swift in Sources */,
 				537FD5A729EE2E49001E6321 /* Mini1App.swift in Sources */,
 				53795DFB29F45368000B1BB4 /* HomeView.swift in Sources */,
-				53795DF729F450F4000B1BB4 /* CalendarView.swift in Sources */,
+				53795DF729F450F4000B1BB4 /* FirstTabView.swift in Sources */,
+				53795DFF29F457ED000B1BB4 /* FirstTabViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

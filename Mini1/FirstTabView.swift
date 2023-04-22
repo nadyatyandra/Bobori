@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct CalendarView: View { 
-    @Binding var selectedTab: Int
+struct FirstTabView: View { 
+    @ObservedObject var viewModel: FirstTabViewModel
     
     var body: some View {
         VStack {
             Button("Go to information view") {
-                selectedTab = 1
+                viewModel.navigateToSecondTab()
             }
             .padding()
             .navigationTitle("Calendar")

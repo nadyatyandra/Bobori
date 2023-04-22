@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var selectedTab = 0
+    @StateObject var viewModel = HomeViewModel()
     
     var body: some View {
-        TabView(selection: $selectedTab) {
+        TabView(selection: $viewModel.selectedTab) {
             NavigationView {
-                CalendarView(selectedTab: $selectedTab)
+                FirstTabView(viewModel: FirstTabViewModel(selectedTab: $viewModel.selectedTab))
             }
             .tabItem {
                 Label("Calendar", systemImage: "1.circle")
@@ -21,7 +21,7 @@ struct HomeView: View {
             .tag(0)
             
             NavigationView {
-                InformationView()
+                SecondTabView()
             }
             .tabItem {
                 Label("Information", systemImage: "2.circle")
