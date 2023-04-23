@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import EventKit
 
 struct FirstTabView: View { 
     @ObservedObject var viewModel: FirstTabViewModel
@@ -17,7 +18,15 @@ struct FirstTabView: View {
             }
             .padding()
             .navigationTitle("Calendar")
-            }
+            
+            ProfileCreationView()
+            
         }
+        
+        
+    }
+    
+    
+    
+    
 }
-
