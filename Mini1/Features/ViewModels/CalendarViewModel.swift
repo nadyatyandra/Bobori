@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class FirstTabViewModel: ObservableObject {
+class CalendarViewModel: ObservableObject {
     @Binding var selectedTab: Int
     
     init(selectedTab: Binding<Int>) {

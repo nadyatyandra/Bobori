@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SecondTabView: View {
+struct InformationComponent: View {
     var body: some View {
         Text("InsertInfo")
             .navigationTitle("Information")

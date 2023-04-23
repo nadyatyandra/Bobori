@@ -13,7 +13,7 @@ struct HomeView: View {
     var body: some View {
         TabView(selection: $viewModel.selectedTab) {
             NavigationView {
-                FirstTabView(viewModel: FirstTabViewModel(selectedTab: $viewModel.selectedTab))
+                CalendarComponent(viewModel: CalendarViewModel(selectedTab: $viewModel.selectedTab))
             }
             .tabItem {
                 Label("Calendar", systemImage: "1.circle")
@@ -21,7 +21,7 @@ struct HomeView: View {
             .tag(0)
             
             NavigationView {
-                SecondTabView()
+                InformationComponent()
             }
             .tabItem {
                 Label("Information", systemImage: "2.circle")

@@ -9,5 +9,4 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     @Published var selectedTab = 0
-    
 }

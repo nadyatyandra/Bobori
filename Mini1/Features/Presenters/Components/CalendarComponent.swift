@@ -8,8 +8,8 @@
 import SwiftUI
 import EventKit
 
-struct FirstTabView: View { 
-    @ObservedObject var viewModel: FirstTabViewModel
+struct CalendarComponent: View { 
+    @ObservedObject var viewModel: CalendarViewModel
     
     var body: some View {
         VStack {
@@ -22,11 +22,5 @@ struct FirstTabView: View {
             ProfileCreationView()
             EditProfileView()
         }
-        
-        
     }
-    
-    
-    
-    
 }
