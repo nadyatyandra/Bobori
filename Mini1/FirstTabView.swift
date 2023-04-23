@@ -20,7 +20,7 @@ struct FirstTabView: View {
             .navigationTitle("Calendar")
             
             ProfileCreationView()
-            
+            EditProfileView()
         }
         
         

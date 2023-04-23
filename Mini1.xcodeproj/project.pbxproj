@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04E8233529F594E700F6C73E /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233429F594E700F6C73E /* EditProfileView.swift */; };
+		04E8233729F5954200F6C73E /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233629F5954200F6C73E /* EditProfileViewModel.swift */; };
+		04E8233A29F59FBD00F6C73E /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233929F59FBD00F6C73E /* ReminderViewModel.swift */; };
 		53795DF729F450F4000B1BB4 /* FirstTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF629F450F4000B1BB4 /* FirstTabView.swift */; };
 		53795DF929F45100000B1BB4 /* SecondTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF829F45100000B1BB4 /* SecondTabView.swift */; };
 		53795DFB29F45368000B1BB4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DFA29F45368000B1BB4 /* HomeView.swift */; };
@@ -41,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04E8233429F594E700F6C73E /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		04E8233629F5954200F6C73E /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		04E8233829F5960400F6C73E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		04E8233929F59FBD00F6C73E /* ReminderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
 		53795DF629F450F4000B1BB4 /* FirstTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabView.swift; sourceTree = "<group>"; };
 		53795DF829F45100000B1BB4 /* SecondTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabView.swift; sourceTree = "<group>"; };
 		53795DFA29F45368000B1BB4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -108,12 +115,16 @@
 		537FD5A529EE2E49001E6321 /* Mini1 */ = {
 			isa = PBXGroup;
 			children = (
+				04E8233829F5960400F6C73E /* Info.plist */,
 				537FD5A629EE2E49001E6321 /* Mini1App.swift */,
 				537FD5A829EE2E49001E6321 /* ContentView.swift */,
 				53795DFA29F45368000B1BB4 /* HomeView.swift */,
 				53795DFC29F457D2000B1BB4 /* HomeViewModel.swift */,
+				04E8233929F59FBD00F6C73E /* ReminderViewModel.swift */,
 				53795DFE29F457ED000B1BB4 /* FirstTabViewModel.swift */,
 				53795DF629F450F4000B1BB4 /* FirstTabView.swift */,
+				04E8233429F594E700F6C73E /* EditProfileView.swift */,
+				04E8233629F5954200F6C73E /* EditProfileViewModel.swift */,
 				538CF94D29F58F4100B3AEDB /* ProfileCreationView.swift */,
 				538CF94F29F58F4D00B3AEDB /* ProfileCreationViewModel.swift */,
 				53795DF829F45100000B1BB4 /* SecondTabView.swift */,
@@ -278,6 +289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E8233A29F59FBD00F6C73E /* ReminderViewModel.swift in Sources */,
+				04E8233729F5954200F6C73E /* EditProfileViewModel.swift in Sources */,
+				04E8233529F594E700F6C73E /* EditProfileView.swift in Sources */,
 				537FD5A929EE2E49001E6321 /* ContentView.swift in Sources */,
 				53795DFD29F457D2000B1BB4 /* HomeViewModel.swift in Sources */,
 				53795DF929F45100000B1BB4 /* SecondTabView.swift in Sources */,
@@ -448,7 +462,8 @@
 				DEVELOPMENT_TEAM = RV753K5W6M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCalendarsUsageDescription = "The app requires permission";
+				INFOPLIST_FILE = Mini1/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSRemindersUsageDescription = "App needs permission";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -479,7 +494,8 @@
 				DEVELOPMENT_TEAM = RV753K5W6M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCalendarsUsageDescription = "The app requires permission";
+				INFOPLIST_FILE = Mini1/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSRemindersUsageDescription = "App needs permission";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

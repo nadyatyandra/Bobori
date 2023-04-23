@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ProfileCreationView: View {
-    @StateObject var viewModel: ProfileCreationViewModel = ProfileCreationViewModel()
+    @StateObject var viewModel: ReminderViewModel = ReminderViewModel()
     
     var body: some View {
         VStack {
             Button("Add reminder") {
-                viewModel.addReminder()
+                viewModel.addReminder(hour: 9, minute: 0)
             }
             .padding()
         }
