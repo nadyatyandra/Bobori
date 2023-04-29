@@ -7,6 +7,6 @@
 
 import Foundation
 
-class HomeViewModel: ObservableObject {
+class DashboardViewModel: ObservableObject {
     @Published var selectedTab = 0
 }

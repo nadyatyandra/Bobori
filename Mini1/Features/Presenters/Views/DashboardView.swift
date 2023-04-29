@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct HomeView: View {
-    @StateObject var viewModel = HomeViewModel()
+struct DashboardView: View {
+    @StateObject var viewModel = DashboardViewModel()
     
     var body: some View {
         TabView(selection: $viewModel.selectedTab) {
             NavigationView {
-                CalendarComponent(viewModel: CalendarViewModel(selectedTab: $viewModel.selectedTab))
+                ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab))
             }
             .tabItem {
                 Label("Calendar", systemImage: "1.circle")
@@ -31,8 +31,8 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        DashboardView()
     }
 }
