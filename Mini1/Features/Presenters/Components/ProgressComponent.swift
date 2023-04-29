@@ -12,22 +12,37 @@ struct ProgressComponent: View {
     @ObservedObject var viewModel: ProgressViewModel
     @State var selectedDate = Date()
     
+    @State var showProfile: Bool = false
+    
+    @Binding var name: String
+    @Binding var time: Date
+    
     var body: some View {
-        VStack {
-            HStack {
+        NavigationView {
+            ZStack {
                 VStack {
                     CalendarView()
+                    
+                    Button("Go to information view") {
+                        viewModel.navigateToSecondTab()
+                    }
+                    .padding()
                 }
             }
-            
-            Button("Go to information view") {
-                viewModel.navigateToSecondTab()
+        }
+        .navigationBarTitle("Progress")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button() {
+                    showProfile = true
+                } label: {
+                    Image(systemName: "person.circle")
+                        .font(.system(size: 40))
+                }
             }
-            .padding()
-            .navigationTitle("Calendar")
-            
-            ProfileCreationView()
-            EditProfileView()
+        }
+        .sheet(isPresented: $showProfile) {
+            EditProfileView(showProfile: $showProfile, name: $name, time: $time)
         }
     }
 }

@@ -49,7 +49,7 @@ class EventKitManager: ObservableObject {
         }
     }
     
-    func editReminder() {
+    func editReminder(hour: Int, minute: Int) {
         let predicate: NSPredicate? = eventStore.predicateForReminders(in: nil)
         if let aPredicate = predicate {
             eventStore.fetchReminders(matching: aPredicate, completion: { [self](_ reminders: [Any]?) -> Void in
@@ -57,7 +57,7 @@ class EventKitManager: ObservableObject {
                     if reminder?.title == "My Daily Reminder" {
                         do {
                             try eventStore.remove(reminder!, commit: true)
-                            addReminder(hour: 10, minute: 30)
+                            addReminder(hour: hour, minute: minute)
                                 // Handle successful deletion
                         } catch {
                             // Handle deletion error
