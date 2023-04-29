@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct ProfileCreationView: View {
-    @StateObject var viewModel: ReminderViewModel = ReminderViewModel()
+    @StateObject var EKManager: EventKitManager = EventKitManager()
     
     var body: some View {
         VStack {
             Button("Add reminder") {
-                viewModel.addReminder(hour: 9, minute: 0)
+                EKManager.addReminder(hour: 9, minute: 0)
             }
             .padding()
         }
         .onAppear(){
-            viewModel.requestAccess()
+            EKManager.requestAccess()
         }
-        .alert(isPresented: $viewModel.emptyReminderList) {
+        .alert(isPresented: $EKManager.emptyReminderList) {
             Alert(
                 title: Text("No Reminder List Found"),
                 message: Text("Please create a list in your Reminders app."),

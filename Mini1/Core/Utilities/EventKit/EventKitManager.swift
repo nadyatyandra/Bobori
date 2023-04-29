@@ -1,15 +1,15 @@
 //
-//  ReminderViewModel.swift
+//  EventKitManager.swift
 //  Mini1
 //
-//  Created by Nadya Tyandra on 24/04/23.
+//  Created by Nadya Tyandra on 29/04/23.
 //
 
 import Foundation
 import SwiftUI
 import EventKit
 
-class ReminderViewModel: ObservableObject {
+class EventKitManager: ObservableObject {
     let eventStore = EKEventStore()
     @Published var emptyReminderList: Bool = false
     
@@ -69,4 +69,3 @@ class ReminderViewModel: ObservableObject {
         }
     }
 }
-

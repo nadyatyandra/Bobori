@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct EditProfileView: View {
-    @StateObject var viewModel: ReminderViewModel = ReminderViewModel()
+    @StateObject var EKManager: EventKitManager = EventKitManager()
     
     var body: some View {
         Button("Edit Reminder") {
-            viewModel.editReminder()
+            EKManager.editReminder()
         }
     }
 }

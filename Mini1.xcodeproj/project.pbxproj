@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04BA739829FCE565005354C5 /* EventKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA739729FCE565005354C5 /* EventKitManager.swift */; };
+		04BA739A29FCE56F005354C5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA739929FCE56F005354C5 /* CoreDataManager.swift */; };
 		04E8233529F594E700F6C73E /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233429F594E700F6C73E /* EditProfileView.swift */; };
 		04E8233729F5954200F6C73E /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233629F5954200F6C73E /* EditProfileViewModel.swift */; };
-		04E8233A29F59FBD00F6C73E /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233929F59FBD00F6C73E /* ReminderViewModel.swift */; };
 		53795DF729F450F4000B1BB4 /* CalendarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF629F450F4000B1BB4 /* CalendarComponent.swift */; };
 		53795DF929F45100000B1BB4 /* InformationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF829F45100000B1BB4 /* InformationComponent.swift */; };
 		53795DFB29F45368000B1BB4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DFA29F45368000B1BB4 /* HomeView.swift */; };
@@ -43,10 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04BA739729FCE565005354C5 /* EventKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitManager.swift; sourceTree = "<group>"; };
+		04BA739929FCE56F005354C5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		04E8233429F594E700F6C73E /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		04E8233629F5954200F6C73E /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		04E8233829F5960400F6C73E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04E8233929F59FBD00F6C73E /* ReminderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
 		53795DF629F450F4000B1BB4 /* CalendarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarComponent.swift; sourceTree = "<group>"; };
 		53795DF829F45100000B1BB4 /* InformationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationComponent.swift; sourceTree = "<group>"; };
 		53795DFA29F45368000B1BB4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04BA739429FCE53A005354C5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				04BA739629FCE558005354C5 /* CoreData */,
+				04BA739529FCE552005354C5 /* EventKit */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		04BA739529FCE552005354C5 /* EventKit */ = {
+			isa = PBXGroup;
+			children = (
+				04BA739729FCE565005354C5 /* EventKitManager.swift */,
+			);
+			path = EventKit;
+			sourceTree = "<group>";
+		};
+		04BA739629FCE558005354C5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				04BA739929FCE56F005354C5 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		04C4B5E729F5A91700761974 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +130,7 @@
 			children = (
 				04C4B5F629F5AAF300761974 /* Constant */,
 				04C4B5F229F5AA1200761974 /* Resources */,
+				04BA739429FCE53A005354C5 /* Utilities */,
 				04C4B5F729F5AAF800761974 /* Themes */,
 			);
 			path = Core;
@@ -122,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				53795DFC29F457D2000B1BB4 /* HomeViewModel.swift */,
-				04E8233929F59FBD00F6C73E /* ReminderViewModel.swift */,
 				53795DFE29F457ED000B1BB4 /* CalendarViewModel.swift */,
 				538CF94F29F58F4D00B3AEDB /* ProfileCreationViewModel.swift */,
 				04E8233629F5954200F6C73E /* EditProfileViewModel.swift */,
@@ -374,12 +401,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04E8233A29F59FBD00F6C73E /* ReminderViewModel.swift in Sources */,
+				04BA739829FCE565005354C5 /* EventKitManager.swift in Sources */,
 				04E8233729F5954200F6C73E /* EditProfileViewModel.swift in Sources */,
 				04E8233529F594E700F6C73E /* EditProfileView.swift in Sources */,
 				53795DFD29F457D2000B1BB4 /* HomeViewModel.swift in Sources */,
 				53795DF929F45100000B1BB4 /* InformationComponent.swift in Sources */,
 				537FD5A729EE2E49001E6321 /* Mini1App.swift in Sources */,
+				04BA739A29FCE56F005354C5 /* CoreDataManager.swift in Sources */,
 				53795DFB29F45368000B1BB4 /* HomeView.swift in Sources */,
 				538CF94E29F58F4100B3AEDB /* ProfileCreationView.swift in Sources */,
 				53795DF729F450F4000B1BB4 /* CalendarComponent.swift in Sources */,
