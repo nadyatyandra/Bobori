@@ -16,7 +16,7 @@ struct DashboardView: View {
                 ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab))
             }
             .tabItem {
-                Label("Calendar", systemImage: "1.circle")
+                Label("Progress", systemImage: "calendar")
             }
             .tag(0)
             
@@ -24,7 +24,7 @@ struct DashboardView: View {
                 InformationComponent()
             }
             .tabItem {
-                Label("Information", systemImage: "2.circle")
+                Label("Information", systemImage: "info")
             }
             .tag(1)
         }

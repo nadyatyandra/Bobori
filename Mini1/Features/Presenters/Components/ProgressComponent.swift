@@ -16,10 +16,7 @@ struct ProgressComponent: View {
         VStack {
             HStack {
                 VStack {
-                    FormattedDate(selectedDate: selectedDate)
-                    DatePicker("Select Date", selection: $selectedDate,
-                               in: ...Date(), displayedComponents: .date)
-                    .datePickerStyle(.graphical)
+                    CalendarView()
                 }
             }
             

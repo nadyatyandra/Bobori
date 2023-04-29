@@ -25,6 +25,7 @@
 		537FD5C429EE2E4A001E6321 /* Mini1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537FD5C329EE2E4A001E6321 /* Mini1UITestsLaunchTests.swift */; };
 		538CF94E29F58F4100B3AEDB /* ProfileCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538CF94D29F58F4100B3AEDB /* ProfileCreationView.swift */; };
 		538CF95029F58F4D00B3AEDB /* ProfileCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538CF94F29F58F4D00B3AEDB /* ProfileCreationViewModel.swift */; };
+		83CBC3E329FD16C200E16050 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CBC3E229FD16C200E16050 /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		537FD5C329EE2E4A001E6321 /* Mini1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		538CF94D29F58F4100B3AEDB /* ProfileCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationView.swift; sourceTree = "<group>"; };
 		538CF94F29F58F4D00B3AEDB /* ProfileCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationViewModel.swift; sourceTree = "<group>"; };
+		83CBC3E229FD16C200E16050 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,8 @@
 		04C4B5F729F5AAF800761974 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				83CBC3E029FD168E00E16050 /* Presenters */,
+				83CBC3DF29FD168400E16050 /* Colors */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -271,6 +275,21 @@
 				537FD5C329EE2E4A001E6321 /* Mini1UITestsLaunchTests.swift */,
 			);
 			path = Mini1UITests;
+			sourceTree = "<group>";
+		};
+		83CBC3DF29FD168400E16050 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		83CBC3E029FD168E00E16050 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				83CBC3E229FD16C200E16050 /* CalendarView.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +434,7 @@
 				53795DFD29F457D2000B1BB4 /* DashboardViewModel.swift in Sources */,
 				53795DF929F45100000B1BB4 /* InformationComponent.swift in Sources */,
 				537FD5A729EE2E49001E6321 /* Mini1App.swift in Sources */,
+				83CBC3E329FD16C200E16050 /* CalendarView.swift in Sources */,
 				04BA739A29FCE56F005354C5 /* CoreDataManager.swift in Sources */,
 				53795DFB29F45368000B1BB4 /* DashboardView.swift in Sources */,
 				538CF94E29F58F4100B3AEDB /* ProfileCreationView.swift in Sources */,
