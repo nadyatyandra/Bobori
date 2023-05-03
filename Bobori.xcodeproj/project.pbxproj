@@ -227,6 +227,7 @@
 				53795DFE29F457ED000B1BB4 /* ProgressViewModel.swift */,
 				0463C30C2A0163C300E8F7D0 /* EntryViewModel.swift */,
 				04E8233629F5954200F6C73E /* ProfileViewModel.swift */,
+				539A88B329FFE05B0065224A /* MusicPlayerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -245,6 +246,7 @@
 			children = (
 				0405D7C92A0223310065F167 /* Model.xcdatamodeld */,
 				0463C30A2A01637800E8F7D0 /* Entry+Convenience.swift */,
+				539A88B129FFDDDC0065224A /* MusicPlayerModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,6 +281,7 @@
 				0463C3142A01751400E8F7D0 /* ProgressFormView.swift */,
 				0463C3162A01755800E8F7D0 /* HistoryView.swift */,
 				04D178D72A05045C00451FFC /* SplashScreenView.swift */,
+				539A88AF29FFD2510065224A /* MusicPlayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,9 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				53795DF629F450F4000B1BB4 /* ProgressComponent.swift */,
-				539A88B129FFDDDC0065224A /* MusicPlayerModel.swift */,
-				539A88B329FFE05B0065224A /* MusicPlayerViewModel.swift */,
-				539A88AF29FFD2510065224A /* MusicPlayerView.swift */,
 				53795DF829F45100000B1BB4 /* InformationComponent.swift */,
 			);
 			path = Components;
