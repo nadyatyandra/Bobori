@@ -13,7 +13,7 @@ class CoreDataManager {
     private init(){}
     
     lazy var container: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "SleepRoutine")
+        let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores { (_, error) in
             if let error = error {
                 fatalError("Failed to load persistent stores: \(error)")

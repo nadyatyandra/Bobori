@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct DetailView: View {
+struct HistoryView: View {
     @ObservedObject var entryViewModel: EntryViewModel
     @State var entry: SleepRoutine
     @State var bedTime: Date = Date()

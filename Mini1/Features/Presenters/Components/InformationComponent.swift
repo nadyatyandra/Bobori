@@ -23,7 +23,7 @@ struct InformationComponent: View {
         NavigationView {
             List {
                 ForEach(entryViewModel.entries, id: \.id) { entry in
-                    NavigationLink(destination: DetailView(entryViewModel: self.entryViewModel, entry: entry)) {
+                    NavigationLink(destination: HistoryView(entryViewModel: self.entryViewModel, entry: entry)) {
                     RowView(entry: entry)
                     }
                 }

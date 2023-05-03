@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0463C3092A0162A000E8F7D0 /* SleepRoutine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0463C3072A0162A000E8F7D0 /* SleepRoutine.xcdatamodeld */; };
+		0405D7CB2A0223310065F167 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0405D7C92A0223310065F167 /* Model.xcdatamodeld */; };
 		0463C30B2A01637800E8F7D0 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463C30A2A01637800E8F7D0 /* Entry+Convenience.swift */; };
 		0463C30D2A0163C300E8F7D0 /* EntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463C30C2A0163C300E8F7D0 /* EntryViewModel.swift */; };
 		0463C3112A01726800E8F7D0 /* DateModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463C3102A01726800E8F7D0 /* DateModifier.swift */; };
@@ -62,7 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0463C3082A0162A000E8F7D0 /* SleepRoutine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepRoutine.xcdatamodel; sourceTree = "<group>"; };
+		0405D7CA2A0223310065F167 /* SleepRoutine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepRoutine.xcdatamodel; sourceTree = "<group>"; };
 		0463C30A2A01637800E8F7D0 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		0463C30C2A0163C300E8F7D0 /* EntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewModel.swift; sourceTree = "<group>"; };
 		0463C3102A01726800E8F7D0 /* DateModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModifier.swift; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		04C4B5F129F5A9F000761974 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0463C3072A0162A000E8F7D0 /* SleepRoutine.xcdatamodeld */,
+				0405D7C92A0223310065F167 /* Model.xcdatamodeld */,
 				0463C30A2A01637800E8F7D0 /* Entry+Convenience.swift */,
 			);
 			path = Models;
@@ -498,7 +498,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0463C3092A0162A000E8F7D0 /* SleepRoutine.xcdatamodeld in Sources */,
 				539A88AC29FD1FE30065224A /* OnboardView.swift in Sources */,
 				04BA739829FCE565005354C5 /* EventKitManager.swift in Sources */,
 				04E8233729F5954200F6C73E /* EditProfileViewModel.swift in Sources */,
@@ -509,6 +508,7 @@
 				0463C30D2A0163C300E8F7D0 /* EntryViewModel.swift in Sources */,
 				0463C30B2A01637800E8F7D0 /* Entry+Convenience.swift in Sources */,
 				53795DF929F45100000B1BB4 /* InformationComponent.swift in Sources */,
+				0405D7CB2A0223310065F167 /* Model.xcdatamodeld in Sources */,
 				0463C3132A0174EF00E8F7D0 /* RowView.swift in Sources */,
 				537FD5A729EE2E49001E6321 /* Mini1App.swift in Sources */,
 				0463C3112A01726800E8F7D0 /* DateModifier.swift in Sources */,
@@ -887,13 +887,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		0463C3072A0162A000E8F7D0 /* SleepRoutine.xcdatamodeld */ = {
+		0405D7C92A0223310065F167 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				0463C3082A0162A000E8F7D0 /* SleepRoutine.xcdatamodel */,
+				0405D7CA2A0223310065F167 /* SleepRoutine.xcdatamodel */,
 			);
-			currentVersion = 0463C3082A0162A000E8F7D0 /* SleepRoutine.xcdatamodel */;
-			path = SleepRoutine.xcdatamodeld;
+			currentVersion = 0405D7CA2A0223310065F167 /* SleepRoutine.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
