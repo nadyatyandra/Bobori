@@ -16,9 +16,11 @@ struct OnboardView: View {
     
     @StateObject var EKManager: EventKitManager = EventKitManager()
     
+    let paleBlue = Color(UIColor(named: "paleBlue")!)
+    
     var body: some View {
         ZStack {
-            Color.white
+            Color("paleBlue")
             
             VStack {
                 if currentPageIndex == 0 {
@@ -27,9 +29,6 @@ struct OnboardView: View {
                 } else if currentPageIndex == 1 {
                     Form2View(time: $time, name: $name)
                         .transition(.asymmetric(insertion: .opacity, removal: .opacity))
-                } else {
-                    Form3View()
-                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing)))
                 }
                 
                 
@@ -37,35 +36,64 @@ struct OnboardView: View {
                 
                 HStack {
                     if currentPageIndex > 0 {
-                        Button("back") {
-                            withAnimation() {
-                                currentPageIndex -= 1
+                        HStack {
+                            Button(action: {
+                                withAnimation() {
+                                    currentPageIndex -= 1
+                                }
+                            }) {
+                                Image(systemName: "chevron.left")
+                                    .font(.title)
+                                    .foregroundColor(.white)
                             }
-                            
+                            .padding()
+                            Spacer()
                         }
-                        .padding()
                     }
-                    
+
                     Spacer()
                     
-                    if currentPageIndex < 2 {
-                        Button("next") {
+                    if currentPageIndex < 1 {
+                        Button(action: {
                             withAnimation() {
                                 currentPageIndex += 1
                             }
-                            
-                        }
-                        .padding()
-                        .disabled(name.isEmpty)
+        //                    Form2View = true
+                            }, label: {
+                                Text("Continue")
+                                .font(.system(size: 21))
+                                .foregroundColor(Color("paleBlue"))
+                                .frame(width: 210, height: 55)
+                                .background(Color.white)
+                                .cornerRadius(70)
+//                                .padding(.top)
+                                .padding(.trailing, 90)
+                                .background(Color("paleBlue"))
+                                
+                
+                                
+                        })
                     } else {
-                        Button("proceed") {
+                        Button(action:  {
                             withAnimation() {
                                 EKManager.addReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
                                 
-                                isOnboardingCompleted = true
+                                if !EKManager.emptyReminderList {
+                                    isOnboardingCompleted = true
+                                }
+                                
                             }
+                        }, label: {
+                            Text("Save")
+                            .font(.system(size: 21))
+                            .foregroundColor(Color("paleBlue"))
+                            .frame(width: 210, height: 55)
+                            .background(Color.white)
+                            .cornerRadius(70)
+//                                .padding(.top)
+                            .padding(.trailing, 70)
                             
-                        }
+                        })
                         .padding()
                     }
                 }
@@ -87,18 +115,38 @@ struct OnboardView: View {
 
 struct Form1View: View {
     @Binding var name: String
+    @State private var showForm2View = false
+    let paleBlue = Color(UIColor(named: "paleBlue")!)
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("Pls enter ur lil one's name")) {
-                    TextField("Name", text: $name)
-                }
-                
+        ZStack{
+            paleBlue.edgesIgnoringSafeArea(.all)
+            VStack{
+                Image("placeholder")
+                    .resizable()
+                    .frame(width: 112, height: 112)
+                    .padding(.top)
+                Text("Welcome!")
+                    .font(.system(size: 32))
+                    .foregroundColor(.white)
+                    .padding(.top)
+                Text("What's the name of your little one?")
+                    .frame(width: 177, height: 55)
+                    .font(.system(size: 21))
+                    .padding(.top, 30)
+                    .padding(.bottom, 65)
+                    .foregroundColor(.white)
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+                    .frame(width: 305, height: 45)
+                    .overlay(
+                        TextField("Your Baby's Name", text: $name)
+                            .font(.system(size: 18))
+                            .foregroundColor(.black)
+                            .padding()
+                    )
             }
-            .navigationBarTitle("Welcome")
         }
-        
     }
 }
 
@@ -106,26 +154,57 @@ struct Form2View: View {
     @Binding var time: Date
     @Binding var name: String
     
+    let paleBlue = Color(UIColor(named: "paleBlue")!)
+    
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("What time does \(name) sleep")) {
-                    DatePicker("", selection: $time, displayedComponents: .hourAndMinute)
-                        .datePickerStyle(WheelDatePickerStyle())
+        ZStack{
+            paleBlue.edgesIgnoringSafeArea(.all)
+            VStack{
+                Image("placeholder")
+                    .resizable()
+                    .frame(width: 112, height: 112)
+                    .padding(.top, 30)
+                Text("Welcome!")
+                    .font(.system(size: 32))
+                    .foregroundColor(.white)
+                    .padding(.top, 50)
+                if name.isEmpty {
+                    Text("What time does your baby sleep")
+                        .multilineTextAlignment(.center)
+                        .frame(width: 242, height: 55)
+                        .font(.system(size: 21))
+                        .padding(.top, 20)
+                        .padding(.bottom, 65)
+                        .foregroundColor(.white)
+                } else {
+                    Text("What time does \(name) sleep")
+                        .multilineTextAlignment(.center)
+                        .frame(width: 242, height: 55)
+                        .font(.system(size: 21))
+                        .padding(.top, 20)
+                        .padding(.bottom, 65)
+                        .foregroundColor(.white)
+                }
+                
+                
+                NavigationView {
+                    ZStack {
+                        Color("paleBlue")
+                        DatePicker("", selection: $time, displayedComponents: .hourAndMinute)
+                            .datePickerStyle(WheelDatePickerStyle())
+                            .labelsHidden()
+                            .frame(width: 299, height: 210)
+                            .background(Color.white)
+                        .cornerRadius(20)
+                    }
+                    }
+//                    .background(Color("paleBlue"))
+                    .navigationBarTitle("Page 2")
+                
                 }
                 
             }
-            .navigationBarTitle("Page 2")
         }
-
     }
-}
 
-struct Form3View: View {
-    var body: some View {
-        NavigationView {
-            Text("Youre all set!")
-        }
-        
-    }
-}
+

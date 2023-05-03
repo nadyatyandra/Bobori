@@ -10,10 +10,19 @@ import EventKit
 
 struct ProgressComponent: View {
     @ObservedObject var viewModel: ProgressViewModel
+    
+    // For Calendar
     @State var selectedDate = Date()
     
+    // Bool to toggle edit profile view
     @State var showProfile: Bool = false
     
+    // Music Variables
+    @Binding var showMusic: Bool
+    @Binding var playMusic: Bool
+    var musicPlayerViewModel: MusicPlayerViewModel
+    
+    // Name Time for reminder
     @Binding var name: String
     @Binding var time: Date
     
@@ -25,6 +34,11 @@ struct ProgressComponent: View {
                     
                     Button("Go to information view") {
                         viewModel.navigateToSecondTab()
+                    }
+                    .padding()
+                    
+                    Button("Open Music") {
+                        showMusic = true
                     }
                     .padding()
                 }
@@ -43,6 +57,9 @@ struct ProgressComponent: View {
         }
         .sheet(isPresented: $showProfile) {
             EditProfileView(showProfile: $showProfile, name: $name, time: $time)
+        }
+        .sheet(isPresented: $showMusic) {
+            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, showMusic: $showMusic, playMusic: $playMusic)
         }
     }
 }
