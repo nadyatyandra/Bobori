@@ -11,10 +11,6 @@ import SwiftUI
 struct HistoryView: View {
     @ObservedObject var entryViewModel: EntryViewModel
     @State var entry: SleepRoutine
-    @State var bedTime: Date = Date()
-    @State var date: Date = Date()
-    @State var distance = ""
-    @State private var showing: Bool = false
     
     var body: some View {
         VStack {

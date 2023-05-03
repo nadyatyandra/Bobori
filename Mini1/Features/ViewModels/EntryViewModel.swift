@@ -11,6 +11,8 @@ import Combine
 
 class EntryViewModel: ObservableObject {
     @Published var entries: [SleepRoutine] = []
+//    @Published var child: [Child] = []
+//    @Published var music: [Music] = []
     
     init() {
         getEntries()
@@ -34,6 +36,20 @@ class EntryViewModel: ObservableObject {
         } catch {
             NSLog("Error fetching tasks: \(error)")
         }
+    }
+    
+    func getOneEntry(date: Date) -> NSFetchRequest<SleepRoutine> {
+        let fetchRequest: NSFetchRequest<SleepRoutine> = SleepRoutine.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "date == %@", "\(date)")
+        let moc = CoreDataManager.shared.mainContext
+        
+        do {
+            entries = try moc.fetch(fetchRequest)
+        } catch {
+            NSLog("Error fetching tasks: \(error)")
+        }
+//        return NSFetchRequest<SleepRoutine>(entityName: "SleepRoutine")
+        return fetchRequest
     }
     
     func createEntry(date: Date, bedTime: Date, distance: String) {

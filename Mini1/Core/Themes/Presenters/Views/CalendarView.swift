@@ -7,9 +7,10 @@
 import SwiftUI
 import UIKit
 import FSCalendar
+
 struct CalendarView: View {
-    
     @State var selectedDate: Date = Date()
+    @ObservedObject var entryViewModel = EntryViewModel()
 
     var body: some View {
         VStack {
@@ -19,6 +20,16 @@ struct CalendarView: View {
                 .padding(EdgeInsets(top: 40, leading: 0, bottom: 0, trailing: 0))
                 .frame(maxWidth:350, maxHeight: 400)
         }
+        
+////        let temp = entryViewModel.getOneEntry(date: selectedDate)
+//        
+//        if entryViewModel.getOneEntry(date: selectedDate).resultType.isEmpty {
+////        if temp.resultType.isEmpty {
+//            ProgressFormView(entryViewModel: self.entryViewModel)
+//        }
+////        else {
+////            HistoryView(entryViewModel: self.entryViewModel, entry: )
+////        }
     }
 }
 struct CalendarViewRepresentable: UIViewRepresentable {
