@@ -14,6 +14,7 @@
 		0463C3132A0174EF00E8F7D0 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463C3122A0174EF00E8F7D0 /* RowView.swift */; };
 		0463C3152A01751400E8F7D0 /* ProgressFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463C3142A01751400E8F7D0 /* ProgressFormView.swift */; };
 		0463C3172A01755800E8F7D0 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463C3162A01755800E8F7D0 /* HistoryView.swift */; };
+		04B8A2242A0213AD00B6380A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8A2232A0213AD00B6380A /* CalendarView.swift */; };
 		04BA739829FCE565005354C5 /* EventKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA739729FCE565005354C5 /* EventKitManager.swift */; };
 		04BA739A29FCE56F005354C5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA739929FCE56F005354C5 /* CoreDataManager.swift */; };
 		04BA73D629FCEF66005354C5 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 04BA73D529FCEF66005354C5 /* FSCalendar */; };
@@ -39,7 +40,6 @@
 		53DB0DEB2A10947B00CB387B /* Song 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DB0DEA2A10947B00CB387B /* Song 2.mp3 */; };
 		53DB0DED2A10948100CB387B /* Song 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DB0DEC2A10948100CB387B /* Song 4.mp3 */; };
 		53DB0DEF2A10948B00CB387B /* Song 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DB0DEE2A10948B00CB387B /* Song 3.mp3 */; };
-		83CBC3E329FD16C200E16050 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CBC3E229FD16C200E16050 /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +67,7 @@
 		0463C3122A0174EF00E8F7D0 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		0463C3142A01751400E8F7D0 /* ProgressFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressFormView.swift; sourceTree = "<group>"; };
 		0463C3162A01755800E8F7D0 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		04B8A2232A0213AD00B6380A /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		04BA739729FCE565005354C5 /* EventKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitManager.swift; sourceTree = "<group>"; };
 		04BA739929FCE56F005354C5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		04E8233429F594E700F6C73E /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
@@ -88,7 +89,6 @@
 		537FD5C129EE2E4A001E6321 /* Mini1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini1UITests.swift; sourceTree = "<group>"; };
 		537FD5C329EE2E4A001E6321 /* Mini1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		539A88AB29FD1FE30065224A /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
-		83CBC3E229FD16C200E16050 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = Mini1/Core/Themes/Presenters/Views/CalendarView.swift; sourceTree = SOURCE_ROOT; };
 		539A88AF29FFD2510065224A /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		539A88B129FFDDDC0065224A /* MusicPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerModel.swift; sourceTree = "<group>"; };
 		539A88B329FFE05B0065224A /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
@@ -96,7 +96,6 @@
 		53DB0DEA2A10947B00CB387B /* Song 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 2.mp3"; sourceTree = "<group>"; };
 		53DB0DEC2A10948100CB387B /* Song 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 4.mp3"; sourceTree = "<group>"; };
 		53DB0DEE2A10948B00CB387B /* Song 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 3.mp3"; sourceTree = "<group>"; };
-		83CBC3E229FD16C200E16050 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +127,8 @@
 		0463C30E2A01721100E8F7D0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				83CBC3E229FD16C200E16050 /* CalendarView.swift */,
 				0463C3122A0174EF00E8F7D0 /* RowView.swift */,
+				04B8A2232A0213AD00B6380A /* CalendarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -498,6 +497,7 @@
 				04E8233729F5954200F6C73E /* EditProfileViewModel.swift in Sources */,
 				04E8233529F594E700F6C73E /* EditProfileView.swift in Sources */,
 				539A88B429FFE05B0065224A /* MusicPlayerViewModel.swift in Sources */,
+				04B8A2242A0213AD00B6380A /* CalendarView.swift in Sources */,
 				53795DFD29F457D2000B1BB4 /* DashboardViewModel.swift in Sources */,
 				0463C30D2A0163C300E8F7D0 /* EntryViewModel.swift in Sources */,
 				0463C30B2A01637800E8F7D0 /* Entry+Convenience.swift in Sources */,
@@ -506,7 +506,6 @@
 				537FD5A729EE2E49001E6321 /* Mini1App.swift in Sources */,
 				0463C3112A01726800E8F7D0 /* DateModifier.swift in Sources */,
 				0463C3172A01755800E8F7D0 /* HistoryView.swift in Sources */,
-				83CBC3E329FD16C200E16050 /* CalendarView.swift in Sources */,
 				539A88B029FFD2510065224A /* MusicPlayerView.swift in Sources */,
 				04BA739A29FCE56F005354C5 /* CoreDataManager.swift in Sources */,
 				53795DFB29F45368000B1BB4 /* DashboardView.swift in Sources */,

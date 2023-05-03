@@ -4,15 +4,13 @@
 //
 //  Created by Randy Julian on 29/04/23.
 //
-
 import SwiftUI
 import UIKit
 import FSCalendar
-
 struct CalendarView: View {
     
     @State var selectedDate: Date = Date()
-    
+
     var body: some View {
         VStack {
             FormattedDate(date: selectedDate)
@@ -23,7 +21,6 @@ struct CalendarView: View {
         }
     }
 }
-
 struct CalendarViewRepresentable: UIViewRepresentable {
     typealias UIViewType = FSCalendar
     
@@ -52,7 +49,6 @@ struct CalendarViewRepresentable: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: FSCalendar, context: Context) {}
-
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
@@ -91,7 +87,6 @@ struct CalendarViewRepresentable: UIViewRepresentable {
         }
     }
 }
-
 func isWeekend(date: Date) -> Bool {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE"
