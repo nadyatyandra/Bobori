@@ -18,33 +18,36 @@ struct DashboardView: View {
     
     var body: some View {
         ZStack {
+            Color("paleBlue").ignoresSafeArea()
             if !isOnboardingCompleted {
                 OnboardView(isOnboardingCompleted: $isOnboardingCompleted, name: $name, time: $time)
                     .zIndex(1)
                     .transition(.move(edge: .leading))
+            } else {
+                VStack {
+                    TabView(selection: $viewModel.selectedTab) {
+                    NavigationView {
+                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), name: $name, time: $time)
+                    }
+                    .tabItem {
+                        Label("Progress", systemImage: "calendar")
+                    }
+                    .tag(0)
+                    
+                    NavigationView {
+                        InformationComponent()
+                    }
+                    .tabItem {
+                        Label("Information", systemImage: "info")
+                    }
+                    .tag(1)
+                    }
+                }
             }
                 
             
-            VStack {
-                TabView(selection: $viewModel.selectedTab) {
-                NavigationView {
-                    ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), name: $name, time: $time)
-                }
-                .tabItem {
-                    Label("Progress", systemImage: "calendar")
-                }
-                .tag(0)
-                
-                NavigationView {
-                    InformationComponent()
-                }
-                .tabItem {
-                    Label("Information", systemImage: "info")
-                }
-                .tag(1)
-                }
-            }
-        }
+            
+        } 
     }
 }
 
