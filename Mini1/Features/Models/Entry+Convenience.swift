@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 extension SleepRoutine {
-    @discardableResult convenience init(bedTime: Date, date: Date, id: UUID = UUID(), distance: String, context: NSManagedObjectContext = CoreDataManager.shared.mainContext) {
+    @discardableResult convenience init(bedTime: Date, date: String, id: UUID = UUID(), distance: String, context: NSManagedObjectContext = CoreDataManager.shared.mainContext) {
         self.init(context: context)
         self.id = id
         self.date = date

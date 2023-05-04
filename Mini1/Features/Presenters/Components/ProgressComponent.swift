@@ -10,9 +10,12 @@ import EventKit
 
 struct ProgressComponent: View {
     @ObservedObject var viewModel: ProgressViewModel
+    @ObservedObject var entryViewModel = EntryViewModel()
     
     // For Calendar
     @State var selectedDate = Date()
+    @State var isFilled: Bool = false
+    @State var showSheet: Bool = false
     
     // Bool to toggle edit profile view
     @State var showProfile: Bool = false
@@ -30,7 +33,7 @@ struct ProgressComponent: View {
         NavigationView {
             ZStack {
                 VStack {
-                    CalendarView()
+                    CalendarView(selectedDate: $selectedDate, isFilled: $isFilled, showSheet: $showSheet, entryViewModel: entryViewModel)
                     
                     Button("Go to information view") {
                         viewModel.navigateToSecondTab()
@@ -60,6 +63,13 @@ struct ProgressComponent: View {
         }
         .sheet(isPresented: $showMusic) {
             MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, showMusic: $showMusic, playMusic: $playMusic)
+        }
+        .sheet(isPresented: $showSheet) {
+            if isFilled {
+               HistoryView(entryViewModel: self.entryViewModel, entry: entryViewModel.getOneEntry(date: selectedDate)!)
+            } else {
+                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate)
+            }
         }
     }
 }

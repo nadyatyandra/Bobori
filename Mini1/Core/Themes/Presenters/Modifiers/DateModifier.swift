@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct FormattedDate: View {
-    var date: Date
+    var date: String
     var body: some View {
-        Text(date.formatted(date: .abbreviated, time: .omitted))
+        Text(date)
             .foregroundColor(Color.accentColor)
     }
 }

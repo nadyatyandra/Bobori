@@ -9,34 +9,40 @@ import UIKit
 import FSCalendar
 
 struct CalendarView: View {
-    @State var selectedDate: Date = Date()
-    @ObservedObject var entryViewModel = EntryViewModel()
+    @State var showError: Bool = false
+    @Binding var selectedDate: Date
+    @Binding var isFilled: Bool
+    @Binding var showSheet: Bool
+    @ObservedObject var entryViewModel: EntryViewModel    
 
     var body: some View {
         VStack {
-            FormattedDate(date: selectedDate)
-            CalendarViewRepresentable(selectedDate: $selectedDate)
+            FormattedDate(date: selectedDate.formatted(date: .abbreviated, time: .omitted))
+            CalendarViewRepresentable(selectedDate: $selectedDate, isFilled: $isFilled, showSheet: $showSheet, entryViewModel: entryViewModel, showError: $showError)
                 .padding(.bottom)
                 .padding(EdgeInsets(top: 40, leading: 0, bottom: 0, trailing: 0))
                 .frame(maxWidth:350, maxHeight: 400)
         }
-        
-////        let temp = entryViewModel.getOneEntry(date: selectedDate)
-//        
-//        if entryViewModel.getOneEntry(date: selectedDate).resultType.isEmpty {
-////        if temp.resultType.isEmpty {
-//            ProgressFormView(entryViewModel: self.entryViewModel)
-//        }
-////        else {
-////            HistoryView(entryViewModel: self.entryViewModel, entry: )
-////        }
+        .alert(isPresented: $showError) {
+            Alert(
+                title: Text("Wait"),
+                message: Text("It is not time yet"),
+                dismissButton: .default(Text("Come back next time"))
+            )
+        }
     }
 }
+
 struct CalendarViewRepresentable: UIViewRepresentable {
     typealias UIViewType = FSCalendar
     
     fileprivate var calendar = FSCalendar()
     @Binding var selectedDate: Date
+    @Binding var isFilled: Bool
+    @Binding var showSheet: Bool
+    @ObservedObject var entryViewModel: EntryViewModel
+    
+    @Binding var showError: Bool
     
     func makeUIView(context: Context) -> FSCalendar {
         calendar.delegate = context.coordinator
@@ -72,7 +78,24 @@ struct CalendarViewRepresentable: UIViewRepresentable {
         }
         
         func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+            let todayDate = Date()
             parent.selectedDate = date
+            parent.entryViewModel.selectedDateEntry.removeAll()
+            
+            if date <= todayDate {
+                parent.showSheet = true
+            } else {
+                parent.showError = true
+            }
+            
+            guard let sleepRoutine = parent.entryViewModel.getOneEntry(date: parent.selectedDate)
+            else {
+                parent.isFilled = false
+                return
+            }
+            parent.entryViewModel.selectedDateEntry.append(sleepRoutine)
+            parent.isFilled = true
+            
         }
         
 //        func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {

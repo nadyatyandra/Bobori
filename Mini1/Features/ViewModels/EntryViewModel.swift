@@ -11,6 +11,7 @@ import Combine
 
 class EntryViewModel: ObservableObject {
     @Published var entries: [SleepRoutine] = []
+    @Published var selectedDateEntry: [SleepRoutine] = []
 //    @Published var child: [Child] = []
 //    @Published var music: [Music] = []
     
@@ -30,7 +31,6 @@ class EntryViewModel: ObservableObject {
     func getEntries() {
         let fetchRequest: NSFetchRequest<SleepRoutine> = SleepRoutine.fetchRequest()
         let moc = CoreDataManager.shared.mainContext
-        
         do {
             entries = try moc.fetch(fetchRequest)
         } catch {
@@ -38,22 +38,21 @@ class EntryViewModel: ObservableObject {
         }
     }
     
-    func getOneEntry(date: Date) -> NSFetchRequest<SleepRoutine> {
+    func getOneEntry(date: Date) -> SleepRoutine? {
+        let context = CoreDataManager.shared.mainContext
         let fetchRequest: NSFetchRequest<SleepRoutine> = SleepRoutine.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "date == %@", "\(date)")
-        let moc = CoreDataManager.shared.mainContext
+        fetchRequest.predicate = NSPredicate(format: "date == %@", "\(date.formatted(date: .abbreviated, time: .omitted))")
         
         do {
-            entries = try moc.fetch(fetchRequest)
+            let object = try context.fetch(fetchRequest).first
+            return object
         } catch {
-            NSLog("Error fetching tasks: \(error)")
+            return nil
         }
-//        return NSFetchRequest<SleepRoutine>(entityName: "SleepRoutine")
-        return fetchRequest
     }
     
     func createEntry(date: Date, bedTime: Date, distance: String) {
-        let item = SleepRoutine(bedTime: bedTime, date: date, distance: distance)
+        let item = SleepRoutine(bedTime: bedTime, date: date.formatted(date: .abbreviated, time: .omitted), distance: distance)
         entries.append(item)
         saveToPersistentStore()
     }

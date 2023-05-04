@@ -10,8 +10,8 @@ import SwiftUI
 struct ProgressFormView: View {
     @ObservedObject var entryViewModel: EntryViewModel
     @State private var bedTime: Date = Date()
-    @State private var date: Date = Date()
-    @State private var distance = ""
+    @State private var distance = "Besides crib"
+    @Binding var date: Date
     @Environment(\.presentationMode) var presentationMode
     var distances = ["Besides crib", "Halfway towards door", "Next to doorway", "Outside the room with opened door", "Outside the room with closed door"]
     
@@ -19,13 +19,6 @@ struct ProgressFormView: View {
         NavigationView {
             Form {
                 VStack {
-                    Section(header: Text("sementara pilih tgl dr sini")) {
-                        FormattedDate(date: self.date)
-                        DatePicker("pilih tgl", selection: $date,
-                                   in: ...Date(), displayedComponents: .date)
-                        .datePickerStyle(.graphical)
-                    }
-                    
                     Section(header: Text("What time does ur child sleep today?")) {
                         FormattedTime(time: self.bedTime)
                         DatePicker("", selection: $bedTime, displayedComponents: .hourAndMinute)
