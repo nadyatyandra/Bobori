@@ -13,6 +13,7 @@ struct MusicPlayerView: View {
     @Binding var showMusic: Bool
     @State var chosenMusic: String = "Song 1" //default music
     
+    @Binding var name: String
     @Binding var playMusic: Bool
     
     var body: some View {

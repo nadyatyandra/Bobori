@@ -62,13 +62,13 @@ struct ProgressComponent: View {
             EditProfileView(showProfile: $showProfile, name: $name, time: $time)
         }
         .sheet(isPresented: $showMusic) {
-            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, showMusic: $showMusic, playMusic: $playMusic)
+            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, showMusic: $showMusic, name: $name, playMusic: $playMusic)
         }
         .sheet(isPresented: $showSheet) {
             if isFilled {
                HistoryView(entryViewModel: self.entryViewModel, entry: entryViewModel.getOneEntry(date: selectedDate)!)
             } else {
-                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate)
+                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet)
             }
         }
     }
