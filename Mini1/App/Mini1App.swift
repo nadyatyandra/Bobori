@@ -15,3 +15,4 @@ struct Mini1App: App {
         }
     }
 }
+
