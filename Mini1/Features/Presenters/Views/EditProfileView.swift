@@ -68,7 +68,7 @@ struct EditProfileView: View {
                             .padding(.trailing, -10)
                         
                     })
-                disabled(profileViewModel.nameIsEmpty(name: name))
+                    .disabled(profileViewModel.nameIsEmpty(name: name))
                 } .padding(.top, 100)
             }
         }
