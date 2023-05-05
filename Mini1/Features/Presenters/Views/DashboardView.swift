@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct DashboardView: View {
-    // Check if onboarding is completed
-    @State var isOnboardingCompleted: Bool = true
+    
+    @State var isOnboardingCompleted = false
     
     @StateObject var viewModel = DashboardViewModel()
     
-    @StateObject var entryViewModel = EntryViewModel()
+    @ObservedObject var entryViewModel = EntryViewModel()
     
     // Data for reminder
     @State private var name: String = ""
@@ -28,7 +28,7 @@ struct DashboardView: View {
         ZStack {
             Color("paleBlue").ignoresSafeArea()
             if !isOnboardingCompleted {
-                OnboardView(isOnboardingCompleted: $isOnboardingCompleted, name: $name, time: $time)
+                OnboardView(name: $name, time: $time, entryViewModel: entryViewModel, isOnboardingCompleted: $isOnboardingCompleted)
                     .zIndex(1)
                     .transition(.move(edge: .leading))
             } else {
@@ -52,6 +52,11 @@ struct DashboardView: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            isOnboardingCompleted = entryViewModel.progress[0].onboardingCompleted
+            name = entryViewModel.child[0].name ?? ""
+            time = entryViewModel.child[0].bedTime ?? Date()
         }
     }
 }

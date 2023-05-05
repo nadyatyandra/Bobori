@@ -16,8 +16,7 @@ class EventKitManager: ObservableObject {
     func requestAccess() {
         eventStore.requestAccess(to: .reminder) { (granted, error) in
             if granted {
-                print("test")
-                
+                print("Access granted")
             } else {
                 print("Access to reminders not granted")
             }

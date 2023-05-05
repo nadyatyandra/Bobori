@@ -9,11 +9,14 @@ import SwiftUI
 
 struct OnboardView: View {
     @State private var currentPageIndex: Int = 0
-    @Binding var isOnboardingCompleted: Bool
     @Binding var name: String
     @Binding var time: Date
+    @ObservedObject var entryViewModel: EntryViewModel
+    
     @StateObject var EKManager: EventKitManager = EventKitManager()
     @ObservedObject var profileViewModel = ProfileViewModel()
+    
+    @Binding var isOnboardingCompleted: Bool
     
     let paleBlue = Color(UIColor(named: "paleBlue")!)
     
@@ -74,6 +77,9 @@ struct OnboardView: View {
                                 EKManager.addReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
                                 
                                 if !EKManager.emptyReminderList {
+                                    entryViewModel.saveToChild(entry: entryViewModel.child[0], name: name, bedTime: time)
+                                    entryViewModel.completeOnboarding(entry: entryViewModel.progress[0])
+                                    
                                     isOnboardingCompleted = true
                                 }
                                 
