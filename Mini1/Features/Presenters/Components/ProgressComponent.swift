@@ -38,21 +38,26 @@ struct ProgressComponent: View {
                     VStack {
                         HStack {
                             ForEach((0...currentStageIndex), id: \.self) {_ in
-                                    Rectangle()
-                                    .frame(width: 10, height: 5)
-                                }
-                             
+                                RoundedRectangle(cornerRadius: 12)
+                                    .frame(width: 60, height: 7)
+                                    .foregroundColor(Color("paleBlue"))
+                            }
+                            
                             if currentStageIndex < 4 {
                                 ForEach((0...(3-currentStageIndex)), id: \.self) {_ in
-                                        Circle()
-                                        .frame(width: 10, height: 5)
-                                    }
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .frame(width: 60, height: 7)
+                                        .foregroundColor(.white)
+                                        .border(Color("paleBlue"))
+                                }
                             }
                         }
-                        
-                        Text("Stage \(currentStageIndex + 1): \(distances[currentStageIndex])")
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 12)
+                                .frame(width: 324, height: 144)
+                            Text("Stage \(currentStageIndex + 1): \(distances[currentStageIndex])")
+                        }
                     }
-                    
                     
                     
                     
@@ -80,7 +85,8 @@ struct ProgressComponent: View {
                     .padding(.top, 130)
                     
                     CalendarView(selectedDate: $selectedDate, isFilled: $viewModel.isFilled, showSheet: $viewModel.showSheet, entryViewModel: viewModel.entryViewModel)
-                        .padding(.top, -20)
+                        .padding(.top, -30)
+                        .padding(.bottom, -10)
                     
                     //                    Button("Go to information view") {
                     //                        viewModel.navigateToSecondTab()

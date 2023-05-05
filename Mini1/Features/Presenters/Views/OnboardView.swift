@@ -46,7 +46,8 @@ struct OnboardView: View {
                                     .font(.title)
                                     .foregroundColor(.white)
                             }
-                            .padding()
+                            .padding(.top, -700)
+                            .padding(.leading, 30)
                             Spacer()
                         }
                     }
@@ -66,7 +67,7 @@ struct OnboardView: View {
                                 .frame(width: 210, height: 55)
                                 .background(Color.white)
                                 .cornerRadius(70)
-//                                .padding(.top)
+                                .padding(.bottom, 30)
                                 .padding(.trailing, 90)
                                 .background(Color("paleBlue"))
                                 
@@ -90,8 +91,8 @@ struct OnboardView: View {
                             .frame(width: 210, height: 55)
                             .background(Color.white)
                             .cornerRadius(70)
-//                                .padding(.top)
-                            .padding(.trailing, 70)
+                            .padding(.bottom, 13)
+                            .padding(.trailing, 75)
                             
                         })
                         .padding()
@@ -167,27 +168,27 @@ struct Form2View: View {
                 Text("Welcome!")
                     .font(.system(size: 32))
                     .foregroundColor(.white)
-                    .padding(.top, 50)
+                    .padding(.top)
                 if name.isEmpty {
-                    Text("What time does your baby sleep")
+                    Text("What time does your baby sleep?")
                         .multilineTextAlignment(.center)
-                        .frame(width: 242, height: 55)
+                        .frame(width: 300, height: 100)
                         .font(.system(size: 21))
                         .padding(.top, 20)
                         .padding(.bottom, 65)
                         .foregroundColor(.white)
                 } else {
-                    Text("What time does \(name) sleep")
+                    Text("What time does \(name) sleep?")
                         .multilineTextAlignment(.center)
-                        .frame(width: 242, height: 55)
+                        .frame(width: 260, height: 150)
                         .font(.system(size: 21))
-                        .padding(.top, 20)
-                        .padding(.bottom, 65)
+                        .padding(.top, -20)
+                        .padding(.bottom, 45)
                         .foregroundColor(.white)
                 }
                 
                 
-                NavigationView {
+               
                     ZStack {
                         Color("paleBlue")
                         DatePicker("", selection: $time, displayedComponents: .hourAndMinute)
@@ -196,10 +197,8 @@ struct Form2View: View {
                             .frame(width: 299, height: 210)
                             .background(Color.white)
                         .cornerRadius(20)
-                    }
-                    }
-//                    .background(Color("paleBlue"))
-                    .navigationBarTitle("Page 2")
+                    }    .padding(.top, -100)
+               
                 
                 }
                 

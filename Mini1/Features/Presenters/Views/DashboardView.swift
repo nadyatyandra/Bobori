@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DashboardView: View {
     // Check if onboarding is completed
-    @State var isOnboardingCompleted: Bool = true
+    @State var isOnboardingCompleted: Bool = false
     
     @StateObject var viewModel = DashboardViewModel()
     
