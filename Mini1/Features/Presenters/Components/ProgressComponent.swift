@@ -55,7 +55,9 @@ struct ProgressComponent: View {
                         ZStack{
                             RoundedRectangle(cornerRadius: 12)
                                 .frame(width: 324, height: 144)
+                                .foregroundColor(Color("paleBlue"))
                             Text("Stage \(currentStageIndex + 1): \(distances[currentStageIndex])")
+                                .foregroundColor(.white)
                         }
                     }
                     
@@ -82,7 +84,7 @@ struct ProgressComponent: View {
                         }
                         
                     }
-                    .padding(.top, 130)
+                    .padding(.top)
                     
                     CalendarView(selectedDate: $selectedDate, isFilled: $viewModel.isFilled, showSheet: $viewModel.showSheet, entryViewModel: viewModel.entryViewModel)
                         .padding(.top, -30)
