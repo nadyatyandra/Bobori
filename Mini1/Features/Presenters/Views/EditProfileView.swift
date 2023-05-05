@@ -18,14 +18,15 @@ struct EditProfileView: View {
         ZStack {
             Color("paleBlue").ignoresSafeArea()
             VStack {
-                Image(systemName: "person.circle")
-                    .font(.system(size: 80))
-                    .padding()
+                Image("ProfilePicture")
+                    .frame(width: 116, height: 116)
+                    .padding(.top, 100)
                 VStack{
                     Text("Name")
                         .font(.system(size: 21))
                         .foregroundColor(.white)
                         .padding(.leading, -150)
+                        .padding(.top, -50)
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.white)
                         .frame(width: 305, height: 45)
@@ -35,12 +36,15 @@ struct EditProfileView: View {
                                 .font(.system(size: 18))
                                 .foregroundColor(.black)
                                 .padding(.leading)
+                                
+                                
                         )
+                        .padding(.top, -30)
                     Text("Sleeping Time")
                         .font(.system(size: 21))
                         .foregroundColor(.white)
                         .padding(.leading, -150)
-                        .padding(.top, 50)
+                        .padding(.top, 30)
                     
                     DatePicker("Sleeping Time", selection: $time, displayedComponents: .hourAndMinute)
                         .datePickerStyle(WheelDatePickerStyle())
