@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct EditProfileView: View {
-    @StateObject var EKManager: EventKitManager = EventKitManager()
-    
     @Binding var showProfile: Bool
-    
     @Binding var name: String
     @Binding var time: Date
+    @StateObject var EKManager: EventKitManager = EventKitManager()
+    @ObservedObject var profileViewModel = ProfileViewModel()
     
     var body: some View {
         ZStack {
@@ -37,7 +36,6 @@ struct EditProfileView: View {
                                 .foregroundColor(.black)
                                 .padding(.leading)
                         )
-                    
                     Text("Sleeping Time")
                         .font(.system(size: 21))
                         .foregroundColor(.white)
@@ -50,12 +48,10 @@ struct EditProfileView: View {
                         .frame(width: 299, height: 210)
                         .background(Color.white)
                         .cornerRadius(20)
-                        
-                    
-                    
+
                     Spacer()
                     
-                    Button(action:  {
+                    Button(action: {
                         withAnimation() {
                             EKManager.editReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
                             
@@ -64,15 +60,15 @@ struct EditProfileView: View {
                     }, label: {
                         Text("Save")
                             .font(.system(size: 21))
-                            .foregroundColor(Color("paleBlue"))
+                            .foregroundColor(profileViewModel.nameIsEmpty(name: name) ? Color.white : Color("paleBlue"))
                             .frame(width: 210, height: 55)
-                            .background(Color.white)
+                            .background(profileViewModel.nameIsEmpty(name: name) ? Color.gray : Color.white)
                             .cornerRadius(70)
                             .padding(.top)
                             .padding(.trailing, -10)
                         
                     })
-                    
+                disabled(profileViewModel.nameIsEmpty(name: name))
                 } .padding(.top, 100)
             }
         }
