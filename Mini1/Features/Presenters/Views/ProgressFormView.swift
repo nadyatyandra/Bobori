@@ -16,6 +16,8 @@ struct ProgressFormView: View {
     @Binding var name: String
     @Binding var showSheet: Bool
     @Binding var isFilled: Bool
+    @Binding var dailyIsFilled: Bool
+    @Binding var dailyShowSheet: Bool
     @Binding var currentStageIndex: Int
     @Binding var maxStageIndex: Int
     @State private var currentPageIndex: Int = 0
@@ -117,6 +119,10 @@ struct ProgressFormView: View {
                             self.entryViewModel.createEntry(date: self.date, bedTime: self.bedTime, distance: self.distance)
                             showSheet = false
                             isFilled = true
+                            
+                            if dailyShowSheet {
+                                dailyIsFilled = true
+                            }
                             
                             currentStageIndex = distances.firstIndex(where: { $0 == distance })!
                             

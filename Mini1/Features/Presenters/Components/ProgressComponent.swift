@@ -15,7 +15,9 @@ struct ProgressComponent: View {
     // For Calendar
     @State var selectedDate = Date()
     @State var showSheet: Bool = false
+    @State var dailyShowSheet: Bool = false
     @State var isFilled: Bool = false
+    @State var dailyIsFilled: Bool = false
     
     // Bool to toggle edit profile view
     @State var showProfile: Bool = false
@@ -123,10 +125,11 @@ struct ProgressComponent: View {
                         
                         
                         
-                    Button(isFilled ? "View Daily Progress" : "➕ Add Daily Progress") {
+                    Button(dailyIsFilled ? "View Daily Progress" : "➕ Add Daily Progress") {
                         checkDailyProgress()
                         selectedDate = Date()
                         showSheet = true
+                        dailyShowSheet = true
                     }
                     .font(.system(size: 16))
                     .foregroundColor(.white)
@@ -191,7 +194,10 @@ struct ProgressComponent: View {
             if isFilled {
                HistoryView(entryViewModel: self.entryViewModel, entry: entryViewModel.getOneEntry(date: selectedDate)!)
             } else {
-                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, currentStageIndex: $currentStageIndex, maxStageIndex: $maxStageIndex,distances: distances)
+                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, dailyIsFilled: $dailyIsFilled, dailyShowSheet: $dailyShowSheet, currentStageIndex: $currentStageIndex, maxStageIndex: $maxStageIndex,distances: distances)
+                    .onDisappear {
+                        dailyShowSheet = false
+                    }
             }
         }
     }
@@ -207,5 +213,7 @@ struct ProgressComponent: View {
         }
         entryViewModel.selectedDateEntry.append(sleepRoutine)
         isFilled = true
+        dailyIsFilled = true
+        dailyShowSheet = false
     }
 }
