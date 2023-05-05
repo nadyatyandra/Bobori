@@ -31,38 +31,77 @@ struct ProgressComponent: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
+            
                 VStack {
+                    
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 12)
+                            .foregroundColor(Color("terracotta"))
+                            .frame(width: 324, height: 57)
+                            .shadow(radius: 3)
+                            
+                            
+                            
+                        Button("➕ Add daily progress") {
+                            showSheet = true
+                        } .font(.system(size: 16))
+                            .foregroundColor(.white)
+                        
+                    }
+                    .padding(.top, 130)
+                    
                     CalendarView(selectedDate: $selectedDate, isFilled: $isFilled, showSheet: $showSheet, entryViewModel: entryViewModel)
+                        .padding(.top, -20)
                     
-                    Button("Go to information view") {
-                        viewModel.navigateToSecondTab()
-                    }
-                    .padding()
-                    
-                    Button("Open Music") {
-                        showMusic = true
-                    }
-                    .padding()
+                    //                    Button("Go to information view") {
+                    //                        viewModel.navigateToSecondTab()
+                    //                    }
+                    //                    .padding()
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 12)
+                            .foregroundColor(Color("mustard"))
+                            .frame(width: 324, height: 57)
+                            .shadow(radius: 3)
+                            
+                        Button("Music Recommendation") {
+                            showMusic = true
+                        } .font(.system(size: 16))
+                            .foregroundColor(.white)
+                        
+                    } .padding(.bottom, 30)
                 }
-            }
+            
         }
-        .navigationBarTitle("Progress")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button() {
-                    showProfile = true
-                } label: {
-                    Image(systemName: "person.circle")
-                        .font(.system(size: 40))
-                }
+                HStack{
+                    VStack{
+                        Text("Progress")
+                            .font(.system(size: 16))
+                            .foregroundColor(.gray)
+                            .padding(.leading, -270)
+                        
+                        Text("Sleep Training")
+                            .font(.system(size: 21))
+                            .foregroundColor(Color("paleBlue"))
+                            .padding(.leading, -270)
+                    }
+                    Button() {
+                        showProfile = true
+                    } label: {
+                        Image("placeholder")
+                            .resizable()
+                            .frame(width: 54, height: 54)
+                        
+                    }
+                } .padding(.top, 30)
             }
         }
         .sheet(isPresented: $showProfile) {
             EditProfileView(showProfile: $showProfile, name: $name, time: $time)
         }
         .sheet(isPresented: $showMusic) {
-            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, showMusic: $showMusic, name: $name, playMusic: $playMusic)
+            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, showMusic: $showMusic, playMusic: $playMusic, name: $name)
         }
         .sheet(isPresented: $showSheet) {
             if isFilled {

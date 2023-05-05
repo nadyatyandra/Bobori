@@ -13,10 +13,41 @@ struct HistoryView: View {
     @State var entry: SleepRoutine
     
     var body: some View {
-        VStack {
-            FormattedDate(date: entry.date!)
-            FormattedTime(time: entry.bedTime!)
-            Text(entry.distance ?? "ga ada distance" ).font(.title).padding()
+        ZStack{
+            Color("paleBlue").ignoresSafeArea()
+            VStack {
+                
+                FormattedDate(date: entry.date!)
+                
+                
+                Text("Sleeping Time")
+                    .font(.system(size: 16))
+                    .foregroundColor(.white)
+                
+                ZStack{
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundColor(.white)
+                        .shadow(radius: 3)
+                        .frame(width: 350, height: 50)
+                    FormattedTime(time: entry.bedTime!)
+                    
+                }
+                Text("Chair Distance")
+                    .font(.system(size: 16))
+                    .foregroundColor(.white)
+                ZStack{
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundColor(.white)
+                        .shadow(radius: 3)
+                        .frame(width: 350, height: 50)
+                    Text(entry.distance ?? "ga ada distance" ).font(.title).padding()
+                        .font(.system(size: 18))
+                        .foregroundColor(Color("paleBlue"))
+                    
+                }
+                
+                
+            }
         }
     }
 }

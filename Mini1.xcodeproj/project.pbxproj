@@ -40,7 +40,6 @@
 		53DB0DEB2A10947B00CB387B /* Song 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DB0DEA2A10947B00CB387B /* Song 2.mp3 */; };
 		53DB0DED2A10948100CB387B /* Song 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DB0DEC2A10948100CB387B /* Song 4.mp3 */; };
 		53DB0DEF2A10948B00CB387B /* Song 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DB0DEE2A10948B00CB387B /* Song 3.mp3 */; };
-		83FDA1012A02157500FBD218 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FDA1002A02157500FBD218 /* CardView.swift */; };
 		83FDA1042A0215F000FBD218 /* ACarousel in Frameworks */ = {isa = PBXBuildFile; productRef = 83FDA1032A0215F000FBD218 /* ACarousel */; };
 /* End PBXBuildFile section */
 
@@ -98,7 +97,6 @@
 		53DB0DEA2A10947B00CB387B /* Song 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 2.mp3"; sourceTree = "<group>"; };
 		53DB0DEC2A10948100CB387B /* Song 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 4.mp3"; sourceTree = "<group>"; };
 		53DB0DEE2A10948B00CB387B /* Song 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 3.mp3"; sourceTree = "<group>"; };
-		83FDA1002A02157500FBD218 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +246,6 @@
 				04E8233429F594E700F6C73E /* EditProfileView.swift */,
 				0463C3142A01751400E8F7D0 /* ProgressFormView.swift */,
 				0463C3162A01755800E8F7D0 /* HistoryView.swift */,
-				83FDA1002A02157500FBD218 /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -516,7 +513,6 @@
 				539A88B029FFD2510065224A /* MusicPlayerView.swift in Sources */,
 				04BA739A29FCE56F005354C5 /* CoreDataManager.swift in Sources */,
 				53795DFB29F45368000B1BB4 /* DashboardView.swift in Sources */,
-				83FDA1012A02157500FBD218 /* CardView.swift in Sources */,
 				0463C3152A01751400E8F7D0 /* ProgressFormView.swift in Sources */,
 				53795DF729F450F4000B1BB4 /* ProgressComponent.swift in Sources */,
 				539A88B229FFDDDC0065224A /* MusicPlayerModel.swift in Sources */,

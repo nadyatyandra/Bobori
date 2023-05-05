@@ -11,7 +11,9 @@ struct FormattedDate: View {
     var date: String
     var body: some View {
         Text(date)
-            .foregroundColor(Color.accentColor)
+            .foregroundColor(Color.white)
+            .font(.system(size: 32))
+            .multilineTextAlignment(.leading)
     }
 }
 
@@ -19,6 +21,8 @@ struct FormattedTime: View {
     var time: Date
     var body: some View {
         Text(time.formatted(date: .omitted, time: .shortened))
-            .foregroundColor(Color.accentColor)
+            .foregroundColor(Color("paleBlue"))
+            .font(.system(size: 21))
+            .multilineTextAlignment(.leading)
     }
 }

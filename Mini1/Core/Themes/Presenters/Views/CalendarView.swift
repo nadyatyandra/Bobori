@@ -17,7 +17,6 @@ struct CalendarView: View {
 
     var body: some View {
         VStack {
-            FormattedDate(date: selectedDate.formatted(date: .abbreviated, time: .omitted))
             CalendarViewRepresentable(selectedDate: $selectedDate, isFilled: $isFilled, showSheet: $showSheet, entryViewModel: entryViewModel, showError: $showError)
                 .padding(.bottom)
                 .padding(EdgeInsets(top: 40, leading: 0, bottom: 0, trailing: 0))
