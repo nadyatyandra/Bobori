@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LottieUI
 
 struct ProgressFormView: View {
     @ObservedObject var entryViewModel: EntryViewModel
@@ -22,23 +23,18 @@ struct ProgressFormView: View {
     @Environment(\.presentationMode) var presentationMode
     var distances: [String]
     
-    
     var body: some View {
         NavigationView {
             if currentPageIndex == 0 {
                 ZStack{
                     Color("paleBlue").ignoresSafeArea()
                     VStack {
-                        Image("placeholder")
-                            .resizable()
-                            .frame(width: 222, height: 120)
-                            .scaledToFill()
-                            .padding(.top, 30)
+                        LottieView(state: LUStateData(type: .name("empat", .main), loopMode: .loop))
+                            .scaleEffect(0.5)
                         Text("What time did \(name) sleep?")
                             .font(.system(size: 32))
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
-                        //            .padding(.leading, 50)
                             .padding(.top, 50)
                             .frame(width: 304, height: 130)
                         DatePicker("", selection: $bedTime, displayedComponents: .hourAndMinute)
@@ -60,12 +56,8 @@ struct ProgressFormView: View {
                                 .font(.system(size: 21))
                                 .foregroundColor(Color("paleBlue"))
                                 .padding(.top, 90)
-                            
-                            
-                            
                         })
-                        
-                        
+
                         Button(action: {
                             withAnimation(){
                                 currentPageIndex -= 1
@@ -76,7 +68,6 @@ struct ProgressFormView: View {
                                 .foregroundColor(Color.white)
                                 .underline()
                                 .padding(.leading, 5)
-                            
                         })
                     }
                 }
@@ -116,7 +107,6 @@ struct ProgressFormView: View {
                                             .font(.system(size: 18))
                                     }
                                 }
-                                
                             }
                             .pickerStyle(.wheel)
                             
@@ -143,7 +133,6 @@ struct ProgressFormView: View {
                             .font(.system(size: 21))
                             .foregroundColor(Color("paleBlue"))
                             .padding(.top, 90)
-    //                    .shadow(color: Color.gray, radius: 5)
                         
                         Button(action: {
                             withAnimation(){
@@ -155,16 +144,10 @@ struct ProgressFormView: View {
                                 .foregroundColor(Color.white)
                                 .underline()
                                 .padding(.leading, 5)
-                            
                         })
                     }
                 }
-                    
-                }
-
-                    
             }
         }
-        }
-    
-
+    }
+}

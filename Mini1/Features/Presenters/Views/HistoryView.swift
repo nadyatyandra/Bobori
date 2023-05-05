@@ -16,9 +16,7 @@ struct HistoryView: View {
         ZStack{
             Color("paleBlue").ignoresSafeArea()
             VStack {
-                
                 FormattedDate(date: entry.date!)
-                
                 
                 Text("Sleeping Time")
                     .font(.system(size: 16))
@@ -43,10 +41,7 @@ struct HistoryView: View {
                     Text(entry.distance ?? "ga ada distance" ).font(.title).padding()
                         .font(.system(size: 18))
                         .foregroundColor(Color("paleBlue"))
-                    
                 }
-                
-                
             }
         }
     }

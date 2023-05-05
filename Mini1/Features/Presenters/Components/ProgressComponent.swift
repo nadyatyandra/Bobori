@@ -12,7 +12,6 @@ struct ProgressComponent: View {
     @ObservedObject var viewModel: ProgressViewModel
     @ObservedObject var entryViewModel: EntryViewModel
     
-    
     // For Calendar
     @State var selectedDate = Date()
     @State var showSheet: Bool = false
@@ -37,94 +36,79 @@ struct ProgressComponent: View {
     
     var body: some View {
         NavigationView {
-            
+            VStack {
                 VStack {
-                    
-                    VStack {
-                        HStack {
-                            ForEach((0...currentStageIndex), id: \.self) {_ in
+                    HStack {
+                        ForEach((0...currentStageIndex), id: \.self) {_ in
+                            RoundedRectangle(cornerRadius: 12)
+                                .frame(width: 60, height: 7)
+                                .foregroundColor(Color("paleBlue"))
+                                .padding(.top, -50)
+                        }
+                        
+                        if currentStageIndex < 4 {
+                            ForEach((0...(3-currentStageIndex)), id: \.self) {_ in
                                 RoundedRectangle(cornerRadius: 12)
                                     .frame(width: 60, height: 7)
-                                    .foregroundColor(Color("paleBlue"))
+                                    .foregroundColor(.white)
+                                    .border(Color("paleBlue"))
                                     .padding(.top, -50)
                             }
-                            
-                            if currentStageIndex < 4 {
-                                ForEach((0...(3-currentStageIndex)), id: \.self) {_ in
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .frame(width: 60, height: 7)
-                                        .foregroundColor(.white)
-                                        .border(Color("paleBlue"))
-                                        .padding(.top, -50)
-                                }
-                            }
                         }
-                        ZStack{
-                                                   
-                            RoundedRectangle(cornerRadius: 12)
-                                    .frame(width: 324, height: 144)
-                                    .foregroundColor(Color("paleBlue"))
-                                    .padding(.top, -30)
-                                                   
-                            VStack{
-                                
-                                Text("\(name) is currently at")
-                                
-                                Text("Stage \(currentStageIndex + 1): \(distances[currentStageIndex])")
-                                    .foregroundColor(.white)
-                            }
-                            
-                        }
-                        
                     }
-                    
-                    
-                    
-                    
-                    ZStack{
+                    ZStack {
                         RoundedRectangle(cornerRadius: 12)
-                            .foregroundColor(Color("terracotta"))
-                            .frame(width: 324, height: 57)
-                            .shadow(radius: 3)
-                            
-                            
-                            
-                        Button(isFilled ? "View Daily Progress" : "➕ Add Daily Progress") {
-                            checkDailyProgress()
-                            selectedDate = Date()
-                            showSheet = true
+                                .frame(width: 324, height: 144)
+                                .foregroundColor(Color("paleBlue"))
+                                .padding(.top, -30)
+                                               
+                        VStack{
+                            Text("\(name) is currently at")
+                            Text("Stage \(currentStageIndex + 1): \(distances[currentStageIndex])")
+                                .foregroundColor(.white)
                         }
-                        .font(.system(size: 16))
-                        .foregroundColor(.white)
-                        .onAppear {
-                            checkDailyProgress()
-                        }
-                        
                     }
-                    .padding(.top)
-                    
-                    CalendarView(selectedDate: $selectedDate, isFilled: $isFilled, showSheet: $showSheet, entryViewModel: entryViewModel)
-                        .padding(.top, -30)
-                        .padding(.bottom, -10)
-                    
-                    //                    Button("Go to information view") {
-                    //                        viewModel.navigateToSecondTab()
-                    //                    }
-                    //                    .padding()
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 12)
-                            .foregroundColor(Color("mustard"))
-                            .frame(width: 324, height: 57)
-                            .shadow(radius: 3)
-                            
-                        Button("Music Recommendation") {
-                            showMusic = true
-                        } .font(.system(size: 16))
-                            .foregroundColor(.white)
-                        
-                    } .padding(.bottom, 30)
                 }
-            
+
+                ZStack{
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundColor(Color("terracotta"))
+                        .frame(width: 324, height: 57)
+                        .shadow(radius: 3)
+                        
+                        
+                        
+                    Button(isFilled ? "View Daily Progress" : "➕ Add Daily Progress") {
+                        checkDailyProgress()
+                        selectedDate = Date()
+                        showSheet = true
+                    }
+                    .font(.system(size: 16))
+                    .foregroundColor(.white)
+                    .onAppear {
+                        checkDailyProgress()
+                    }
+                    
+                }
+                .padding(.top)
+                
+                CalendarView(selectedDate: $selectedDate, isFilled: $isFilled, showSheet: $showSheet, entryViewModel: entryViewModel)
+                    .padding(.top, -30)
+                    .padding(.bottom, -10)
+                
+                ZStack{
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundColor(Color("mustard"))
+                        .frame(width: 324, height: 57)
+                        .shadow(radius: 3)
+                        
+                    Button("Music Recommendation") {
+                        showMusic = true
+                    } .font(.system(size: 16))
+                        .foregroundColor(.white)
+                    
+                } .padding(.bottom, 30)
+            }
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

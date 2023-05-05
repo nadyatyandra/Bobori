@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LottieUI
 
 struct OnboardView: View {
     @State private var currentPageIndex: Int = 0
@@ -23,9 +24,11 @@ struct OnboardView: View {
             
             VStack {
                 if currentPageIndex == 0 {
+                    HelloScreenView()
+                } else if currentPageIndex == 1 {
                     Form1View(name: $name)
                         .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading)))
-                } else if currentPageIndex == 1 {
+                } else if currentPageIndex == 2 {
                     Form2View(time: $time, name: $name)
                         .transition(.asymmetric(insertion: .opacity, removal: .opacity))
                 }
@@ -33,7 +36,28 @@ struct OnboardView: View {
                 Spacer()
                 
                 HStack {
-                    if currentPageIndex > 0 {
+                    if currentPageIndex == 0 {
+                        HStack {
+                            Button(action: {
+                                withAnimation() {
+                                    currentPageIndex += 1
+                                }
+                            }, label: {
+                                Text("Continue")
+                                    .font(.system(size: 21))
+                                    .foregroundColor(Color("paleBlue"))
+                                    .frame(width: 210, height: 55)
+                                    .background(Color.white)
+                                    .cornerRadius(70)
+                                    .padding(.trailing, 90)
+                                    .background(Color("paleBlue"))
+                            })
+                        }
+                    }
+
+                    Spacer()
+                    
+                    if currentPageIndex == 1 {
                         HStack {
                             Button(action: {
                                 withAnimation() {
@@ -48,47 +72,61 @@ struct OnboardView: View {
                             .padding(.leading, 30)
                             Spacer()
                         }
+                        HStack {
+                            Button(action: {
+                                withAnimation() {
+                                    currentPageIndex += 1
+                                }
+                            }, label: {
+                                Text("Continue")
+                                    .font(.system(size: 21))
+                                    .foregroundColor(profileViewModel.nameIsEmpty(name: name) ? Color.white : Color("paleBlue"))
+                                    .frame(width: 210, height: 55)
+                                    .background(profileViewModel.nameIsEmpty(name: name) ? Color.gray : Color.white)
+                                    .cornerRadius(70)
+                                    .padding(.trailing, 90)
+                                    .background(Color("paleBlue"))
+                            })
+                            .disabled(profileViewModel.nameIsEmpty(name: name))
+                        }
                     }
 
-                    Spacer()
-                    
-                    if currentPageIndex < 1 {
-                        Button(action: {
-                            withAnimation() {
-                                currentPageIndex += 1
-                            }
-                        }, label: {
-                            Text("Continue")
-                                .font(.system(size: 21))
-                                .foregroundColor(profileViewModel.nameIsEmpty(name: name) ? Color.white : Color("paleBlue"))
-                                .frame(width: 210, height: 55)
-                                .background(profileViewModel.nameIsEmpty(name: name) ? Color.gray : Color.white)
-                                .cornerRadius(70)
-                                .padding(.trailing, 90)
-                                .background(Color("paleBlue"))
-                        })
-                        .disabled(profileViewModel.nameIsEmpty(name: name))
-                    } else {
-                        Button(action: {
-                            withAnimation() {
-                                EKManager.addReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
-                                
-                                if !EKManager.emptyReminderList {
-                                    isOnboardingCompleted = true
+                    if currentPageIndex == 2 {
+                        HStack {
+                            Button(action: {
+                                withAnimation() {
+                                    currentPageIndex -= 1
                                 }
-                                
+                            }) {
+                                Image(systemName: "chevron.left")
+                                    .font(.title)
+                                    .foregroundColor(.white)
                             }
-                        }, label: {
-                            Text("Save")
-                            .font(.system(size: 21))
-                            .foregroundColor(Color("paleBlue"))
-                            .frame(width: 210, height: 55)
-                            .background(Color.white)
-                            .cornerRadius(70)
-                            .padding(.bottom, 13)
-                            .padding(.trailing, 75)
-                        })
-                        .padding()
+                            .padding(.top, -700)
+                            .padding(.leading, 30)
+                            Spacer()
+                        }
+                        HStack {
+                            Button(action: {
+                                withAnimation() {
+                                    EKManager.addReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
+                                    
+                                    if !EKManager.emptyReminderList {
+                                        isOnboardingCompleted = true
+                                    }
+                                }
+                            }, label: {
+                                Text("Save")
+                                    .font(.system(size: 21))
+                                    .foregroundColor(Color("paleBlue"))
+                                    .frame(width: 210, height: 55)
+                                    .background(Color.white)
+                                    .cornerRadius(70)
+                                    .padding(.bottom, 13)
+                                    .padding(.trailing, 75)
+                            })
+                            .padding()
+                        }
                     }
                 }
             }
@@ -106,19 +144,32 @@ struct OnboardView: View {
     }
 }
 
+struct HelloScreenView: View {
+    let paleBlue = Color(UIColor(named: "paleBlue")!)
+    
+    var body: some View {
+        ZStack {
+            Color("paleBlue").ignoresSafeArea()
+            
+            VStack {
+                LottieView(state: LUStateData(type: .name("satu", .main), loopMode: .loop))
+                    .scaleEffect(0.5)
+            }
+        }
+    }
+}
+
 struct Form1View: View {
     @Binding var name: String
     @State private var showForm2View = false
     let paleBlue = Color(UIColor(named: "paleBlue")!)
     
     var body: some View {
-        ZStack{
+        ZStack {
             paleBlue.edgesIgnoringSafeArea(.all)
             VStack{
-                Image("placeholder")
-                    .resizable()
-                    .frame(width: 112, height: 112)
-                    .padding(.top)
+                LottieView(state: LUStateData(type: .name("dua", .main), loopMode: .loop))
+                    .scaleEffect(0.5)
                 Text("Welcome!")
                     .font(.system(size: 32))
                     .foregroundColor(.white)
@@ -153,10 +204,8 @@ struct Form2View: View {
         ZStack{
             paleBlue.edgesIgnoringSafeArea(.all)
             VStack {
-                Image("placeholder")
-                    .resizable()
-                    .frame(width: 112, height: 112)
-                    .padding(.top, 30)
+                LottieView(state: LUStateData(type: .name("tiga", .main), loopMode: .loop))
+                    .scaleEffect(0.5)
                 Text("Welcome!")
                     .font(.system(size: 32))
                     .foregroundColor(.white)
