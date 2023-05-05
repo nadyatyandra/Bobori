@@ -104,6 +104,12 @@ class EntryViewModel: ObservableObject {
         saveToPersistentStore()
     }
     
+    func editProgress(entry: Progress, currentStageIndex: Int, maxStageIndex: Int) {
+        entry.currentStageIndex = Int16(currentStageIndex)
+        entry.maxStageIndex = Int16(maxStageIndex)
+        saveToPersistentStore()
+    }
+    
     func initializeMusic() {
         if music.isEmpty {
             let item = Music(selectedSong: "", lastDate: Date())

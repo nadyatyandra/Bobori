@@ -20,6 +20,7 @@ struct ProgressFormView: View {
     @Binding var dailyShowSheet: Bool
     @Binding var currentStageIndex: Int
     @Binding var maxStageIndex: Int
+    @Binding var lastDate: Date
     @State private var currentPageIndex: Int = 0
     
     @Environment(\.presentationMode) var presentationMode
@@ -58,18 +59,6 @@ struct ProgressFormView: View {
                                 .font(.system(size: 21))
                                 .foregroundColor(Color("paleBlue"))
                                 .padding(.top, 90)
-                        })
-
-                        Button(action: {
-                            withAnimation(){
-                                currentPageIndex -= 1
-                            }
-                        }, label: {
-                            Text("Back")
-                                .font(.system(size: 21))
-                                .foregroundColor(Color.white)
-                                .underline()
-                                .padding(.leading, 5)
                         })
                     }
                 }
@@ -116,11 +105,16 @@ struct ProgressFormView: View {
 
                         
                         Button(action: {
+                            let currentDate: Date = Date()
+                            let calendar: Calendar = Calendar.current
+                            
                             self.entryViewModel.createEntry(date: self.date, bedTime: self.bedTime, distance: self.distance)
                             showSheet = false
                             isFilled = true
                             
-                            if dailyShowSheet {
+                            
+                            
+                            if dailyShowSheet || calendar.isDate(lastDate, inSameDayAs: currentDate) {
                                 dailyIsFilled = true
                             }
                             
@@ -129,6 +123,8 @@ struct ProgressFormView: View {
                             if currentStageIndex > maxStageIndex {
                                 maxStageIndex = currentStageIndex
                             }
+                            
+                            entryViewModel.editProgress(entry: entryViewModel.progress[0], currentStageIndex: currentStageIndex, maxStageIndex: maxStageIndex)
                             
                         }) {
                             Text("Save")

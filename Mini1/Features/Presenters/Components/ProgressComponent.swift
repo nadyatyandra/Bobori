@@ -162,6 +162,10 @@ struct ProgressComponent: View {
                 } .padding(.bottom, 30)
             }
         }
+        .onAppear() {
+            currentStageIndex = Int(entryViewModel.progress[0].currentStageIndex)
+            maxStageIndex = Int(entryViewModel.progress[0].maxStageIndex)
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 HStack{
@@ -198,7 +202,7 @@ struct ProgressComponent: View {
             if isFilled {
                HistoryView(entryViewModel: self.entryViewModel, entry: entryViewModel.getOneEntry(date: selectedDate)!)
             } else {
-                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, dailyIsFilled: $dailyIsFilled, dailyShowSheet: $dailyShowSheet, currentStageIndex: $currentStageIndex, maxStageIndex: $maxStageIndex,distances: distances)
+                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, dailyIsFilled: $dailyIsFilled, dailyShowSheet: $dailyShowSheet, currentStageIndex: $currentStageIndex, maxStageIndex: $maxStageIndex, lastDate: $lastDate, distances: distances)
                     .onDisappear {
                         dailyShowSheet = false
                     }
