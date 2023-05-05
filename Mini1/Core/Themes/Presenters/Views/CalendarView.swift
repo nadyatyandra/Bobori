@@ -97,20 +97,30 @@ struct CalendarViewRepresentable: UIViewRepresentable {
             
         }
         
-//        func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
 //            let eventDates = [Date(), Date(),
 //                                Date.now.addingTimeInterval(300000),
 //                                Date.now.addingTimeInterval(100000),
 //                                Date.now.addingTimeInterval(-600000),
 //                                Date.now.addingTimeInterval(-1000000)]
-//            var eventCount = 0
-//            eventDates.forEach { eventDate in
+
+            let eventDates: [FilledDate] = parent.entryViewModel.filledDate
+            
+            var eventCount = 0
+//            print(eventDates)
+            eventDates.forEach { eventDate in
+//                print("asd")
+                if let filledDate = eventDate.date {
+                    if filledDate.formatted(date: .complete, time: .omitted) == date.formatted(date: .complete, time: .omitted){
+                        eventCount += 1;
+                    }
+                }
 //                if eventDate.formatted(date: .complete, time: .omitted) == date.formatted(date: .complete, time: .omitted){
 //                    eventCount += 1;
 //                }
-//            }
-//            return eventCount
-//        }
+            }
+            return eventCount
+        }
         
         func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
 //            if isWeekend(date: date) {

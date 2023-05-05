@@ -12,6 +12,7 @@ import Combine
 class EntryViewModel: ObservableObject {
     @Published var entries: [SleepRoutine] = []
     @Published var selectedDateEntry: [SleepRoutine] = []
+    @Published var filledDate: [FilledDate] = []
     @Published var child: [Child] = []
 //    @Published var music: [Music] = []
     @Published var progress: [Progress] = []
@@ -35,12 +36,15 @@ class EntryViewModel: ObservableObject {
         let fetchRequest: NSFetchRequest<SleepRoutine> = SleepRoutine.fetchRequest()
         let fetchRequestProgress: NSFetchRequest<Progress> = Progress.fetchRequest()
         let fetchRequestChild: NSFetchRequest<Child> = Child.fetchRequest()
+        let fetchRequestFilled:NSFetchRequest<FilledDate> = FilledDate.fetchRequest()
         
         let moc = CoreDataManager.shared.mainContext
         do {
             entries = try moc.fetch(fetchRequest)
             progress = try moc.fetch(fetchRequestProgress)
             child = try moc.fetch(fetchRequestChild)
+            filledDate = try moc.fetch(fetchRequestFilled)
+            
         } catch {
             NSLog("Error fetching tasks: \(error)")
         }
@@ -62,6 +66,7 @@ class EntryViewModel: ObservableObject {
     func createEntry(date: Date, bedTime: Date, distance: String) {
         let item = SleepRoutine(bedTime: bedTime, date: date.formatted(date: .abbreviated, time: .omitted), distance: distance)
         entries.append(item)
+        filledDate.append(FilledDate(date: date))
         saveToPersistentStore()
     }
     

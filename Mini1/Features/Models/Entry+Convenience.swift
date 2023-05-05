@@ -42,3 +42,10 @@ extension SleepRoutine {
         self.distance = distance
     }
 }
+
+extension FilledDate {
+    @discardableResult convenience init(date: Date, context: NSManagedObjectContext = CoreDataManager.shared.mainContext) {
+        self.init(context: context)
+        self.date = date
+    }
+}

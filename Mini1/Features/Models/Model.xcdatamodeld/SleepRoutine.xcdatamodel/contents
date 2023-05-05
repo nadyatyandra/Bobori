@@ -4,6 +4,9 @@
         <attribute name="bedTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="FilledDate" representedClassName="FilledDate" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
     <entity name="Music" representedClassName="Music" syncable="YES" codeGenerationType="class">
         <attribute name="lastDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="selectedSong" optional="YES" attributeType="String"/>
