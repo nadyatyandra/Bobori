@@ -32,6 +32,7 @@ struct ProgressComponent: View {
     
     // Progress Bar Variable
     @State var currentStageIndex: Int = 0
+    @State var maxStageIndex: Int = 0
     var distances: [String] = ["Besides crib", "Halfway towards door", "Next to doorway", "Outside the room (seen)", "Outside the room (unseen)"]
     
     var body: some View {
@@ -64,7 +65,7 @@ struct ProgressComponent: View {
                                     .frame(width: 324, height: 144)
                                     .foregroundColor(Color("paleBlue"))
                                     .padding(.top, -30)
-                            
+
                            
                                     
                                                    
@@ -201,7 +202,7 @@ struct ProgressComponent: View {
             if isFilled {
                HistoryView(entryViewModel: self.entryViewModel, entry: entryViewModel.getOneEntry(date: selectedDate)!)
             } else {
-                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, currentStageIndex: $currentStageIndex, distances: distances)
+                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, currentStageIndex: $currentStageIndex, maxStageIndex: $maxStageIndex,distances: distances)
             }
         }
     }

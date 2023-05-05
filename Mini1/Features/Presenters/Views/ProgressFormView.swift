@@ -16,8 +16,9 @@ struct ProgressFormView: View {
     @Binding var showSheet: Bool
     @Binding var isFilled: Bool
     @Binding var currentStageIndex: Int
+    @Binding var maxStageIndex: Int
     @State private var currentPageIndex: Int = 0
-    @State private var maxStageIndex: Int = 0
+    
     @Environment(\.presentationMode) var presentationMode
     var distances: [String]
     
@@ -101,12 +102,20 @@ struct ProgressFormView: View {
                                 .frame(width: 299, height: 210)
                             
                             Picker("Please choose a distance", selection: $distance) {
-                                ForEach(distances, id: \.self) {
-                                    Text($0)
-                                        .multilineTextAlignment(.leading)
-                                        .font(.system(size: 18))
-                                }
                                 
+                                if maxStageIndex < 4 {
+                                    ForEach(distances.prefix(maxStageIndex + 2), id: \.self) {
+                                        Text($0)
+                                            .multilineTextAlignment(.leading)
+                                            .font(.system(size: 18))
+                                    }
+                                } else {
+                                    ForEach(distances, id: \.self) {
+                                        Text($0)
+                                            .multilineTextAlignment(.leading)
+                                            .font(.system(size: 18))
+                                    }
+                                }
                                 
                             }
                             .pickerStyle(.wheel)
@@ -122,7 +131,7 @@ struct ProgressFormView: View {
                             currentStageIndex = distances.firstIndex(where: { $0 == distance })!
                             
                             if currentStageIndex > maxStageIndex {
-                                maxStageIndex = currentPageIndex
+                                maxStageIndex = currentStageIndex
                             }
                             
                         }) {
