@@ -33,25 +33,36 @@ struct InformationComponent : View {
                     VStack {
                         Text("Stages")
                             .font(.system(size: 16))
-                            .padding(.leading, -55)
-                        Text("Chair Method")
+                            .padding(.leading, -52)
+                            .foregroundColor(Color.gray)
+                        Text("Chair Method Sleep Training")
                             .font(.system(size: 21))
-                            .padding(.leading, 10)
+                            .padding(.leading, 150)
                             .foregroundColor(Color("paleBlue"))
-                    }
-                    .padding(.top, 30)
-                    Image(systemName: "person.circle")
-                        .resizable()
-                        .frame(width: 54, height: 54)
-                        .padding(.leading, 130)
-                        .padding(.top, 25)
-                        .foregroundColor(Color("paleBlue"))
-                        
+                    } .padding(.leading, -215)
+                        .padding(.top, 10)
+//                        .padding(.top, 5)
+//                    Image(systemName: "person.circle")
+//                        .resizable()
+//                        .frame(width: 54, height: 54)
+//                        .padding(.leading, 130)
+//                        .padding(.top, 25)
+//                        .foregroundColor(Color("paleBlue"))
+//                    Button() {
+//                        showProfile = true
+//                    } label: {
+//                        Image("placeholder")
+//                            .resizable()
+//                            .frame(width: 54, height: 54)
+//                            .padding(.trailing, 10)
+//
+//                    }
+
                 }
                 Text("General Instruction")
                     .font(.system(size: 18))
                     .padding(.top)
-                    .padding(.leading, -150)
+                    .padding(.leading, -160)
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 12)
@@ -72,7 +83,21 @@ struct InformationComponent : View {
                         .padding()
                     }
                     .frame(width: 324, height: 611)
-                }
+                            
+                VStack{
+                    Image("CardChairMethod")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 278, height: 180)
+                    .cornerRadius(10)
+                    .padding(.top, -90)
+                                
+                Text("Chair method sleep training is a gentle sleep training technique that gradually teaches your baby to sleep on their own. \n\nChair method sleep training allows you to stay in the room as your baby learns to self-soothe and settle to sleep independently. \n\nIf you’re patient and consistent, the Chair method of sleep training can help your baby start to sleep on their own in as little as two weeks.")
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    }.frame(width: 324, height: 611)
+            }
                 
                 ACarousel(
                     list,
@@ -89,7 +114,7 @@ struct InformationComponent : View {
                         .scaledToFill()
                         .frame(width: 278, height: 412)
                         .cornerRadius(10)
-                        .padding(.top, 50)
+                        .padding(.top, -30)
                         .shadow(radius: 3)
                 }
                 .frame(width: 390, height: 500)

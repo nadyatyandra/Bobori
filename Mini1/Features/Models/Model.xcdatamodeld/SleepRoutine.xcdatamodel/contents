@@ -8,6 +8,11 @@
         <attribute name="lastDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="selectedSong" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Progress" representedClassName="Progress" syncable="YES" codeGenerationType="class">
+        <attribute name="currentStageIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="maxStageIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="onboardingCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
     <entity name="SleepRoutine" representedClassName="SleepRoutine" syncable="YES" codeGenerationType="class">
         <attribute name="bedTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="date" optional="YES" attributeType="String"/>

@@ -12,10 +12,13 @@ import Combine
 class EntryViewModel: ObservableObject {
     @Published var entries: [SleepRoutine] = []
     @Published var selectedDateEntry: [SleepRoutine] = []
-//    @Published var child: [Child] = []
+    @Published var child: [Child] = []
 //    @Published var music: [Music] = []
+    @Published var progress: [Progress] = []
     
     init() {
+        initializeProgress()
+        initializeChild()
         getEntries()
     }
     
@@ -30,9 +33,14 @@ class EntryViewModel: ObservableObject {
     
     func getEntries() {
         let fetchRequest: NSFetchRequest<SleepRoutine> = SleepRoutine.fetchRequest()
+        let fetchRequestProgress: NSFetchRequest<Progress> = Progress.fetchRequest()
+        let fetchRequestChild: NSFetchRequest<Child> = Child.fetchRequest()
+        
         let moc = CoreDataManager.shared.mainContext
         do {
             entries = try moc.fetch(fetchRequest)
+            progress = try moc.fetch(fetchRequestProgress)
+            child = try moc.fetch(fetchRequestChild)
         } catch {
             NSLog("Error fetching tasks: \(error)")
         }
@@ -54,6 +62,37 @@ class EntryViewModel: ObservableObject {
     func createEntry(date: Date, bedTime: Date, distance: String) {
         let item = SleepRoutine(bedTime: bedTime, date: date.formatted(date: .abbreviated, time: .omitted), distance: distance)
         entries.append(item)
+        saveToPersistentStore()
+    }
+    
+    func initializeChild() {
+        if child.isEmpty {
+            let item = Child(name: "", bedTime: Date())
+            
+            child.append(item)
+            saveToPersistentStore()
+        }
+    }
+    
+    func saveToChild(entry: Child, name: String, bedTime: Date) {
+        entry.name = name
+        entry.bedTime = bedTime
+        saveToPersistentStore()
+    }
+    
+    func initializeProgress() {
+        
+        if progress.isEmpty {
+            let item = Progress(currentStageIndex: 0, maxStageIndex: 0, onboardingCompleted: false)
+            
+            progress.append(item)
+            saveToPersistentStore()
+        }
+        
+    }
+    
+    func completeOnboarding(entry: Progress) {
+        entry.onboardingCompleted = true
         saveToPersistentStore()
     }
 }

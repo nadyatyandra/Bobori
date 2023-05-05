@@ -10,11 +10,14 @@ import LottieUI
 
 struct OnboardView: View {
     @State private var currentPageIndex: Int = 0
-    @Binding var isOnboardingCompleted: Bool
     @Binding var name: String
     @Binding var time: Date
+    @ObservedObject var entryViewModel: EntryViewModel
+    
     @StateObject var EKManager: EventKitManager = EventKitManager()
     @ObservedObject var profileViewModel = ProfileViewModel()
+    
+    @Binding var isOnboardingCompleted: Bool
     
     let paleBlue = Color(UIColor(named: "paleBlue")!)
     
@@ -91,11 +94,34 @@ struct OnboardView: View {
                         }
                     }
 
+                    Spacer()
+                    
                     if currentPageIndex == 2 {
-                        HStack {
-                            Button(action: {
-                                withAnimation() {
-                                    currentPageIndex -= 1
+                        Button(action: {
+                            withAnimation() {
+                                currentPageIndex += 1
+                            }
+                        }, label: {
+                            Text("Continue")
+                                .font(.system(size: 21))
+                                .foregroundColor(profileViewModel.nameIsEmpty(name: name) ? Color.white : Color("paleBlue"))
+                                .frame(width: 210, height: 55)
+                                .background(profileViewModel.nameIsEmpty(name: name) ? Color.gray : Color.white)
+                                .cornerRadius(70)
+                                .padding(.trailing, 90)
+                                .background(Color("paleBlue"))
+                        })
+                        .disabled(profileViewModel.nameIsEmpty(name: name))
+                    } else {
+                        Button(action: {
+                            withAnimation() {
+                                EKManager.addReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
+                                
+                                if !EKManager.emptyReminderList {
+                                    entryViewModel.saveToChild(entry: entryViewModel.child[0], name: name, bedTime: time)
+                                    entryViewModel.completeOnboarding(entry: entryViewModel.progress[0])
+                                    
+                                    isOnboardingCompleted = true
                                 }
                             }) {
                                 Image(systemName: "chevron.left")

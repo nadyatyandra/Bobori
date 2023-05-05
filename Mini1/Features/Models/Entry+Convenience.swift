@@ -24,6 +24,15 @@ extension Music {
     }
 }
 
+extension Progress {
+    @discardableResult convenience init(currentStageIndex: Int16, maxStageIndex: Int16, onboardingCompleted: Bool, context: NSManagedObjectContext = CoreDataManager.shared.mainContext) {
+        self.init(context: context)
+        self.currentStageIndex = currentStageIndex
+        self.maxStageIndex = maxStageIndex
+        self.onboardingCompleted = onboardingCompleted
+    }
+}
+
 extension SleepRoutine {
     @discardableResult convenience init(bedTime: Date, date: String, id: UUID = UUID(), distance: String, context: NSManagedObjectContext = CoreDataManager.shared.mainContext) {
         self.init(context: context)
