@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct OnboardView: View {
-    @Binding var isOnboardingCompleted: Bool
     @State private var currentPageIndex: Int = 0
-    
+    @Binding var isOnboardingCompleted: Bool
     @Binding var name: String
     @Binding var time: Date
-    
     @StateObject var EKManager: EventKitManager = EventKitManager()
+    @ObservedObject var profileViewModel = ProfileViewModel()
     
     let paleBlue = Color(UIColor(named: "paleBlue")!)
     
@@ -30,7 +29,6 @@ struct OnboardView: View {
                     Form2View(time: $time, name: $name)
                         .transition(.asymmetric(insertion: .opacity, removal: .opacity))
                 }
-                
                 
                 Spacer()
                 
@@ -59,23 +57,19 @@ struct OnboardView: View {
                             withAnimation() {
                                 currentPageIndex += 1
                             }
-        //                    Form2View = true
-                            }, label: {
-                                Text("Continue")
+                        }, label: {
+                            Text("Continue")
                                 .font(.system(size: 21))
-                                .foregroundColor(Color("paleBlue"))
+                                .foregroundColor(profileViewModel.nameIsEmpty(name: name) ? Color.white : Color("paleBlue"))
                                 .frame(width: 210, height: 55)
-                                .background(Color.white)
+                                .background(profileViewModel.nameIsEmpty(name: name) ? Color.gray : Color.white)
                                 .cornerRadius(70)
-                                .padding(.bottom, 30)
                                 .padding(.trailing, 90)
                                 .background(Color("paleBlue"))
-                                
-                
-                                
                         })
+                        .disabled(profileViewModel.nameIsEmpty(name: name))
                     } else {
-                        Button(action:  {
+                        Button(action: {
                             withAnimation() {
                                 EKManager.addReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
                                 
@@ -93,7 +87,6 @@ struct OnboardView: View {
                             .cornerRadius(70)
                             .padding(.bottom, 13)
                             .padding(.trailing, 75)
-                            
                         })
                         .padding()
                     }
@@ -110,7 +103,6 @@ struct OnboardView: View {
                 dismissButton: .default(Text("OK"))
             )
         }
-        
     }
 }
 
@@ -160,7 +152,7 @@ struct Form2View: View {
     var body: some View {
         ZStack{
             paleBlue.edgesIgnoringSafeArea(.all)
-            VStack{
+            VStack {
                 Image("placeholder")
                     .resizable()
                     .frame(width: 112, height: 112)
@@ -186,24 +178,17 @@ struct Form2View: View {
                         .padding(.bottom, 45)
                         .foregroundColor(.white)
                 }
-                
-                
-               
-                    ZStack {
-                        Color("paleBlue")
-                        DatePicker("", selection: $time, displayedComponents: .hourAndMinute)
-                            .datePickerStyle(WheelDatePickerStyle())
-                            .labelsHidden()
-                            .frame(width: 299, height: 210)
-                            .background(Color.white)
-                        .cornerRadius(20)
-                    }    .padding(.top, -100)
-               
-                
+                ZStack {
+                    Color("paleBlue")
+                    DatePicker("", selection: $time, displayedComponents: .hourAndMinute)
+                        .datePickerStyle(WheelDatePickerStyle())
+                        .labelsHidden()
+                        .frame(width: 299, height: 210)
+                        .background(Color.white)
+                    .cornerRadius(20)
                 }
-                
+                .padding(.top, -100)
             }
         }
     }
-
-
+}

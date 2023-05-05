@@ -19,7 +19,7 @@
 		04BA739A29FCE56F005354C5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA739929FCE56F005354C5 /* CoreDataManager.swift */; };
 		04BA73D629FCEF66005354C5 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 04BA73D529FCEF66005354C5 /* FSCalendar */; };
 		04E8233529F594E700F6C73E /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233429F594E700F6C73E /* EditProfileView.swift */; };
-		04E8233729F5954200F6C73E /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233629F5954200F6C73E /* EditProfileViewModel.swift */; };
+		04E8233729F5954200F6C73E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233629F5954200F6C73E /* ProfileViewModel.swift */; };
 		2A53E50D2A00B21C008E120A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A53E50C2A00B21C008E120A /* Assets.xcassets */; };
 		53795DF729F450F4000B1BB4 /* ProgressComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF629F450F4000B1BB4 /* ProgressComponent.swift */; };
 		53795DF929F45100000B1BB4 /* InformationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF829F45100000B1BB4 /* InformationComponent.swift */; };
@@ -72,7 +72,7 @@
 		04BA739729FCE565005354C5 /* EventKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitManager.swift; sourceTree = "<group>"; };
 		04BA739929FCE56F005354C5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		04E8233429F594E700F6C73E /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
-		04E8233629F5954200F6C73E /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		04E8233629F5954200F6C73E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		04E8233829F5960400F6C73E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A53E50C2A00B21C008E120A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53795DF629F450F4000B1BB4 /* ProgressComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressComponent.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 			children = (
 				53795DFC29F457D2000B1BB4 /* DashboardViewModel.swift */,
 				53795DFE29F457ED000B1BB4 /* ProgressViewModel.swift */,
-				04E8233629F5954200F6C73E /* EditProfileViewModel.swift */,
+				04E8233629F5954200F6C73E /* ProfileViewModel.swift */,
 				0463C30C2A0163C300E8F7D0 /* EntryViewModel.swift */,
 			);
 			path = ViewModels;
@@ -497,7 +497,7 @@
 			files = (
 				539A88AC29FD1FE30065224A /* OnboardView.swift in Sources */,
 				04BA739829FCE565005354C5 /* EventKitManager.swift in Sources */,
-				04E8233729F5954200F6C73E /* EditProfileViewModel.swift in Sources */,
+				04E8233729F5954200F6C73E /* ProfileViewModel.swift in Sources */,
 				04E8233529F594E700F6C73E /* EditProfileView.swift in Sources */,
 				539A88B429FFE05B0065224A /* MusicPlayerViewModel.swift in Sources */,
 				04B8A2242A0213AD00B6380A /* CalendarView.swift in Sources */,

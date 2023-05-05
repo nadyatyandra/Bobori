@@ -8,6 +8,22 @@
 import Foundation
 import CoreData
 
+extension Child {
+    @discardableResult convenience init(name: String, bedTime: Date, context: NSManagedObjectContext = CoreDataManager.shared.mainContext) {
+        self.init(context: context)
+        self.name = name
+        self.bedTime = bedTime
+    }
+}
+
+extension Music {
+    @discardableResult convenience init(selectedSong: String, lastDate: Date, context: NSManagedObjectContext = CoreDataManager.shared.mainContext) {
+        self.init(context: context)
+        self.selectedSong = selectedSong
+        self.lastDate = lastDate
+    }
+}
+
 extension SleepRoutine {
     @discardableResult convenience init(bedTime: Date, date: String, id: UUID = UUID(), distance: String, context: NSManagedObjectContext = CoreDataManager.shared.mainContext) {
         self.init(context: context)
