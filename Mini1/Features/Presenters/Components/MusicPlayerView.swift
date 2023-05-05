@@ -5,6 +5,7 @@
 //  Created by Leo Harnadi on 01/05/23.
 //
 import SwiftUI
+import LottieUI
 
 struct MusicPlayerView: View {
     @ObservedObject var musicPlayerViewModel: MusicPlayerViewModel
@@ -24,12 +25,9 @@ struct MusicPlayerView: View {
                     .font(.system(size: 24))
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.white)
-                    
-                Image(chosenMusic)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 315, height: 315)
-                    .padding(.top, 50)
+                
+                LottieView(state: LUStateData(type: .name("enam", .main), loopMode: .loop))
+                    .scaleEffect(0.5)
                 
                 Button(playMusic ? "■ Stop" : " ▶ Play") {
                     playMusic.toggle()
@@ -44,9 +42,6 @@ struct MusicPlayerView: View {
                 .background(Color.white)
                 .cornerRadius(50)
                 .padding(.top, 50)
-                
-
-               
             }
         }
     }
