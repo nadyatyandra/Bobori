@@ -13,6 +13,7 @@ struct EditProfileView: View {
     @Binding var time: Date
     @StateObject var EKManager: EventKitManager = EventKitManager()
     @ObservedObject var profileViewModel = ProfileViewModel()
+    @ObservedObject var entryViewModel: EntryViewModel
     
     var body: some View {
         ZStack {
@@ -58,6 +59,8 @@ struct EditProfileView: View {
                     Button(action: {
                         withAnimation() {
                             EKManager.editReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
+                            
+                            entryViewModel.saveToChild(entry: entryViewModel.child[0], name: name, bedTime: time)
                             
                             showProfile = false
                         }
