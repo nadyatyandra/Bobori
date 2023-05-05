@@ -45,6 +45,7 @@ struct ProgressComponent: View {
                                 RoundedRectangle(cornerRadius: 12)
                                     .frame(width: 60, height: 7)
                                     .foregroundColor(Color("paleBlue"))
+                                    .padding(.top, -50)
                             }
                             
                             if currentStageIndex < 4 {
@@ -53,17 +54,29 @@ struct ProgressComponent: View {
                                         .frame(width: 60, height: 7)
                                         .foregroundColor(.white)
                                         .border(Color("paleBlue"))
+                                        .padding(.top, -50)
                                 }
                             }
                         }
                         ZStack{
+                                                   
                             RoundedRectangle(cornerRadius: 12)
-                                .frame(width: 324, height: 144)
-                                .foregroundColor(Color("paleBlue"))
+                                    .frame(width: 324, height: 144)
+                                    .foregroundColor(Color("paleBlue"))
+                                    .padding(.top, -30)
+                                                   
+                        VStack{
+                            
+                            Text("\(name) is currently at")
+                                
                             Text("Stage \(currentStageIndex + 1): \(distances[currentStageIndex])")
-                                .foregroundColor(.white)
-                        }
-                    }
+                                    .foregroundColor(.white)
+                                                   
+                                                   
+                                                           
+                    
+                                                   }
+                                               }                    }
                     
                     
                     

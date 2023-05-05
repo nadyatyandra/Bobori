@@ -23,6 +23,7 @@ struct MusicPlayerView: View {
                 Text("Here's a music recommendation for \(name)")
                     .font(.system(size: 24))
                     .multilineTextAlignment(.center)
+                    .foregroundColor(Color.white)
                     
                 Image(chosenMusic)
                     .resizable()

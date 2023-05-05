@@ -95,7 +95,7 @@ struct InformationComponent : View {
                 
             }
             .frame(maxHeight: .infinity)
-        }
+        } 
 
     }
 }
