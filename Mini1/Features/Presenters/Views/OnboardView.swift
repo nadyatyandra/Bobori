@@ -58,8 +58,8 @@ struct OnboardView: View {
                         }
                     }
 
-                    Spacer()
-                    
+//                    Spacer()
+//
                     if currentPageIndex == 1 {
                         HStack {
                             Button(action: {
@@ -94,34 +94,13 @@ struct OnboardView: View {
                         }
                     }
 
-                    Spacer()
+//                    Spacer()
                     
                     if currentPageIndex == 2 {
-                        Button(action: {
-                            withAnimation() {
-                                currentPageIndex += 1
-                            }
-                        }, label: {
-                            Text("Continue")
-                                .font(.system(size: 21))
-                                .foregroundColor(profileViewModel.nameIsEmpty(name: name) ? Color.white : Color("paleBlue"))
-                                .frame(width: 210, height: 55)
-                                .background(profileViewModel.nameIsEmpty(name: name) ? Color.gray : Color.white)
-                                .cornerRadius(70)
-                                .padding(.trailing, 90)
-                                .background(Color("paleBlue"))
-                        })
-                        .disabled(profileViewModel.nameIsEmpty(name: name))
-                    } else {
-                        Button(action: {
-                            withAnimation() {
-                                EKManager.addReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
-                                
-                                if !EKManager.emptyReminderList {
-                                    entryViewModel.saveToChild(entry: entryViewModel.child[0], name: name, bedTime: time)
-                                    entryViewModel.completeOnboarding(entry: entryViewModel.progress[0])
-                                    
-                                    isOnboardingCompleted = true
+                        HStack {
+                            Button(action: {
+                                withAnimation() {
+                                    currentPageIndex -= 1
                                 }
                             }) {
                                 Image(systemName: "chevron.left")
@@ -132,31 +111,51 @@ struct OnboardView: View {
                             .padding(.leading, 30)
                             Spacer()
                         }
-                        HStack {
-                            Button(action: {
-                                withAnimation() {
-                                    EKManager.addReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
+                            Spacer()
+                            HStack {
+//                                Button(action: {
+//                                    withAnimation() {
+//                                        EKManager.addReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
+//
+//                                        if !EKManager.emptyReminderList {
+//                                            entryViewModel.saveToChild(entry: entryViewModel.child[0], name: name, bedTime: time)
+//                                            entryViewModel.completeOnboarding(entry: entryViewModel.progress[0])
+//
+//                                            isOnboardingCompleted = true
+//                                        }
+//                                    }
                                     
-                                    if !EKManager.emptyReminderList {
-                                        isOnboardingCompleted = true
+                                    
+                                Button(action: {
+                                    withAnimation() {
+                                        EKManager.addReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
+
+                                        if !EKManager.emptyReminderList {
+                                            entryViewModel.saveToChild(entry: entryViewModel.child[0], name: name, bedTime: time)
+                                            entryViewModel.completeOnboarding(entry: entryViewModel.progress[0])
+
+                                            isOnboardingCompleted = true
+                                        }
+
                                     }
-                                }
-                            }, label: {
-                                Text("Save")
-                                    .font(.system(size: 21))
-                                    .foregroundColor(Color("paleBlue"))
-                                    .frame(width: 210, height: 55)
-                                    .background(Color.white)
-                                    .cornerRadius(70)
-                                    .padding(.bottom, 13)
-                                    .padding(.trailing, 75)
-                            })
-                            .padding()
+//                                })
+                                    
+                                }, label: {
+                                    Text("Save")
+                                        .font(.system(size: 21))
+                                        .foregroundColor(Color("paleBlue"))
+                                        .frame(width: 210, height: 55)
+                                        .background(Color.white)
+                                        .cornerRadius(70)
+                                        .padding(.bottom, 13)
+                                        .padding(.trailing, 75)
+                                })
+                                .padding()
+                            }
                         }
                     }
                 }
             }
-        }
         .onAppear(){
             EKManager.requestAccess()
         }
