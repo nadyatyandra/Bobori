@@ -10,9 +10,13 @@ import EventKit
 
 struct ProgressComponent: View {
     @ObservedObject var viewModel: ProgressViewModel
+    @ObservedObject var entryViewModel: EntryViewModel
+    
     
     // For Calendar
     @State var selectedDate = Date()
+    @State var showSheet: Bool = false
+    @State var isFilled: Bool = false
     
     // Bool to toggle edit profile view
     @State var showProfile: Bool = false
@@ -72,21 +76,21 @@ struct ProgressComponent: View {
                             
                             
                             
-                        Button(viewModel.isFilled ? "View Daily Progress" : "➕ Add Daily Progress") {
-                            viewModel.checkDailyProgress()
+                        Button(isFilled ? "View Daily Progress" : "➕ Add Daily Progress") {
+                            checkDailyProgress()
                             selectedDate = Date()
-                            viewModel.showSheet = true
+                            showSheet = true
                         }
                         .font(.system(size: 16))
                         .foregroundColor(.white)
                         .onAppear {
-                            viewModel.checkDailyProgress()
+                            checkDailyProgress()
                         }
                         
                     }
                     .padding(.top)
                     
-                    CalendarView(selectedDate: $selectedDate, isFilled: $viewModel.isFilled, showSheet: $viewModel.showSheet, entryViewModel: viewModel.entryViewModel)
+                    CalendarView(selectedDate: $selectedDate, isFilled: $isFilled, showSheet: $showSheet, entryViewModel: entryViewModel)
                         .padding(.top, -30)
                         .padding(.bottom, -10)
                     
@@ -140,12 +144,25 @@ struct ProgressComponent: View {
         .sheet(isPresented: $showMusic) {
             MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, showMusic: $showMusic, playMusic: $playMusic, name: $name)
         }
-        .sheet(isPresented: $viewModel.showSheet) {
-            if viewModel.isFilled {
-               HistoryView(entryViewModel: self.viewModel.entryViewModel, entry: viewModel.entryViewModel.getOneEntry(date: selectedDate)!)
+        .sheet(isPresented: $showSheet) {
+            if isFilled {
+               HistoryView(entryViewModel: self.entryViewModel, entry: entryViewModel.getOneEntry(date: selectedDate)!)
             } else {
-                ProgressFormView(entryViewModel: self.viewModel.entryViewModel, date: $selectedDate, name: $name, showSheet: $viewModel.showSheet, isFilled: $viewModel.isFilled, currentStageIndex: $currentStageIndex, distances: distances)
+                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, currentStageIndex: $currentStageIndex, distances: distances)
             }
         }
+    }
+    
+    func checkDailyProgress() {
+        let date = Date()
+        entryViewModel.selectedDateEntry.removeAll()
+        
+        guard let sleepRoutine = entryViewModel.getOneEntry(date: date)
+        else {
+            isFilled = false
+            return
+        }
+        entryViewModel.selectedDateEntry.append(sleepRoutine)
+        isFilled = true
     }
 }

@@ -13,6 +13,8 @@ struct DashboardView: View {
     
     @StateObject var viewModel = DashboardViewModel()
     
+    @StateObject var entryViewModel = EntryViewModel()
+    
     // Data for reminder
     @State private var name: String = ""
     @State private var time: Date = Date()
@@ -33,7 +35,7 @@ struct DashboardView: View {
                 VStack {
                     TabView(selection: $viewModel.selectedTab) {
                     NavigationView {
-                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time)
+                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), entryViewModel: entryViewModel, showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time)
                     }
                     .tabItem {
                         Label("Progress", systemImage: "calendar")

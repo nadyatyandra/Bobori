@@ -17,6 +17,7 @@ struct ProgressFormView: View {
     @Binding var isFilled: Bool
     @Binding var currentStageIndex: Int
     @State private var currentPageIndex: Int = 0
+    @State private var maxStageIndex: Int = 0
     @Environment(\.presentationMode) var presentationMode
     var distances: [String]
     
@@ -105,6 +106,8 @@ struct ProgressFormView: View {
                                         .multilineTextAlignment(.leading)
                                         .font(.system(size: 18))
                                 }
+                                
+                                
                             }
                             .pickerStyle(.wheel)
                             
@@ -117,6 +120,11 @@ struct ProgressFormView: View {
                             isFilled = true
                             
                             currentStageIndex = distances.firstIndex(where: { $0 == distance })!
+                            
+                            if currentStageIndex > maxStageIndex {
+                                maxStageIndex = currentPageIndex
+                            }
+                            
                         }) {
                             Text("Save")
                         }
