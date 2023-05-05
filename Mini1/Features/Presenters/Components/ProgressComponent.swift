@@ -51,10 +51,10 @@ struct ProgressComponent: View {
                             if currentStageIndex < 4 {
                                 ForEach((0...(3-currentStageIndex)), id: \.self) {_ in
                                     RoundedRectangle(cornerRadius: 12)
+                                        .stroke(Color("paleBlue"), lineWidth: 1)
                                         .frame(width: 60, height: 7)
-                                        .foregroundColor(.white)
-                                        .border(Color("paleBlue"))
                                         .padding(.top, -50)
+
                                 }
                             }
                         }
@@ -64,19 +64,58 @@ struct ProgressComponent: View {
                                     .frame(width: 324, height: 144)
                                     .foregroundColor(Color("paleBlue"))
                                     .padding(.top, -30)
-                                                   
-                        VStack{
                             
-                            Text("\(name) is currently at")
-                                
-                            Text("Stage \(currentStageIndex + 1): \(distances[currentStageIndex])")
+                           
+                                    
+                                                   
+                            VStack{
+                                Text("\(name) is currently at")
+                                    .font(.system(size: 12))
                                     .foregroundColor(.white)
-                                                   
-                                                   
-                                                           
-                    
-                                                   }
-                                               }                    }
+                                    .padding(.top, -60)
+                                    .padding(.leading, -140)
+                                    
+                                Text("Stage \(currentStageIndex + 1)")
+                                            .foregroundColor(.white)
+                                            .font(.system(size: 21))
+                                            .padding(.top, -50)
+                                            .padding(.leading, -140)
+                                            
+                                
+                            }
+                            
+                            if(currentStageIndex == 0){
+                                Image("Stage1Card")
+                                    .resizable()
+                                    .frame(width: 284, height: 74)
+                                    .padding(.top, 20)
+                            } else if(currentStageIndex == 1){
+                                Image("Stage2Card")
+                                    .resizable()
+                                    .frame(width: 284, height: 74)
+                                    .padding(.top, 20)
+                            } else if(currentStageIndex == 2){
+                                Image("Stage3Card")
+                                    .resizable()
+                                    .frame(width: 284, height: 74)
+                                    .padding(.top, 20)
+                            } else if(currentStageIndex == 3){
+                                Image("Stage4Card")
+                                    .resizable()
+                                    .frame(width: 81, height: 75)
+                                    .padding(.top, 20)
+                                    .padding(.leading, 200)
+                            } else if(currentStageIndex == 4){
+                                Image("Stage5Card")
+                                    .resizable()
+                                    .frame(width: 81, height: 75)
+                                    .padding(.top, 20)
+                                    .padding(.leading, 200)
+                            }
+                            
+
+                        }
+                    }
                     
                     
                     
@@ -146,6 +185,7 @@ struct ProgressComponent: View {
                         Image("placeholder")
                             .resizable()
                             .frame(width: 54, height: 54)
+                            .padding(.trailing, 10)
                         
                     }
                 } .padding(.top, 30)

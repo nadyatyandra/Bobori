@@ -16,38 +16,49 @@ struct HistoryView: View {
         ZStack{
             Color("paleBlue").ignoresSafeArea()
             VStack {
-                
+                Image("placeholder")
+                    .resizable()
+                    .frame(width: 192, height: 160)
+                    .padding(.top, -80)
                 FormattedDate(date: entry.date!)
-                
+                    
                 
                 Text("Sleeping Time")
                     .font(.system(size: 16))
                     .foregroundColor(.white)
+                    .padding(.leading, -165)
+//                    .padding(.leading, 10)
+                    .padding(.top, 60)
                 
-                ZStack{
-                    RoundedRectangle(cornerRadius: 12)
-                        .foregroundColor(.white)
-                        .shadow(radius: 3)
+                
+                    FormattedTime(time: entry.bedTime!).bold()
                         .frame(width: 350, height: 50)
-                    FormattedTime(time: entry.bedTime!)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(.white, lineWidth: 1)
+                        )
                     
-                }
+                
                 Text("Chair Distance")
                     .font(.system(size: 16))
                     .foregroundColor(.white)
-                ZStack{
-                    RoundedRectangle(cornerRadius: 12)
-                        .foregroundColor(.white)
-                        .shadow(radius: 3)
-                        .frame(width: 350, height: 50)
-                    Text(entry.distance ?? "ga ada distance" ).font(.title).padding()
+                    .padding(.leading, -165)
+                    .padding(.top, 22)
+        
+                Text(entry.distance ?? "ga ada distance" )
                         .font(.system(size: 18))
-                        .foregroundColor(Color("paleBlue"))
+                        .frame(width: 350, height: 50)
+                        .foregroundColor(Color.white)
+                        .bold()
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(.white, lineWidth: 1)
+                        )
+
                     
-                }
-                
-                
+                    
+                } .padding(.top, -4)
             }
         }
     }
-}
+

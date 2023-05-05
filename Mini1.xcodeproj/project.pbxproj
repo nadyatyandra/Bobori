@@ -202,8 +202,8 @@
 			children = (
 				53795DFC29F457D2000B1BB4 /* DashboardViewModel.swift */,
 				53795DFE29F457ED000B1BB4 /* ProgressViewModel.swift */,
-				04E8233629F5954200F6C73E /* ProfileViewModel.swift */,
 				0463C30C2A0163C300E8F7D0 /* EntryViewModel.swift */,
+				04E8233629F5954200F6C73E /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -675,7 +675,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mini1/Preview Content\"";
-				DEVELOPMENT_TEAM = RV753K5W6M;
+				DEVELOPMENT_TEAM = 68FYPQ879D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini1/Info.plist;
@@ -707,7 +707,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mini1/Preview Content\"";
-				DEVELOPMENT_TEAM = RV753K5W6M;
+				DEVELOPMENT_TEAM = 68FYPQ879D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini1/Info.plist;
