@@ -202,7 +202,7 @@ struct ProgressComponent: View {
             if isFilled {
                HistoryView(entryViewModel: self.entryViewModel, entry: entryViewModel.getOneEntry(date: selectedDate)!)
             } else {
-                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, dailyIsFilled: $dailyIsFilled, dailyShowSheet: $dailyShowSheet, currentStageIndex: $currentStageIndex, maxStageIndex: $maxStageIndex, lastDate: $lastDate, distances: distances)
+                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, dailyIsFilled: $dailyIsFilled, dailyShowSheet: $dailyShowSheet, currentStageIndex: $currentStageIndex, maxStageIndex: $maxStageIndex, distances: distances)
                     .onDisappear {
                         dailyShowSheet = false
                     }

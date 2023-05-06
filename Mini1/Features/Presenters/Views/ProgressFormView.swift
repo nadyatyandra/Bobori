@@ -20,7 +20,6 @@ struct ProgressFormView: View {
     @Binding var dailyShowSheet: Bool
     @Binding var currentStageIndex: Int
     @Binding var maxStageIndex: Int
-    @Binding var lastDate: Date
     @State private var currentPageIndex: Int = 0
     
     @Environment(\.presentationMode) var presentationMode
@@ -114,7 +113,7 @@ struct ProgressFormView: View {
                             
                             
                             
-                            if dailyShowSheet || calendar.isDate(lastDate, inSameDayAs: currentDate) {
+                            if dailyShowSheet || calendar.isDate(date, inSameDayAs: currentDate) {
                                 dailyIsFilled = true
                             }
                             
