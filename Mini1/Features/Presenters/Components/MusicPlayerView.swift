@@ -9,9 +9,11 @@ import LottieUI
 
 struct MusicPlayerView: View {
     @ObservedObject var musicPlayerViewModel: MusicPlayerViewModel
+    @ObservedObject var entryViewModel: EntryViewModel
     
     @Binding var showMusic: Bool
-    @State var chosenMusic: String = "Song 1" //default music
+    @Binding var chosenMusic: String
+    @Binding var lastDate: Date
     
     @Binding var playMusic: Bool
     @Binding var name: String
@@ -26,7 +28,9 @@ struct MusicPlayerView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.white)
                     .onAppear() {
-                        chosenMusic = musicPlayerViewModel.checkIfNewDay()
+                        chosenMusic = checkIfNewDay().selectedSong
+                        lastDate = checkIfNewDay().lastDate ?? Date()
+                        entryViewModel.changeMusic(entry: entryViewModel.music[0], lastDate: lastDate, selectedSong: chosenMusic)
                     }
                 
                 LottieView(state: LUStateData(type: .name("enam", .main), loopMode: .loop))
@@ -48,4 +52,27 @@ struct MusicPlayerView: View {
             }
         }
     }
+    
+    func checkIfNewDay() -> MusicPlayerModel {
+        let currentDate: Date = Date()
+        let calendar: Calendar = Calendar.current
+        
+        
+        // Check if last date is nil or if last date is the same as current date
+        if (!calendar.isDate(lastDate, inSameDayAs: currentDate)) {
+            
+            musicPlayerViewModel.musicPlayerModel.lastDate = currentDate
+            
+            musicPlayerViewModel.musicPlayerModel.selectedSong = musicPlayerViewModel.musicPlayerModel.musicList.randomElement()!
+            
+            return musicPlayerViewModel.musicPlayerModel
+        } else {
+            musicPlayerViewModel.musicPlayerModel.lastDate = lastDate
+            
+            musicPlayerViewModel.musicPlayerModel.selectedSong = chosenMusic
+            
+            return musicPlayerViewModel.musicPlayerModel
+        }
+    }
+    
 }

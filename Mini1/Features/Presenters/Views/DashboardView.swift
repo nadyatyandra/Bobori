@@ -23,6 +23,8 @@ struct DashboardView: View {
     @State var showMusic: Bool = false
     @State var playMusic: Bool = false
     @ObservedObject var musicPlayerViewModel = MusicPlayerViewModel()
+    @State var chosenMusic: String = "Song 1"
+    @State var lastDate: Date = Date()
     
     var body: some View {
         ZStack {
@@ -35,7 +37,7 @@ struct DashboardView: View {
                 VStack {
                     TabView(selection: $viewModel.selectedTab) {
                     NavigationView {
-                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), entryViewModel: entryViewModel, showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time)
+                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), entryViewModel: entryViewModel, showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time, chosenMusic: $chosenMusic, lastDate: $lastDate)
                     }
                     .tabItem {
                         Label("Progress", systemImage: "calendar")
@@ -57,6 +59,9 @@ struct DashboardView: View {
             isOnboardingCompleted = entryViewModel.progress[0].onboardingCompleted
             name = entryViewModel.child[0].name ?? ""
             time = entryViewModel.child[0].bedTime ?? Date()
+            chosenMusic = entryViewModel.music[0].selectedSong ?? "Song 1"
+            lastDate = entryViewModel.music[0].lastDate ?? Date()
+//            print("Chosen music: \(chosenMusic) + last date: \(lastDate)")
         }
     }
 }

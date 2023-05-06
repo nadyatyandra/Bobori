@@ -36,6 +36,10 @@ struct ProgressComponent: View {
     @State var maxStageIndex: Int = 0
     var distances: [String] = ["Besides crib", "Halfway towards door", "Next to doorway", "Outside the room (seen)", "Outside the room (unseen)"]
     
+    // For Music
+    @Binding var chosenMusic: String
+    @Binding var lastDate: Date
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -188,7 +192,7 @@ struct ProgressComponent: View {
             EditProfileView(showProfile: $showProfile, name: $name, time: $time, entryViewModel: entryViewModel)
         }
         .sheet(isPresented: $showMusic) {
-            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, showMusic: $showMusic, playMusic: $playMusic, name: $name)
+            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, entryViewModel: entryViewModel, showMusic: $showMusic, chosenMusic: $chosenMusic, lastDate: $lastDate, playMusic: $playMusic, name: $name)
         }
         .sheet(isPresented: $showSheet) {
             if isFilled {

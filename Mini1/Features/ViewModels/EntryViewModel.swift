@@ -14,12 +14,13 @@ class EntryViewModel: ObservableObject {
     @Published var selectedDateEntry: [SleepRoutine] = []
     @Published var filledDate: [FilledDate] = []
     @Published var child: [Child] = []
-//    @Published var music: [Music] = []
+    @Published var music: [Music] = []
     @Published var progress: [Progress] = []
     
     init() {
         initializeProgress()
         initializeChild()
+        initializeMusic()
         getEntries()
     }
     
@@ -37,6 +38,7 @@ class EntryViewModel: ObservableObject {
         let fetchRequestProgress: NSFetchRequest<Progress> = Progress.fetchRequest()
         let fetchRequestChild: NSFetchRequest<Child> = Child.fetchRequest()
         let fetchRequestFilled:NSFetchRequest<FilledDate> = FilledDate.fetchRequest()
+        let fetchRequestMusic:NSFetchRequest<Music> = Music.fetchRequest()
         
         let moc = CoreDataManager.shared.mainContext
         do {
@@ -44,6 +46,7 @@ class EntryViewModel: ObservableObject {
             progress = try moc.fetch(fetchRequestProgress)
             child = try moc.fetch(fetchRequestChild)
             filledDate = try moc.fetch(fetchRequestFilled)
+            music = try moc.fetch(fetchRequestMusic)
             
         } catch {
             NSLog("Error fetching tasks: \(error)")
@@ -98,6 +101,22 @@ class EntryViewModel: ObservableObject {
     
     func completeOnboarding(entry: Progress) {
         entry.onboardingCompleted = true
+        saveToPersistentStore()
+    }
+    
+    func initializeMusic() {
+        if music.isEmpty {
+            let item = Music(selectedSong: "", lastDate: Date())
+            
+            music.append(item)
+            saveToPersistentStore()
+        }
+    }
+    
+    func changeMusic(entry: Music, lastDate: Date, selectedSong: String) {
+        entry.lastDate = lastDate
+        entry.selectedSong = selectedSong
+//        print(entry)
         saveToPersistentStore()
     }
 }

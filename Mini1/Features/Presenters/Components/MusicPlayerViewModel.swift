@@ -9,28 +9,11 @@ import Foundation
 import AVFoundation
 
 class MusicPlayerViewModel: ObservableObject {
-    var musicPlayerModel = MusicPlayerModel()
+    @Published var musicPlayerModel = MusicPlayerModel()
     
     var songPlayer: AVAudioPlayer?
     
-    func checkIfNewDay() -> String {
-        let currentDate: Date = Date()
-        let calendar: Calendar = Calendar.current
-        
-        
-        // Check if last date is nil or if last date is the same as current date
-        if (musicPlayerModel.lastDate == nil || !calendar.isDate(musicPlayerModel.lastDate!, inSameDayAs: currentDate)) {
-            
-            musicPlayerModel.lastDate = currentDate
-            
-            musicPlayerModel.selectedSong = musicPlayerModel.musicList.randomElement()!
-            
-            return musicPlayerModel.selectedSong
-        } else {
-            return musicPlayerModel.selectedSong
-            
-        }
-    }
+    
     
     func playSong() {
         guard let url = Bundle.main.url(forResource: musicPlayerModel.selectedSong, withExtension: "mp3") else { return }
