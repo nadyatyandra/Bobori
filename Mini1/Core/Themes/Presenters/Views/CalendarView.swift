@@ -40,7 +40,6 @@ struct CalendarViewRepresentable: UIViewRepresentable {
     @Binding var isFilled: Bool
     @Binding var showSheet: Bool
     @ObservedObject var entryViewModel: EntryViewModel
-    
     @Binding var showError: Bool
     
     func makeUIView(context: Context) -> FSCalendar {
@@ -49,7 +48,7 @@ struct CalendarViewRepresentable: UIViewRepresentable {
         calendar.appearance.todayColor = UIColor(displayP3Red: 100, green: 100, blue: 0, alpha: 0)
         calendar.appearance.titleTodayColor = .blue
         calendar.appearance.selectionColor = .blue
-        calendar.appearance.eventDefaultColor = .green
+        calendar.appearance.eventDefaultColor = .red
 //        calendar.appearance.titleTodayColor = .blue
         calendar.appearance.titleFont = .systemFont(ofSize: 20)
 //        calendar.appearance.titleWeekendColor = .systemOrange
@@ -65,6 +64,7 @@ struct CalendarViewRepresentable: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: FSCalendar, context: Context) {}
+    
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
@@ -80,6 +80,7 @@ struct CalendarViewRepresentable: UIViewRepresentable {
             let todayDate = Date()
             parent.selectedDate = date
             parent.entryViewModel.selectedDateEntry.removeAll()
+            calendar.reloadData()
             
             if date <= todayDate {
                 parent.showSheet = true
@@ -94,48 +95,37 @@ struct CalendarViewRepresentable: UIViewRepresentable {
             }
             parent.entryViewModel.selectedDateEntry.append(sleepRoutine)
             parent.isFilled = true
-            
         }
         
         func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-//            let eventDates = [Date(), Date(),
-//                                Date.now.addingTimeInterval(300000),
-//                                Date.now.addingTimeInterval(100000),
-//                                Date.now.addingTimeInterval(-600000),
-//                                Date.now.addingTimeInterval(-1000000)]
-
             let eventDates: [FilledDate] = parent.entryViewModel.filledDate
-            
             var eventCount = 0
-//            print(eventDates)
+
             eventDates.forEach { eventDate in
-//                print("asd")
                 if let filledDate = eventDate.date {
                     if filledDate.formatted(date: .complete, time: .omitted) == date.formatted(date: .complete, time: .omitted){
                         eventCount += 1;
                     }
                 }
-//                if eventDate.formatted(date: .complete, time: .omitted) == date.formatted(date: .complete, time: .omitted){
-//                    eventCount += 1;
-//                }
             }
             return eventCount
         }
         
-        func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+//        func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
 //            if isWeekend(date: date) {
 //                return false
 //            }
-            return true
-        }
+//            return true
+//        }
     }
 }
-func isWeekend(date: Date) -> Bool {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "EEEE"
-    let day: String = dateFormatter.string(from: date)
-    if day == "Saturday" || day == "Sunday" {
-        return true
-    }
-    return false
-}
+
+//func isWeekend(date: Date) -> Bool {
+//    let dateFormatter = DateFormatter()
+//    dateFormatter.dateFormat = "EEEE"
+//    let day: String = dateFormatter.string(from: date)
+//    if day == "Saturday" || day == "Sunday" {
+//        return true
+//    }
+//    return false
+//}
