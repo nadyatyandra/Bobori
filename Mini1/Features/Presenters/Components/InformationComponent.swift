@@ -39,7 +39,7 @@ struct InformationComponent : View {
                         Text("Chair Method Sleep Training")
                             .font(Font.custom("Comfortaa", size: 21))
                             .fontWeight(.semibold)
-                            .padding(.leading, 200)
+                            .padding(.leading, 175)
                             .foregroundColor(Color("paleBlue"))
                     }
                     .padding(.leading, -215)
