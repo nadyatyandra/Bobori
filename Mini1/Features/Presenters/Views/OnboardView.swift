@@ -58,9 +58,7 @@ struct OnboardView: View {
                             })
                         }
                     }
-
-//                    Spacer()
-//
+                    
                     if currentPageIndex == 1 {
                         HStack {
                             Button(action: {
@@ -93,11 +91,8 @@ struct OnboardView: View {
                                     .background(Color("paleBlue"))
                             })
                             .disabled(profileViewModel.nameIsEmpty(name: name))
-//                            .padding(.leading, 50)
                         }
                     }
-
-//                    Spacer()
                     
                     if currentPageIndex == 2 {
                         HStack {
@@ -116,22 +111,9 @@ struct OnboardView: View {
                         }
                             Spacer()
                             HStack {
-//                                Button(action: {
-//                                    withAnimation() {
-//                                        EKManager.addReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
-//
-//                                        if !EKManager.emptyReminderList {
-//                                            entryViewModel.saveToChild(entry: entryViewModel.child[0], name: name, bedTime: time)
-//                                            entryViewModel.completeOnboarding(entry: entryViewModel.progress[0])
-//
-//                                            isOnboardingCompleted = true
-//                                        }
-//                                    }
-                                    
-                                    
                                 Button(action: {
                                     withAnimation() {
-                                        EKManager.addReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
+                                        EKManager.addReminder(name: name, hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
 
                                         if !EKManager.emptyReminderList {
                                             entryViewModel.saveToChild(entry: entryViewModel.child[0], name: name, bedTime: time)
@@ -139,10 +121,7 @@ struct OnboardView: View {
 
                                             isOnboardingCompleted = true
                                         }
-
                                     }
-//                                })
-                                    
                                 }, label: {
                                     Text("Save")
                                         .font(.system(size: 21))
@@ -231,10 +210,8 @@ struct Form1View: View {
                     .overlay(
                         TextField("Your Baby's Name", text: $name)
                             .font(Font.custom("Nunito ExtraLight", size: 18))
-//                            .foregroundColor(.black)
                             .padding()
                     )
-//                    .padding(.top, -100)
                     .padding(.bottom, 170)
             }
         }
@@ -257,24 +234,13 @@ struct Form2View: View {
                     .font(Font.custom("Nunito ExtraLight", size: 24))
                     .foregroundColor(.white)
                     .fontWeight(.bold)
-//                    .padding(.top)
-//                if name.isEmpty {
-//                    Text("What time does your baby sleep?")
-//                        .multilineTextAlignment(.center)
-//                        .frame(width: 300, height: 100)
-//                        .font(.system(size: 21))
-//                        .padding(.top, 20)
-//                        .padding(.bottom, 65)
-//                        .foregroundColor(.white)
-//                } else {
-                    Text("What's your little one's sleeping time?")
-                        .font(Font.custom("Nunito ExtraLight", size: 21))
-                        .multilineTextAlignment(.center)
-                        .frame(width: 260, height: 150)
-                        .padding(.top, -50)
-                        .padding(.bottom, 45)
-                        .foregroundColor(.white)
-//                }
+                Text("What's your little one's sleeping time?")
+                    .font(Font.custom("Nunito ExtraLight", size: 21))
+                    .multilineTextAlignment(.center)
+                    .frame(width: 260, height: 150)
+                    .padding(.top, -50)
+                    .padding(.bottom, 45)
+                    .foregroundColor(.white)
                 ZStack {
                     Color("paleBlue")
                     DatePicker("", selection: $time, displayedComponents: .hourAndMinute)

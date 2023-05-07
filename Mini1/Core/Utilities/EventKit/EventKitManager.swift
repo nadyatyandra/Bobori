@@ -23,12 +23,13 @@ class EventKitManager: ObservableObject {
         }
     }
     
-    func addReminder(hour: Int, minute: Int) {
+    func addReminder(name: String, hour: Int, minute: Int) {
         if eventStore.defaultCalendarForNewReminders() != nil {
             emptyReminderList = false
             
             let reminder = EKReminder(eventStore: eventStore)
-            reminder.title = "My Daily Reminder"
+
+            reminder.title = "\(name)'s Bedtime"
             reminder.calendar = eventStore.defaultCalendarForNewReminders()
             
             let recurrenceRule = EKRecurrenceRule(recurrenceWith: .daily, interval: 1, end: nil)
@@ -48,18 +49,16 @@ class EventKitManager: ObservableObject {
         }
     }
     
-    func editReminder(hour: Int, minute: Int) {
+    func editReminder(oldName: String, newName: String, hour: Int, minute: Int) {
         let predicate: NSPredicate? = eventStore.predicateForReminders(in: nil)
         if let aPredicate = predicate {
             eventStore.fetchReminders(matching: aPredicate, completion: { [self](_ reminders: [Any]?) -> Void in
                 for reminder: EKReminder? in reminders as? [EKReminder?] ?? [EKReminder?]() {
-                    if reminder?.title == "My Daily Reminder" {
+                    if reminder?.title == "\(oldName)'s Bedtime" {
                         do {
                             try eventStore.remove(reminder!, commit: true)
-                            addReminder(hour: hour, minute: minute)
-                                // Handle successful deletion
+                            addReminder(name: newName, hour: hour, minute: minute)
                         } catch {
-                            // Handle deletion error
                             print("error")
                         }
                     }

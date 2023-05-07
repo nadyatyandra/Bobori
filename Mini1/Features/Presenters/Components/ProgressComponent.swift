@@ -82,10 +82,9 @@ struct ProgressComponent: View {
                             Text("Stage \(currentStageIndex + 1)")
                                 .font(Font.custom("Nunito ExtraLight", size: 21))
                                         .foregroundColor(.white)
-                                        .fontWeight(.bold)                                        .padding(.top, -50)
+                                        .fontWeight(.bold)
+                                        .padding(.top, -50)
                                         .padding(.leading, -140)
-                                        
-                            
                         }
                         
                         if(currentStageIndex == 0){
@@ -116,8 +115,6 @@ struct ProgressComponent: View {
                                 .padding(.top, 20)
                                 .padding(.leading, 200)
                         }
-                        
-
                     }
                 }
 
@@ -126,9 +123,6 @@ struct ProgressComponent: View {
                         .foregroundColor(Color("terracotta"))
                         .frame(width: 324, height: 57)
                         .shadow(radius: 3)
-                        
-                        
-                        
                     Button(dailyIsFilled ? "View Daily Progress" : "➕ Add Daily Progress") {
                         checkDailyProgress()
                         selectedDate = Date()
@@ -195,7 +189,7 @@ struct ProgressComponent: View {
             }
         }
         .sheet(isPresented: $showProfile) {
-            EditProfileView(showProfile: $showProfile, name: $name, time: $time, entryViewModel: entryViewModel)
+            EditProfileView(showProfile: $showProfile, oldName: name, newName: $name, time: $time, entryViewModel: entryViewModel)
         }
         .sheet(isPresented: $showMusic) {
             MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, entryViewModel: entryViewModel, showMusic: $showMusic, chosenMusic: $chosenMusic, lastDate: $lastDate, playMusic: $playMusic, name: $name)
@@ -207,7 +201,7 @@ struct ProgressComponent: View {
                 ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, dailyIsFilled: $dailyIsFilled, dailyShowSheet: $dailyShowSheet, currentStageIndex: $currentStageIndex, maxStageIndex: $maxStageIndex, distances: distances)
                     .onDisappear {
                         dailyShowSheet = false
-                    }
+                }
             }
         }
     }

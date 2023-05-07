@@ -9,7 +9,8 @@ import SwiftUI
 
 struct EditProfileView: View {
     @Binding var showProfile: Bool
-    @Binding var name: String
+    @State var oldName: String = ""
+    @Binding var newName: String
     @Binding var time: Date
     @StateObject var EKManager: EventKitManager = EventKitManager()
     @ObservedObject var profileViewModel = ProfileViewModel()
@@ -34,12 +35,10 @@ struct EditProfileView: View {
                         .frame(width: 305, height: 45)
                         
                         .overlay(
-                            TextField("", text: $name)
+                            TextField("", text: $newName)
                                 .font(Font.custom("Nunito ExtraLight", size: 18))
                                 .foregroundColor(Color("paleBlue"))
                                 .padding(.leading)
-                                
-                                
                         )
                         .padding(.top, -30)
                     Text("Sleeping Time")
@@ -60,24 +59,24 @@ struct EditProfileView: View {
                     
                     Button(action: {
                         withAnimation() {
-                            EKManager.editReminder(hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
+                            EKManager.editReminder(oldName: oldName, newName: newName, hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
                             
-                            entryViewModel.saveToChild(entry: entryViewModel.child[0], name: name, bedTime: time)
+                            entryViewModel.saveToChild(entry: entryViewModel.child[0], name: newName, bedTime: time)
                             
                             showProfile = false
                         }
                     }, label: {
                         Text("Save")
                             .font(.system(size: 21))
-                            .foregroundColor(profileViewModel.nameIsEmpty(name: name) ? Color.white : Color("paleBlue"))
+                            .foregroundColor(profileViewModel.nameIsEmpty(name: newName) ? Color.white : Color("paleBlue"))
                             .frame(width: 210, height: 55)
-                            .background(profileViewModel.nameIsEmpty(name: name) ? Color.gray : Color.white)
+                            .background(profileViewModel.nameIsEmpty(name: newName) ? Color.gray : Color.white)
                             .cornerRadius(70)
                             .padding(.top)
                             .padding(.trailing, -10)
                         
                     })
-                    .disabled(profileViewModel.nameIsEmpty(name: name))
+                    .disabled(profileViewModel.nameIsEmpty(name: newName))
                 } .padding(.top, 100)
             }
         }
