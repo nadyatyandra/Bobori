@@ -32,6 +32,11 @@
 		2A53E50D2A00B21C008E120A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A53E50C2A00B21C008E120A /* Assets.xcassets */; };
 		2A8660192A071226003FAF04 /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A8660172A071226003FAF04 /* Nunito-VariableFont_wght.ttf */; };
 		2A86601A2A071226003FAF04 /* Comfortaa-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A8660182A071226003FAF04 /* Comfortaa-VariableFont_wght.ttf */; };
+		2A8660262A073CBC003FAF04 /* Song 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A8660252A073CBC003FAF04 /* Song 1.mp3 */; };
+		2A8660282A073D03003FAF04 /* Song 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A8660272A073D03003FAF04 /* Song 5.mp3 */; };
+		2A86602B2A073D0D003FAF04 /* Song 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A8660292A073D0D003FAF04 /* Song 3.mp3 */; };
+		2A86602C2A073D0D003FAF04 /* Song 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A86602A2A073D0D003FAF04 /* Song 4.mp3 */; };
+		2A86602E2A073D15003FAF04 /* Song 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A86602D2A073D15003FAF04 /* Song 2.mp3 */; };
 		53795DF729F450F4000B1BB4 /* ProgressComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF629F450F4000B1BB4 /* ProgressComponent.swift */; };
 		53795DF929F45100000B1BB4 /* InformationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF829F45100000B1BB4 /* InformationComponent.swift */; };
 		53795DFB29F45368000B1BB4 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DFA29F45368000B1BB4 /* DashboardView.swift */; };
@@ -47,10 +52,6 @@
 		539A88B029FFD2510065224A /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A88AF29FFD2510065224A /* MusicPlayerView.swift */; };
 		539A88B229FFDDDC0065224A /* MusicPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A88B129FFDDDC0065224A /* MusicPlayerModel.swift */; };
 		539A88B429FFE05B0065224A /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A88B329FFE05B0065224A /* MusicPlayerViewModel.swift */; };
-		53DB0DE92A10942300CB387B /* Song 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DB0DE82A10942300CB387B /* Song 1.mp3 */; };
-		53DB0DEB2A10947B00CB387B /* Song 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DB0DEA2A10947B00CB387B /* Song 2.mp3 */; };
-		53DB0DED2A10948100CB387B /* Song 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DB0DEC2A10948100CB387B /* Song 4.mp3 */; };
-		53DB0DEF2A10948B00CB387B /* Song 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DB0DEE2A10948B00CB387B /* Song 3.mp3 */; };
 		83FDA1042A0215F000FBD218 /* ACarousel in Frameworks */ = {isa = PBXBuildFile; productRef = 83FDA1032A0215F000FBD218 /* ACarousel */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,11 @@
 		2A53E50C2A00B21C008E120A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A8660172A071226003FAF04 /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		2A8660182A071226003FAF04 /* Comfortaa-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		2A8660252A073CBC003FAF04 /* Song 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 1.mp3"; sourceTree = "<group>"; };
+		2A8660272A073D03003FAF04 /* Song 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 5.mp3"; sourceTree = "<group>"; };
+		2A8660292A073D0D003FAF04 /* Song 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 3.mp3"; sourceTree = "<group>"; };
+		2A86602A2A073D0D003FAF04 /* Song 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 4.mp3"; sourceTree = "<group>"; };
+		2A86602D2A073D15003FAF04 /* Song 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 2.mp3"; sourceTree = "<group>"; };
 		53795DF629F450F4000B1BB4 /* ProgressComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressComponent.swift; sourceTree = "<group>"; };
 		53795DF829F45100000B1BB4 /* InformationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationComponent.swift; sourceTree = "<group>"; };
 		53795DFA29F45368000B1BB4 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -113,10 +119,6 @@
 		539A88AF29FFD2510065224A /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		539A88B129FFDDDC0065224A /* MusicPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerModel.swift; sourceTree = "<group>"; };
 		539A88B329FFE05B0065224A /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
-		53DB0DE82A10942300CB387B /* Song 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 1.mp3"; sourceTree = "<group>"; };
-		53DB0DEA2A10947B00CB387B /* Song 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 2.mp3"; sourceTree = "<group>"; };
-		53DB0DEC2A10948100CB387B /* Song 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 4.mp3"; sourceTree = "<group>"; };
-		53DB0DEE2A10948B00CB387B /* Song 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 3.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,10 +261,11 @@
 				04D178CC2A04FD6100451FFC /* tiga.json */,
 				04D178C92A04FC5400451FFC /* dua.json */,
 				537FD5AA29EE2E4A001E6321 /* Assets.xcassets */,
-				53DB0DE82A10942300CB387B /* Song 1.mp3 */,
-				53DB0DEA2A10947B00CB387B /* Song 2.mp3 */,
-				53DB0DEE2A10948B00CB387B /* Song 3.mp3 */,
-				53DB0DEC2A10948100CB387B /* Song 4.mp3 */,
+				2A8660252A073CBC003FAF04 /* Song 1.mp3 */,
+				2A86602D2A073D15003FAF04 /* Song 2.mp3 */,
+				2A8660292A073D0D003FAF04 /* Song 3.mp3 */,
+				2A86602A2A073D0D003FAF04 /* Song 4.mp3 */,
+				2A8660272A073D03003FAF04 /* Song 5.mp3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -483,20 +486,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53DB0DEF2A10948B00CB387B /* Song 3.mp3 in Resources */,
+				2A86602E2A073D15003FAF04 /* Song 2.mp3 in Resources */,
 				2A86601A2A071226003FAF04 /* Comfortaa-VariableFont_wght.ttf in Resources */,
 				537FD5AE29EE2E4A001E6321 /* Preview Assets.xcassets in Resources */,
 				04D178D22A04FF1E00451FFC /* satu.json in Resources */,
 				04D178CE2A04FD6100451FFC /* tiga.json in Resources */,
+				2A8660282A073D03003FAF04 /* Song 5.mp3 in Resources */,
 				04D178CA2A04FC5400451FFC /* dua.json in Resources */,
+				2A86602C2A073D0D003FAF04 /* Song 4.mp3 in Resources */,
 				04D178D42A04FF3100451FFC /* empat.json in Resources */,
+				2A86602B2A073D0D003FAF04 /* Song 3.mp3 in Resources */,
 				2A53E50D2A00B21C008E120A /* Assets.xcassets in Resources */,
-				53DB0DED2A10948100CB387B /* Song 4.mp3 in Resources */,
 				2A8660192A071226003FAF04 /* Nunito-VariableFont_wght.ttf in Resources */,
 				04D178CD2A04FD6100451FFC /* enam.json in Resources */,
 				04D178D12A04FF1E00451FFC /* lima.json in Resources */,
-				53DB0DEB2A10947B00CB387B /* Song 2.mp3 in Resources */,
-				53DB0DE92A10942300CB387B /* Song 1.mp3 in Resources */,
+				2A8660262A073CBC003FAF04 /* Song 1.mp3 in Resources */,
 				537FD5AB29EE2E4A001E6321 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
