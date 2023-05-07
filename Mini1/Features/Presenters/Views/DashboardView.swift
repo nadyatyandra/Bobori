@@ -26,6 +26,10 @@ struct DashboardView: View {
     @State var chosenMusic: String = "Song 1"
     @State var lastDate: Date = Date()
     
+    @State var isRotating: Bool = false
+//    @State var desiredAngle: CGFloat = 0.0
+    @State var currentAngle: CGFloat = 0.0
+    
     var body: some View {
         ZStack {
             Color("paleBlue").ignoresSafeArea()
@@ -37,7 +41,14 @@ struct DashboardView: View {
                 VStack {
                     TabView(selection: $viewModel.selectedTab) {
                     NavigationView {
-                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), entryViewModel: entryViewModel, showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time, chosenMusic: $chosenMusic, lastDate: $lastDate)
+                        //ori
+//                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), entryViewModel: entryViewModel, showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time, chosenMusic: $chosenMusic, lastDate: $lastDate)
+                        
+                        //binding 2
+                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), entryViewModel: entryViewModel, showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time, chosenMusic: $chosenMusic, lastDate: $lastDate, isRotating: $isRotating, currentAngle: $currentAngle)
+                        
+                        //binding 3
+//                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), entryViewModel: entryViewModel, showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time, chosenMusic: $chosenMusic, lastDate: $lastDate, isRotating: $isRotating, desiredAngle: $desiredAngle, currentAngle: $currentAngle)
                     }
                     .tabItem {
                         Label("Progress", systemImage: "calendar")
