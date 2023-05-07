@@ -41,6 +41,11 @@ struct ProgressComponent: View {
     @Binding var chosenMusic: String
     @Binding var lastDate: Date
     
+    //binding
+    @Binding var isRotating: Bool
+//    @Binding var desiredAngle: CGFloat
+    @Binding var currentAngle: CGFloat
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -193,7 +198,14 @@ struct ProgressComponent: View {
             EditProfileView(showProfile: $showProfile, oldName: name, newName: $name, time: $time, entryViewModel: entryViewModel)
         }
         .sheet(isPresented: $showMusic) {
-            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, entryViewModel: entryViewModel, showMusic: $showMusic, chosenMusic: $chosenMusic, lastDate: $lastDate, playMusic: $playMusic, name: $name)
+            //ori
+//            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, entryViewModel: entryViewModel, showMusic: $showMusic, chosenMusic: $chosenMusic, lastDate: $lastDate, playMusic: $playMusic, name: $name)
+            
+            //binding 2
+            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, entryViewModel: entryViewModel, showMusic: $showMusic, chosenMusic: $chosenMusic, lastDate: $lastDate, playMusic: $playMusic, name: $name, isRotating: $isRotating, currentAngle: $currentAngle)
+            
+            //binding 3
+//            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, entryViewModel: entryViewModel, showMusic: $showMusic, chosenMusic: $chosenMusic, lastDate: $lastDate, playMusic: $playMusic, name: $name, isRotating: $isRotating, desiredAngle: $desiredAngle, currentAngle: $currentAngle)
         }
         .sheet(isPresented: $showSheet) {
             if isFilled {
