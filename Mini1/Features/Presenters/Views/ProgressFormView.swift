@@ -18,6 +18,7 @@ struct ProgressFormView: View {
     @Binding var isFilled: Bool
     @Binding var dailyIsFilled: Bool
     @Binding var dailyShowSheet: Bool
+    @Binding var formFilled: Bool
     @Binding var currentStageIndex: Int
     @Binding var maxStageIndex: Int
     @State private var currentPageIndex: Int = 0
@@ -114,7 +115,7 @@ struct ProgressFormView: View {
                             self.entryViewModel.createEntry(date: self.date, bedTime: self.bedTime, distance: self.distance)
                             showSheet = false
                             isFilled = true
-                            
+                            formFilled.toggle()
                             
                             
                             if dailyShowSheet || calendar.isDate(date, inSameDayAs: currentDate) {

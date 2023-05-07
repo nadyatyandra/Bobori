@@ -13,14 +13,19 @@ struct CalendarView: View {
     @Binding var selectedDate: Date
     @Binding var isFilled: Bool
     @Binding var showSheet: Bool
-    @ObservedObject var entryViewModel: EntryViewModel    
-
+    @Binding var formFilled: Bool
+    @ObservedObject var entryViewModel: EntryViewModel
+    @State var showCalendar = true
+    
     var body: some View {
         VStack {
-            CalendarViewRepresentable(selectedDate: $selectedDate, isFilled: $isFilled, showSheet: $showSheet, entryViewModel: entryViewModel, showError: $showError)
-                .padding(.bottom)
-                .padding(EdgeInsets(top: 40, leading: 0, bottom: 0, trailing: 0))
-                .frame(maxWidth:350, maxHeight: 400)
+            if showCalendar {
+                CalendarViewRepresentable(selectedDate: $selectedDate, isFilled: $isFilled, showSheet: $showSheet, entryViewModel: entryViewModel, showError: $showError)
+                    .padding(.bottom)
+                    .padding(EdgeInsets(top: 40, leading: 0, bottom: 0, trailing: 0))
+                    .frame(maxWidth:350, maxHeight: 400)
+            }
+            
         }
         .alert(isPresented: $showError) {
             Alert(
@@ -29,13 +34,19 @@ struct CalendarView: View {
                 dismissButton: .default(Text("Come back next time"))
             )
         }
+        .onChange(of: formFilled, perform: {_ in
+            showCalendar = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) {
+                showCalendar = true
+            }
+        })
     }
 }
 
 struct CalendarViewRepresentable: UIViewRepresentable {
     typealias UIViewType = FSCalendar
     
-    fileprivate var calendar = FSCalendar()
+    fileprivate var calendar: FSCalendar = FSCalendar()
     @Binding var selectedDate: Date
     @Binding var isFilled: Bool
     @Binding var showSheet: Bool

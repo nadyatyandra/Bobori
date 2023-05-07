@@ -18,6 +18,7 @@ struct ProgressComponent: View {
     @State var dailyShowSheet: Bool = false
     @State var isFilled: Bool = false
     @State var dailyIsFilled: Bool = false
+    @State var formFilled: Bool = false
     
     // Bool to toggle edit profile view
     @State var showProfile: Bool = false
@@ -138,7 +139,7 @@ struct ProgressComponent: View {
                 }
                 .padding(.top)
                 
-                CalendarView(selectedDate: $selectedDate, isFilled: $isFilled, showSheet: $showSheet, entryViewModel: entryViewModel)
+                CalendarView(selectedDate: $selectedDate, isFilled: $isFilled, showSheet: $showSheet, formFilled: $formFilled, entryViewModel: entryViewModel)
                     .padding(.top, -30)
                     .padding(.bottom, -10)
                 
@@ -198,7 +199,7 @@ struct ProgressComponent: View {
             if isFilled {
                HistoryView(entryViewModel: self.entryViewModel, entry: entryViewModel.getOneEntry(date: selectedDate)!)
             } else {
-                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, dailyIsFilled: $dailyIsFilled, dailyShowSheet: $dailyShowSheet, currentStageIndex: $currentStageIndex, maxStageIndex: $maxStageIndex, distances: distances)
+                ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, dailyIsFilled: $dailyIsFilled, dailyShowSheet: $dailyShowSheet, formFilled: $formFilled, currentStageIndex: $currentStageIndex, maxStageIndex: $maxStageIndex, distances: distances)
                     .onDisappear {
                         dailyShowSheet = false
                 }
