@@ -29,11 +29,11 @@
 		04D178D82A05045C00451FFC /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D178D72A05045C00451FFC /* SplashScreenView.swift */; };
 		04E8233529F594E700F6C73E /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233429F594E700F6C73E /* EditProfileView.swift */; };
 		04E8233729F5954200F6C73E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233629F5954200F6C73E /* ProfileViewModel.swift */; };
+		2A3E149F2A0751D0007E7388 /* Song 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A3E149E2A0751D0007E7388 /* Song 5.mp3 */; };
 		2A53E50D2A00B21C008E120A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A53E50C2A00B21C008E120A /* Assets.xcassets */; };
 		2A8660192A071226003FAF04 /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A8660172A071226003FAF04 /* Nunito-VariableFont_wght.ttf */; };
 		2A86601A2A071226003FAF04 /* Comfortaa-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A8660182A071226003FAF04 /* Comfortaa-VariableFont_wght.ttf */; };
 		2A8660262A073CBC003FAF04 /* Song 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A8660252A073CBC003FAF04 /* Song 1.mp3 */; };
-		2A8660282A073D03003FAF04 /* Song 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A8660272A073D03003FAF04 /* Song 5.mp3 */; };
 		2A86602B2A073D0D003FAF04 /* Song 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A8660292A073D0D003FAF04 /* Song 3.mp3 */; };
 		2A86602C2A073D0D003FAF04 /* Song 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A86602A2A073D0D003FAF04 /* Song 4.mp3 */; };
 		2A86602E2A073D15003FAF04 /* Song 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A86602D2A073D15003FAF04 /* Song 2.mp3 */; };
@@ -93,11 +93,11 @@
 		04E8233429F594E700F6C73E /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		04E8233629F5954200F6C73E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		04E8233829F5960400F6C73E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A3E149E2A0751D0007E7388 /* Song 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 5.mp3"; sourceTree = "<group>"; };
 		2A53E50C2A00B21C008E120A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A8660172A071226003FAF04 /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		2A8660182A071226003FAF04 /* Comfortaa-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		2A8660252A073CBC003FAF04 /* Song 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 1.mp3"; sourceTree = "<group>"; };
-		2A8660272A073D03003FAF04 /* Song 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 5.mp3"; sourceTree = "<group>"; };
 		2A8660292A073D0D003FAF04 /* Song 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 3.mp3"; sourceTree = "<group>"; };
 		2A86602A2A073D0D003FAF04 /* Song 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 4.mp3"; sourceTree = "<group>"; };
 		2A86602D2A073D15003FAF04 /* Song 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Song 2.mp3"; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 				2A86602D2A073D15003FAF04 /* Song 2.mp3 */,
 				2A8660292A073D0D003FAF04 /* Song 3.mp3 */,
 				2A86602A2A073D0D003FAF04 /* Song 4.mp3 */,
-				2A8660272A073D03003FAF04 /* Song 5.mp3 */,
+				2A3E149E2A0751D0007E7388 /* Song 5.mp3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -455,7 +455,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 537FD59E29EE2E49001E6321 /* Build configuration list for PBXProject "Mini1" */;
+			buildConfigurationList = 537FD59E29EE2E49001E6321 /* Build configuration list for PBXProject "Bobori" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -491,11 +491,11 @@
 				537FD5AE29EE2E4A001E6321 /* Preview Assets.xcassets in Resources */,
 				04D178D22A04FF1E00451FFC /* satu.json in Resources */,
 				04D178CE2A04FD6100451FFC /* tiga.json in Resources */,
-				2A8660282A073D03003FAF04 /* Song 5.mp3 in Resources */,
 				04D178CA2A04FC5400451FFC /* dua.json in Resources */,
 				2A86602C2A073D0D003FAF04 /* Song 4.mp3 in Resources */,
 				04D178D42A04FF3100451FFC /* empat.json in Resources */,
 				2A86602B2A073D0D003FAF04 /* Song 3.mp3 in Resources */,
+				2A3E149F2A0751D0007E7388 /* Song 5.mp3 in Resources */,
 				2A53E50D2A00B21C008E120A /* Assets.xcassets in Resources */,
 				2A8660192A071226003FAF04 /* Nunito-VariableFont_wght.ttf in Resources */,
 				04D178CD2A04FD6100451FFC /* enam.json in Resources */,
@@ -712,6 +712,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini1/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Bobori;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSRemindersUsageDescription = "App needs permission";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -719,6 +720,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -745,6 +747,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini1/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Bobori;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSRemindersUsageDescription = "App needs permission";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -752,6 +755,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -846,7 +850,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		537FD59E29EE2E49001E6321 /* Build configuration list for PBXProject "Mini1" */ = {
+		537FD59E29EE2E49001E6321 /* Build configuration list for PBXProject "Bobori" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				537FD5C529EE2E4A001E6321 /* Debug */,

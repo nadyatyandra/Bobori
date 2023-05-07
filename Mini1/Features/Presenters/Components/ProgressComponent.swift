@@ -77,7 +77,7 @@ struct ProgressComponent: View {
                                 .font(Font.custom("Nunito ExtraLight", size: 16))
                                 .foregroundColor(.white)
                                 .padding(.top, -60)
-                                .padding(.leading, -130)
+                                .padding(.leading, -140)
                                 
                             Text("Stage \(currentStageIndex + 1)")
                                 .font(Font.custom("Nunito ExtraLight", size: 21))
