@@ -45,16 +45,15 @@ struct CalendarViewRepresentable: UIViewRepresentable {
     func makeUIView(context: Context) -> FSCalendar {
         calendar.delegate = context.coordinator
         calendar.dataSource = context.coordinator
-        calendar.appearance.todayColor = UIColor(displayP3Red: 100, green: 100, blue: 0, alpha: 0)
-        calendar.appearance.titleTodayColor = .blue
-        calendar.appearance.selectionColor = .blue
-        calendar.appearance.eventDefaultColor = .red
-//        calendar.appearance.titleTodayColor = .blue
+        calendar.appearance.todayColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        calendar.appearance.titleTodayColor = UIColor(red: 0.322, green: 0.451, blue: 0.737, alpha: 1)
+        calendar.appearance.weekdayTextColor = UIColor(red: 0.322, green: 0.451, blue: 0.737, alpha: 1)
+        calendar.appearance.selectionColor = UIColor(red: 0.322, green: 0.451, blue: 0.737, alpha: 1)
+        calendar.appearance.eventDefaultColor = UIColor(red: 0.875, green: 0.408, blue: 0.18, alpha: 1)
         calendar.appearance.titleFont = .systemFont(ofSize: 20)
-//        calendar.appearance.titleWeekendColor = .systemOrange
         calendar.appearance.headerMinimumDissolvedAlpha = 0.12
         calendar.appearance.headerTitleFont = .systemFont(ofSize: 30, weight: .black)
-        calendar.appearance.headerTitleColor = .darkGray
+        calendar.appearance.headerTitleColor = UIColor(red: 0.875, green: 0.408, blue: 0.18, alpha: 1)
         calendar.appearance.headerDateFormat = "MMMM"
         calendar.scrollDirection = .horizontal
         calendar.scope = .month
