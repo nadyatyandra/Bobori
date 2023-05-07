@@ -34,8 +34,14 @@ struct MusicPlayerView: View {
                     }
                     .padding(.top, 130)
                 
-                LottieView(state: LUStateData(type: .name("enam", .main), loopMode: .loop))
-                    .scaleEffect(0.8)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 22)
+                        .frame(width: 291, height: 291)
+                        .foregroundColor(.white)
+                    
+                    LottieView(state: LUStateData(type: .name("enam", .main), loopMode: .loop))
+                        .scaleEffect(0.8)
+                }
                 
                 Button(playMusic ? "⏹ Stop" : " ▶ Play") {
                     playMusic.toggle()
