@@ -39,7 +39,7 @@ struct InformationComponent : View {
                         Text("Chair Method Sleep Training")
                             .font(Font.custom("Comfortaa", size: 21))
                             .fontWeight(.semibold)
-                            .padding(.leading, 175)
+                            .padding(.leading, 200)
                             .foregroundColor(Color("paleBlue"))
                     }
                     .padding(.leading, -215)
@@ -49,7 +49,7 @@ struct InformationComponent : View {
                     .font(Font.custom("Comfortaa", size: 18))
                     .fontWeight(.semibold)
                     .padding(.top)
-                    .padding(.leading, -160)
+                    .padding(.leading, -150)
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 12)

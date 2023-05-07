@@ -47,7 +47,7 @@ struct ProgressFormView: View {
                             .frame(width: 299, height: 210)
                             .background(Color.white)
                             .cornerRadius(20)
-                            .padding(.top, -210)
+                            .padding(.top, -190)
                         
                         Button(action: {
                             withAnimation(){
@@ -65,6 +65,7 @@ struct ProgressFormView: View {
                                 
                         })
                     } .padding(.top, -50)
+                        .transition(.opacity)
                 }
             } else if currentPageIndex == 1 {
                 ZStack{
@@ -141,16 +142,17 @@ struct ProgressFormView: View {
                             .padding(.top, 90)
                         
                         Button(action: {
-                            withAnimation(){
+                            withAnimation() {
                                 currentPageIndex -= 1
                             }
-                        }, label: {
-                            Text("Back")
-                                .font(.system(size: 21))
-                                .foregroundColor(Color.white)
-                                .underline()
-                                .padding(.leading, 5)
-                        })
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .font(.title)
+                                .foregroundColor(.white)
+                        }
+                        .padding(.top, -700)
+                        .padding(.leading, -165)
+
                     }
                 }
             }

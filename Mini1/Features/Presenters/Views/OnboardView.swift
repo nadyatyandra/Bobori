@@ -251,7 +251,7 @@ struct Form2View: View {
                     .cornerRadius(20)
                 }
                 .padding(.top, -100)
-            }
+            } .transition(.move(edge: .leading))
         }
     }
 }
