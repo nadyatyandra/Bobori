@@ -25,7 +25,7 @@ struct SplashScreenView: View {
                         .resizable()
                         .frame(width: 393, height: 393)
                         .padding(.top, -100)
-                    Text(" Chair method sleep training is a gentle and effective want to sleep train baby to sleep independently")
+                    Text("Independent sleeping made easy")
                         .font(Font.custom("Nunito ExtraLight", size: 21))
                         .frame(width: 288, height: 150)
                         .multilineTextAlignment(.center)

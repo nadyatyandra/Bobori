@@ -5,7 +5,6 @@
 //  Created by Leo Harnadi on 01/05/23.
 //
 import SwiftUI
-//import LottieUI
 
 struct PausableRotation: GeometryEffect {
   
@@ -95,20 +94,15 @@ struct MusicPlayerView: View {
                     RoundedRectangle(cornerRadius: 22)
                         .frame(width: 291, height: 291)
                         .foregroundColor(.white)
-                    
-//                    LottieView(state: LUStateData(type: .name("enam", .main), loopMode: .loop))
-//                        .scaleEffect(0.8)
-                    
-                    //text lain ga ke display, cmn image aja yg bs muncul
-//                    Image("music disc-12")
-//                        .scaleEffect(0.3)
-//                    Image("music disc-11")
-//                        .scaleEffect(0.3)
-
-                    //placeholder
-                    Image("Stage1Card")
+                    Image("music disc-12")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxHeight: 300)
                         .modifier(PausableRotation(desiredAngle: desiredAngle, currentAngle: $currentAngle))
-                    
+                    Image("music disc-11")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxHeight: 300)
                 }
                 
                 Button(playMusic ? "⏹ Stop" : " ▶ Play") {
