@@ -104,6 +104,16 @@ struct MusicPlayerView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(maxHeight: 300)
                 }
+                .onAppear() {
+                    if playMusic == true {
+                        isRotating = false
+                        playAnim()
+                        isRotating = true
+                        playAnim()
+//                      Di toggle 2x soalnya kl gak bakal makin cepat setiap kali buka tutup
+                    }
+                }
+                                
                 
                 Button(playMusic ? "⏹ Stop" : " ▶ Play") {
                     playMusic.toggle()
@@ -115,14 +125,7 @@ struct MusicPlayerView: View {
                     }
                     
                     self.isRotating.toggle()
-                    // normalize the angle so that we're not in the tens or hundreds of radians
-                    let startAngle = currentAngle.truncatingRemainder(dividingBy: CGFloat.pi * 2)
-                    // if rotating, the final value should be one full circle furter
-                    // if not rotating, the final value is just the current value
-                    let angleDelta = isRotating ? CGFloat.pi * 2 : 0.0
-                    withAnimation(isRotating ? foreverAnimation : .linear(duration: 0)) {
-                      self.desiredAngle = startAngle + angleDelta
-                    }
+                    playAnim()
                 }
                 .frame(width: 210, height: 55)
                 .foregroundColor(Color("paleBlue"))
@@ -156,4 +159,13 @@ struct MusicPlayerView: View {
         }
     }
     
+    func playAnim() {
+        let startAngle = currentAngle.truncatingRemainder(dividingBy: CGFloat.pi * 2)
+        let angleDelta = isRotating ? CGFloat.pi * 2 : 0.0
+        withAnimation(isRotating ? foreverAnimation : .linear(duration: 0)) {
+          self.desiredAngle = startAngle + angleDelta
+        }
+    }
+        
 }
+    
