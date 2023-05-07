@@ -24,7 +24,8 @@ struct EditProfileView: View {
                     .padding(.top, 100)
                 VStack{
                     Text("Name")
-                        .font(.system(size: 21))
+                        .font(Font.custom("Comfortaa", size: 21))
+                        .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .padding(.leading, -150)
                         .padding(.top, -50)
@@ -34,15 +35,16 @@ struct EditProfileView: View {
                         
                         .overlay(
                             TextField("", text: $name)
-                                .font(.system(size: 18))
-                                .foregroundColor(.black)
+                                .font(Font.custom("Nunito ExtraLight", size: 18))
+                                .foregroundColor(Color("paleBlue"))
                                 .padding(.leading)
                                 
                                 
                         )
                         .padding(.top, -30)
                     Text("Sleeping Time")
-                        .font(.system(size: 21))
+                        .font(Font.custom("Comfortaa", size: 21))
+                        .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .padding(.leading, -150)
                         .padding(.top, 30)

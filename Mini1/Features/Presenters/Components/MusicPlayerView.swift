@@ -24,7 +24,7 @@ struct MusicPlayerView: View {
             Color("paleBlue").ignoresSafeArea()
             VStack{
                 Text("Here's a music recommendation for \(name)")
-                    .font(.system(size: 24))
+                    .font(Font.custom("Nunito ExtraLight", size: 24))
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.white)
                     .onAppear() {
@@ -32,11 +32,12 @@ struct MusicPlayerView: View {
                         lastDate = checkIfNewDay().lastDate ?? Date()
                         entryViewModel.changeMusic(entry: entryViewModel.music[0], lastDate: lastDate, selectedSong: chosenMusic)
                     }
+                    .padding(.top, 130)
                 
                 LottieView(state: LUStateData(type: .name("enam", .main), loopMode: .loop))
-                    .scaleEffect(0.5)
+                    .scaleEffect(0.8)
                 
-                Button(playMusic ? "■ Stop" : " ▶ Play") {
+                Button(playMusic ? "⏹ Stop" : " ▶ Play") {
                     playMusic.toggle()
         
                     if playMusic {
@@ -46,6 +47,8 @@ struct MusicPlayerView: View {
                     }
                 }
                 .frame(width: 210, height: 55)
+                .foregroundColor(Color("paleBlue"))
+                .font(Font.custom("Nunito ExtraLight", size: 21))
                 .background(Color.white)
                 .cornerRadius(50)
                 .padding(.top, 50)

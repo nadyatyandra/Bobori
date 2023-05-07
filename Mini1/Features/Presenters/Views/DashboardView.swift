@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DashboardView: View {
     
-    @State var isOnboardingCompleted = false
+    @State var isOnboardingCompleted = true
     
     @StateObject var viewModel = DashboardViewModel()
     
@@ -41,6 +41,7 @@ struct DashboardView: View {
                     }
                     .tabItem {
                         Label("Progress", systemImage: "calendar")
+                        
                     }
                     .tag(0)
                     

@@ -30,6 +30,8 @@
 		04E8233529F594E700F6C73E /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233429F594E700F6C73E /* EditProfileView.swift */; };
 		04E8233729F5954200F6C73E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8233629F5954200F6C73E /* ProfileViewModel.swift */; };
 		2A53E50D2A00B21C008E120A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A53E50C2A00B21C008E120A /* Assets.xcassets */; };
+		2A8660192A071226003FAF04 /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A8660172A071226003FAF04 /* Nunito-VariableFont_wght.ttf */; };
+		2A86601A2A071226003FAF04 /* Comfortaa-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A8660182A071226003FAF04 /* Comfortaa-VariableFont_wght.ttf */; };
 		53795DF729F450F4000B1BB4 /* ProgressComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF629F450F4000B1BB4 /* ProgressComponent.swift */; };
 		53795DF929F45100000B1BB4 /* InformationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DF829F45100000B1BB4 /* InformationComponent.swift */; };
 		53795DFB29F45368000B1BB4 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53795DFA29F45368000B1BB4 /* DashboardView.swift */; };
@@ -91,6 +93,8 @@
 		04E8233629F5954200F6C73E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		04E8233829F5960400F6C73E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A53E50C2A00B21C008E120A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2A8660172A071226003FAF04 /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		2A8660182A071226003FAF04 /* Comfortaa-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		53795DF629F450F4000B1BB4 /* ProgressComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressComponent.swift; sourceTree = "<group>"; };
 		53795DF829F45100000B1BB4 /* InformationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationComponent.swift; sourceTree = "<group>"; };
 		53795DFA29F45368000B1BB4 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 		04C4B5F229F5AA1200761974 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2A8660182A071226003FAF04 /* Comfortaa-VariableFont_wght.ttf */,
+				2A8660172A071226003FAF04 /* Nunito-VariableFont_wght.ttf */,
 				04D178CF2A04FF1E00451FFC /* lima.json */,
 				04D178D02A04FF1E00451FFC /* satu.json */,
 				04D178CB2A04FD6100451FFC /* enam.json */,
@@ -478,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53DB0DEF2A10948B00CB387B /* Song 3.mp3 in Resources */,
+				2A86601A2A071226003FAF04 /* Comfortaa-VariableFont_wght.ttf in Resources */,
 				537FD5AE29EE2E4A001E6321 /* Preview Assets.xcassets in Resources */,
 				04D178D22A04FF1E00451FFC /* satu.json in Resources */,
 				04D178CE2A04FD6100451FFC /* tiga.json in Resources */,
@@ -485,6 +492,7 @@
 				04D178D42A04FF3100451FFC /* empat.json in Resources */,
 				2A53E50D2A00B21C008E120A /* Assets.xcassets in Resources */,
 				53DB0DED2A10948100CB387B /* Song 4.mp3 in Resources */,
+				2A8660192A071226003FAF04 /* Nunito-VariableFont_wght.ttf in Resources */,
 				04D178CD2A04FD6100451FFC /* enam.json in Resources */,
 				04D178D12A04FF1E00451FFC /* lima.json in Resources */,
 				53DB0DEB2A10947B00CB387B /* Song 2.mp3 in Resources */,
@@ -695,7 +703,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mini1/Preview Content\"";
-				DEVELOPMENT_TEAM = 68FYPQ879D;
+				DEVELOPMENT_TEAM = 85KB4TP9CK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini1/Info.plist;
@@ -727,7 +735,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mini1/Preview Content\"";
-				DEVELOPMENT_TEAM = 68FYPQ879D;
+				DEVELOPMENT_TEAM = 85KB4TP9CK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini1/Info.plist;

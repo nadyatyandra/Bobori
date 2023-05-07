@@ -33,18 +33,20 @@ struct ProgressFormView: View {
                     VStack {
                         LottieView(state: LUStateData(type: .name("empat", .main), loopMode: .loop))
                             .scaleEffect(0.5)
+                            .padding(.top, -150)
                         Text("What time did \(name) sleep?")
-                            .font(.system(size: 32))
-                            .foregroundColor(.black)
+                            .font(Font.custom("Comfortaa", size: 32))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
                             .multilineTextAlignment(.center)
-                            .padding(.top, 50)
+                            .padding(.top, -275)
                             .frame(width: 304, height: 130)
                         DatePicker("", selection: $bedTime, displayedComponents: .hourAndMinute)
                             .datePickerStyle(WheelDatePickerStyle())
                             .frame(width: 299, height: 210)
                             .background(Color.white)
                             .cornerRadius(20)
-                            .padding(.top, 10)
+                            .padding(.top, -210)
                         
                         Button(action: {
                             withAnimation(){
@@ -58,21 +60,23 @@ struct ProgressFormView: View {
                                 .font(.system(size: 21))
                                 .foregroundColor(Color("paleBlue"))
                                 .padding(.top, 90)
+                                .padding(.bottom, 35)
+                                
                         })
-                    }
+                    } .padding(.top, -50)
                 }
             } else if currentPageIndex == 1 {
                 ZStack{
                     Color("paleBlue").ignoresSafeArea()
                     VStack{
-                        Image("placeholder")
-                            .resizable()
-                            .frame(width: 110, height: 145)
-                            .padding(.top, 10)
-                            
+                        LottieView(state: LUStateData(type: .name("empat", .main), loopMode: .loop))
+                            .scaleEffect(1.25)
+                            .padding(.top, 30)
                         
                         Text("How's today's distance?")
-                            .font(.system(size: 32))
+                            .font(Font.custom("Comfortaa", size: 32))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .frame(width: 305, height: 80)
                             .padding(.top, 20)
@@ -100,7 +104,7 @@ struct ProgressFormView: View {
                             }
                             .pickerStyle(.wheel)
                             
-                        } .padding(.top, 30)
+                        } .padding(.top, 50)
 
                         
                         Button(action: {

@@ -74,15 +74,15 @@ struct ProgressComponent: View {
                                                
                         VStack{
                             Text("\(name) is currently at")
-                                .font(.system(size: 12))
+                                .font(Font.custom("Nunito ExtraLight", size: 16))
                                 .foregroundColor(.white)
                                 .padding(.top, -60)
-                                .padding(.leading, -140)
+                                .padding(.leading, -130)
                                 
                             Text("Stage \(currentStageIndex + 1)")
+                                .font(Font.custom("Nunito ExtraLight", size: 21))
                                         .foregroundColor(.white)
-                                        .font(.system(size: 21))
-                                        .padding(.top, -50)
+                                        .fontWeight(.bold)                                        .padding(.top, -50)
                                         .padding(.leading, -140)
                                         
                             
@@ -171,19 +171,21 @@ struct ProgressComponent: View {
                 HStack{
                     VStack{
                         Text("Progress")
-                            .font(.system(size: 16))
+                            .font(Font.custom("Comfortaa", size: 16))
                             .foregroundColor(.gray)
                             .padding(.leading, -270)
+                            .fontWeight(.semibold)
                         
                         Text("Sleep Training")
-                            .font(.system(size: 21))
+                            .font(Font.custom("Comfortaa", size: 21))
                             .foregroundColor(Color("paleBlue"))
                             .padding(.leading, -270)
+                    
                     }
                     Button() {
                         showProfile = true
                     } label: {
-                        Image("placeholder")
+                        Image("ProfilePicture")
                             .resizable()
                             .frame(width: 54, height: 54)
                             .padding(.trailing, 10)

@@ -32,41 +32,45 @@ struct InformationComponent : View {
                 HStack {
                     VStack {
                         Text("Stages")
-                            .font(.system(size: 16))
+                            .font(Font.custom("Comfortaa", size: 16))
+                            .fontWeight(.semibold)
                             .padding(.leading, -52)
                             .foregroundColor(Color.gray)
                         Text("Chair Method Sleep Training")
-                            .font(.system(size: 21))
-                            .padding(.leading, 150)
+                            .font(Font.custom("Comfortaa", size: 21))
+                            .fontWeight(.semibold)
+                            .padding(.leading, 202)
                             .foregroundColor(Color("paleBlue"))
                     }
                     .padding(.leading, -215)
                     .padding(.top, 10)
                 }
                 Text("General Instruction")
-                    .font(.system(size: 18))
+                    .font(Font.custom("Comfortaa", size: 18))
+                    .fontWeight(.semibold)
                     .padding(.top)
-                    .padding(.leading, -160)
+                    .padding(.leading, -140)
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 12)
                         .foregroundColor(.white)
                         .shadow(radius: 3)
-                        .frame(width: 324, height: 611)
+                        .frame(width: 324, height: 550)
                                     
                     VStack {
-                        Image("satu")
+                        Image("CardChairMethod")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 278, height: 180)
                         .cornerRadius(10)
                                         
                     Text("Chair method sleep training is a gentle sleep training technique that gradually teaches your baby to sleep on their own. \n\nChair method sleep training allows you to stay in the room as your baby learns to self-soothe and settle to sleep independently. \n\nIf you’re patient and consistent, the Chair method of sleep training can help your baby start to sleep on their own in as little as two weeks.")
+                        .font(Font.custom("Nunito ExtraLight", size: 16))
                         .font(.subheadline)
                         .multilineTextAlignment(.center)
                         .padding()
                     }
-                    .frame(width: 324, height: 611)
+                    .frame(width: 324, height: 550)
             }
                 
                 ACarousel(

@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import LottieUI
 
 struct HistoryView: View {
     @ObservedObject var entryViewModel: EntryViewModel
@@ -16,19 +17,18 @@ struct HistoryView: View {
         ZStack{
             Color("paleBlue").ignoresSafeArea()
             VStack {
-                Image("placeholder")
-                    .resizable()
-                    .frame(width: 192, height: 160)
-                    .padding(.top, -80)
+                LottieView(state: LUStateData(type: .name("empat", .main), loopMode: .loop))
+                    .scaleEffect(0.7)
+                    .padding(.top, -250)
+                
                 FormattedDate(date: entry.date!)
-                    
+                    .padding(.top, -150)
                 
                 Text("Sleeping Time")
-                    .font(.system(size: 16))
+                    .font(Font.custom("Comfortaa", size: 16))
                     .foregroundColor(.white)
                     .padding(.leading, -165)
-//                    .padding(.leading, 10)
-                    .padding(.top, 60)
+                    .padding(.top, -320)
                 
                 
                     FormattedTime(time: entry.bedTime!).bold()
@@ -37,16 +37,17 @@ struct HistoryView: View {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(.white, lineWidth: 1)
                         )
+                        .padding(.top, -300)
                     
                 
                 Text("Chair Distance")
-                    .font(.system(size: 16))
+                    .font(Font.custom("Comfortaa", size: 16))
                     .foregroundColor(.white)
                     .padding(.leading, -165)
-                    .padding(.top, 22)
+                    .padding(.top, -230)
         
                 Text(entry.distance ?? "ga ada distance" )
-                        .font(.system(size: 18))
+                        .font(Font.custom("Nunito ExtraLight", size: 18))
                         .frame(width: 350, height: 50)
                         .foregroundColor(Color.white)
                         .bold()
@@ -54,6 +55,7 @@ struct HistoryView: View {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(.white, lineWidth: 1)
                         )
+                        .padding(.top, -210)
 
                     
                     

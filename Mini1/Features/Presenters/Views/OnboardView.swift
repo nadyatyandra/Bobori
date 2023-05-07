@@ -52,7 +52,8 @@ struct OnboardView: View {
                                     .frame(width: 210, height: 55)
                                     .background(Color.white)
                                     .cornerRadius(70)
-                                    .padding(.trailing, 90)
+                                    .padding(.leading, 5)
+                                    .padding(.bottom, 50)
                                     .background(Color("paleBlue"))
                             })
                         }
@@ -88,9 +89,11 @@ struct OnboardView: View {
                                     .background(profileViewModel.nameIsEmpty(name: name) ? Color.gray : Color.white)
                                     .cornerRadius(70)
                                     .padding(.trailing, 90)
+                                    .padding(.bottom, 50)
                                     .background(Color("paleBlue"))
                             })
                             .disabled(profileViewModel.nameIsEmpty(name: name))
+//                            .padding(.leading, 50)
                         }
                     }
 
@@ -147,7 +150,7 @@ struct OnboardView: View {
                                         .frame(width: 210, height: 55)
                                         .background(Color.white)
                                         .cornerRadius(70)
-                                        .padding(.bottom, 13)
+                                        .padding(.bottom, 33)
                                         .padding(.trailing, 75)
                                 })
                                 .padding()
@@ -178,8 +181,22 @@ struct HelloScreenView: View {
             
             VStack {
                 LottieView(state: LUStateData(type: .name("satu", .main), loopMode: .loop))
-                    .scaleEffect(0.5)
-            }
+                    .scaleEffect(0.7)
+                Text("Hello, I'm Bori")
+                    .font(Font.custom("Comfortaa", size: 32))
+                    .foregroundColor(.white)
+                    .frame(width: 132, height: 120)
+                    .padding(.top, -380)
+                    .multilineTextAlignment(.center)
+                    .fontWeight(.bold)
+                Text("Your new sleep assistant to track your baby's sleep")
+                    .font(Font.custom("Nunito ExtraLight", size: 21))
+                    .foregroundColor(.white)
+                    .frame(width: 258, height: 150)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, -320)
+                
+            } .padding(.top, -300)
         }
     }
 }
@@ -194,26 +211,31 @@ struct Form1View: View {
             paleBlue.edgesIgnoringSafeArea(.all)
             VStack{
                 LottieView(state: LUStateData(type: .name("dua", .main), loopMode: .loop))
-                    .scaleEffect(0.5)
+                    .scaleEffect(0.7)
+                    .padding(.top, -100)
                 Text("Welcome!")
-                    .font(.system(size: 32))
+                    .font(Font.custom("Comfortaa", size: 32))
                     .foregroundColor(.white)
-                    .padding(.top)
+                    .fontWeight(.bold)
+                    .padding(.top, -100)
+                    .padding(.bottom, 50)
                 Text("What's the name of your little one?")
-                    .frame(width: 177, height: 55)
-                    .font(.system(size: 21))
-                    .padding(.top, 30)
-                    .padding(.bottom, 65)
+                    .font(Font.custom("Nunito ExtraLight", size: 21))
+                    .frame(width: 177, height: 80)
+                    .padding(.top, -100)
+                    .padding(.bottom, 35)
                     .foregroundColor(.white)
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.white)
                     .frame(width: 305, height: 45)
                     .overlay(
                         TextField("Your Baby's Name", text: $name)
-                            .font(.system(size: 18))
-                            .foregroundColor(.black)
+                            .font(Font.custom("Nunito ExtraLight", size: 18))
+//                            .foregroundColor(.black)
                             .padding()
                     )
+//                    .padding(.top, -100)
+                    .padding(.bottom, 170)
             }
         }
     }
@@ -230,28 +252,29 @@ struct Form2View: View {
             paleBlue.edgesIgnoringSafeArea(.all)
             VStack {
                 LottieView(state: LUStateData(type: .name("tiga", .main), loopMode: .loop))
-                    .scaleEffect(0.5)
-                Text("Welcome!")
-                    .font(.system(size: 32))
+                    .scaleEffect(1)
+                Text("Nice to know \(name)!")
+                    .font(Font.custom("Nunito ExtraLight", size: 24))
                     .foregroundColor(.white)
-                    .padding(.top)
-                if name.isEmpty {
-                    Text("What time does your baby sleep?")
-                        .multilineTextAlignment(.center)
-                        .frame(width: 300, height: 100)
-                        .font(.system(size: 21))
-                        .padding(.top, 20)
-                        .padding(.bottom, 65)
-                        .foregroundColor(.white)
-                } else {
-                    Text("What time does \(name) sleep?")
+                    .fontWeight(.bold)
+//                    .padding(.top)
+//                if name.isEmpty {
+//                    Text("What time does your baby sleep?")
+//                        .multilineTextAlignment(.center)
+//                        .frame(width: 300, height: 100)
+//                        .font(.system(size: 21))
+//                        .padding(.top, 20)
+//                        .padding(.bottom, 65)
+//                        .foregroundColor(.white)
+//                } else {
+                    Text("What's your little one's sleeping time?")
+                        .font(Font.custom("Nunito ExtraLight", size: 21))
                         .multilineTextAlignment(.center)
                         .frame(width: 260, height: 150)
-                        .font(.system(size: 21))
-                        .padding(.top, -20)
+                        .padding(.top, -50)
                         .padding(.bottom, 45)
                         .foregroundColor(.white)
-                }
+//                }
                 ZStack {
                     Color("paleBlue")
                     DatePicker("", selection: $time, displayedComponents: .hourAndMinute)
