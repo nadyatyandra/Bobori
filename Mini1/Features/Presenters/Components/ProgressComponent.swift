@@ -25,7 +25,7 @@ struct ProgressComponent: View {
     // Music Variables
     @Binding var showMusic: Bool
     @Binding var playMusic: Bool
-    var musicPlayerViewModel: MusicPlayerViewModel
+    @ObservedObject var musicPlayerViewModel: MusicPlayerViewModel
     
     // Name Time for reminder
     @Binding var name: String

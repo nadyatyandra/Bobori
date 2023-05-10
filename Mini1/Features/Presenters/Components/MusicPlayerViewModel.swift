@@ -27,7 +27,6 @@ class MusicPlayerViewModel: ObservableObject {
             
             return musicPlayerModel.selectedSong
         } else {
-            
             return musicPlayerModel.selectedSong
             
         }

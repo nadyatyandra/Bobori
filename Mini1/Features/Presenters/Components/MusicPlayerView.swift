@@ -25,6 +25,9 @@ struct MusicPlayerView: View {
                     .font(.system(size: 24))
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.white)
+                    .onAppear() {
+                        chosenMusic = musicPlayerViewModel.checkIfNewDay()
+                    }
                 
                 LottieView(state: LUStateData(type: .name("enam", .main), loopMode: .loop))
                     .scaleEffect(0.5)
