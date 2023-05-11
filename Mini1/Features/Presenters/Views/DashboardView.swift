@@ -27,7 +27,6 @@ struct DashboardView: View {
     @State var lastDate: Date = Date()
     
     @State var isRotating: Bool = false
-//    @State var desiredAngle: CGFloat = 0.0
     @State var currentAngle: CGFloat = 0.0
     
     var body: some View {
@@ -41,14 +40,9 @@ struct DashboardView: View {
                 VStack {
                     TabView(selection: $viewModel.selectedTab) {
                     NavigationView {
-                        //ori
-//                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), entryViewModel: entryViewModel, showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time, chosenMusic: $chosenMusic, lastDate: $lastDate)
                         
-                        //binding 2
                         ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), entryViewModel: entryViewModel, showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time, chosenMusic: $chosenMusic, lastDate: $lastDate, isRotating: $isRotating, currentAngle: $currentAngle)
                         
-                        //binding 3
-//                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), entryViewModel: entryViewModel, showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time, chosenMusic: $chosenMusic, lastDate: $lastDate, isRotating: $isRotating, desiredAngle: $desiredAngle, currentAngle: $currentAngle)
                     }
                     .tabItem {
                         Label("Progress", systemImage: "calendar")
@@ -73,7 +67,6 @@ struct DashboardView: View {
             time = entryViewModel.child[0].bedTime ?? Date()
             chosenMusic = entryViewModel.music[0].selectedSong ?? "Song 1"
             lastDate = entryViewModel.music[0].lastDate ?? Date()
-//            print("Chosen music: \(chosenMusic) + last date: \(lastDate)")
         }
     }
 }

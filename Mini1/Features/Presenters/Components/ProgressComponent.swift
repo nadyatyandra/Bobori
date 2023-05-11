@@ -198,14 +198,8 @@ struct ProgressComponent: View {
             EditProfileView(showProfile: $showProfile, oldName: name, newName: $name, time: $time, entryViewModel: entryViewModel)
         }
         .sheet(isPresented: $showMusic) {
-            //ori
-//            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, entryViewModel: entryViewModel, showMusic: $showMusic, chosenMusic: $chosenMusic, lastDate: $lastDate, playMusic: $playMusic, name: $name)
-            
-            //binding 2
             MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, entryViewModel: entryViewModel, showMusic: $showMusic, chosenMusic: $chosenMusic, lastDate: $lastDate, playMusic: $playMusic, name: $name, isRotating: $isRotating, currentAngle: $currentAngle)
             
-            //binding 3
-//            MusicPlayerView(musicPlayerViewModel: musicPlayerViewModel, entryViewModel: entryViewModel, showMusic: $showMusic, chosenMusic: $chosenMusic, lastDate: $lastDate, playMusic: $playMusic, name: $name, isRotating: $isRotating, desiredAngle: $desiredAngle, currentAngle: $currentAngle)
         }
         .sheet(isPresented: $showSheet) {
             if isFilled {
