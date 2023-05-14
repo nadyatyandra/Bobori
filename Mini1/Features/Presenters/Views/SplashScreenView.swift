@@ -12,7 +12,7 @@ struct SplashScreenView: View {
     @State var size: Double = 0.1
     @State var opacity: Double = 0.5
     let paleBlue = Color(UIColor(named: "paleBlue")!)
-
+    
     var body: some View {
         if isActive {
             DashboardView()
@@ -32,7 +32,8 @@ struct SplashScreenView: View {
                         .foregroundColor(.white)
                         .padding(.top, 150)
                         .padding(.bottom, -100)
-                }.padding(.top, 50)
+                }
+                .padding(.top, 50)
                 .scaleEffect(size)
                 .opacity(opacity)
                 .onAppear {

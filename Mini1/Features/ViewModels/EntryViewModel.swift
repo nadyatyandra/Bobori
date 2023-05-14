@@ -122,7 +122,6 @@ class EntryViewModel: ObservableObject {
     func changeMusic(entry: Music, lastDate: Date, selectedSong: String) {
         entry.lastDate = lastDate
         entry.selectedSong = selectedSong
-//        print(entry)
         saveToPersistentStore()
     }
 }

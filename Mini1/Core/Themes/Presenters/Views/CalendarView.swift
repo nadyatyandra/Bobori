@@ -110,7 +110,7 @@ struct CalendarViewRepresentable: UIViewRepresentable {
         func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
             let eventDates: [FilledDate] = parent.entryViewModel.filledDate
             var eventCount = 0
-
+            
             eventDates.forEach { eventDate in
                 if let filledDate = eventDate.date {
                     if filledDate.formatted(date: .complete, time: .omitted) == date.formatted(date: .complete, time: .omitted){
@@ -120,22 +120,5 @@ struct CalendarViewRepresentable: UIViewRepresentable {
             }
             return eventCount
         }
-        
-//        func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
-//            if isWeekend(date: date) {
-//                return false
-//            }
-//            return true
-//        }
     }
 }
-
-//func isWeekend(date: Date) -> Bool {
-//    let dateFormatter = DateFormatter()
-//    dateFormatter.dateFormat = "EEEE"
-//    let day: String = dateFormatter.string(from: date)
-//    if day == "Saturday" || day == "Sunday" {
-//        return true
-//    }
-//    return false
-//}

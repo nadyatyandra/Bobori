@@ -30,10 +30,10 @@ struct OnboardView: View {
                     HelloScreenView()
                 } else if currentPageIndex == 1 {
                     Form1View(name: $name)
-                        .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading)))
+                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing)))
                 } else if currentPageIndex == 2 {
                     Form2View(time: $time, name: $name)
-                        .transition(.asymmetric(insertion: .opacity, removal: .opacity))
+                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing)))
                 }
                 
                 Spacer()
@@ -109,35 +109,35 @@ struct OnboardView: View {
                             .padding(.leading, 30)
                             Spacer()
                         }
-                            Spacer()
-                            HStack {
-                                Button(action: {
-                                    withAnimation() {
-                                        EKManager.addReminder(name: name, hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
-
-                                        if !EKManager.emptyReminderList {
-                                            entryViewModel.saveToChild(entry: entryViewModel.child[0], name: name, bedTime: time)
-                                            entryViewModel.completeOnboarding(entry: entryViewModel.progress[0])
-
-                                            isOnboardingCompleted = true
-                                        }
+                        Spacer()
+                        HStack {
+                            Button(action: {
+                                withAnimation() {
+                                    EKManager.addReminder(name: name, hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
+                                    
+                                    if !EKManager.emptyReminderList {
+                                        entryViewModel.saveToChild(entry: entryViewModel.child[0], name: name, bedTime: time)
+                                        entryViewModel.completeOnboarding(entry: entryViewModel.progress[0])
+                                        
+                                        isOnboardingCompleted = true
                                     }
-                                }, label: {
-                                    Text("Save")
-                                        .font(.system(size: 21))
-                                        .foregroundColor(Color("paleBlue"))
-                                        .frame(width: 210, height: 55)
-                                        .background(Color.white)
-                                        .cornerRadius(70)
-                                        .padding(.bottom, 33)
-                                        .padding(.trailing, 75)
-                                })
-                                .padding()
-                            }
+                                }
+                            }, label: {
+                                Text("Save")
+                                    .font(.system(size: 21))
+                                    .foregroundColor(Color("paleBlue"))
+                                    .frame(width: 210, height: 55)
+                                    .background(Color.white)
+                                    .cornerRadius(70)
+                                    .padding(.bottom, 33)
+                                    .padding(.trailing, 75)
+                            })
+                            .padding()
                         }
                     }
                 }
             }
+        }
         .onAppear(){
             EKManager.requestAccess()
         }
@@ -248,7 +248,7 @@ struct Form2View: View {
                         .labelsHidden()
                         .frame(width: 299, height: 210)
                         .background(Color.white)
-                    .cornerRadius(20)
+                        .cornerRadius(20)
                 }
                 .padding(.top, -100)
             } .transition(.move(edge: .leading))

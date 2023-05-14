@@ -62,19 +62,30 @@ struct ProgressFormView: View {
                                 .foregroundColor(Color("paleBlue"))
                                 .padding(.top, 90)
                                 .padding(.bottom, 35)
-                                
                         })
                     } .padding(.top, -50)
                         .transition(.opacity)
                 }
             } else if currentPageIndex == 1 {
-                ZStack{
+                ZStack {
                     Color("paleBlue").ignoresSafeArea()
                     VStack{
+                        HStack {
+                            Button(action: {
+                                withAnimation() {
+                                    currentPageIndex -= 1
+                                }
+                            }) {
+                                Image(systemName: "chevron.left")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                            }
+                            .padding(.top, 25)
+                            .padding(.leading, 20)
+                            Spacer()
+                        }
                         LottieView(state: LUStateData(type: .name("empat", .main), loopMode: .loop))
                             .scaleEffect(1.25)
-                            .padding(.top, 30)
-                        
                         Text("How's today's distance?")
                             .font(Font.custom("Comfortaa", size: 32))
                             .fontWeight(.bold)
@@ -82,7 +93,6 @@ struct ProgressFormView: View {
                             .multilineTextAlignment(.center)
                             .frame(width: 305, height: 80)
                             .padding(.top, 20)
-                            
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(Color.white)
@@ -105,9 +115,7 @@ struct ProgressFormView: View {
                                 }
                             }
                             .pickerStyle(.wheel)
-                            
                         } .padding(.top, 50)
-
                         
                         Button(action: {
                             let currentDate: Date = Date()
@@ -117,7 +125,6 @@ struct ProgressFormView: View {
                             showSheet = false
                             isFilled = true
                             formFilled.toggle()
-                            
                             
                             if dailyShowSheet || calendar.isDate(date, inSameDayAs: currentDate) {
                                 dailyIsFilled = true
@@ -130,29 +137,16 @@ struct ProgressFormView: View {
                             }
                             
                             entryViewModel.editProgress(entry: entryViewModel.progress[0], currentStageIndex: currentStageIndex, maxStageIndex: maxStageIndex)
-                            
                         }) {
                             Text("Save")
                         }
-                            .frame(width: 210, height: 55)
-                            .background(Color.white)
-                            .cornerRadius(70)
-                            .font(.system(size: 21))
-                            .foregroundColor(Color("paleBlue"))
-                            .padding(.top, 90)
-                        
-                        Button(action: {
-                            withAnimation() {
-                                currentPageIndex -= 1
-                            }
-                        }) {
-                            Image(systemName: "chevron.left")
-                                .font(.title)
-                                .foregroundColor(.white)
-                        }
-                        .padding(.top, -700)
-                        .padding(.leading, -165)
-
+                        .frame(width: 210, height: 55)
+                        .background(Color.white)
+                        .cornerRadius(70)
+                        .font(.system(size: 21))
+                        .foregroundColor(Color("paleBlue"))
+                        .padding(.top, 90)
+                        .padding(.bottom, 30)
                     }
                 }
             }

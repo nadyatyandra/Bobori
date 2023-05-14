@@ -33,7 +33,6 @@ struct EditProfileView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.white)
                         .frame(width: 305, height: 45)
-                        
                         .overlay(
                             TextField("", text: $newName)
                                 .font(Font.custom("Nunito ExtraLight", size: 18))
@@ -47,22 +46,17 @@ struct EditProfileView: View {
                         .foregroundColor(.white)
                         .padding(.leading, -150)
                         .padding(.top, 30)
-                    
                     DatePicker("Sleeping Time", selection: $time, displayedComponents: .hourAndMinute)
                         .datePickerStyle(WheelDatePickerStyle())
                         .labelsHidden()
                         .frame(width: 299, height: 210)
                         .background(Color.white)
                         .cornerRadius(20)
-
                     Spacer()
-                    
                     Button(action: {
                         withAnimation() {
                             EKManager.editReminder(oldName: oldName, newName: newName, hour: Calendar.current.component(.hour, from: time), minute: Calendar.current.component(.minute, from: time))
-                            
                             entryViewModel.saveToChild(entry: entryViewModel.child[0], name: newName, bedTime: time)
-                            
                             showProfile = false
                         }
                     }, label: {

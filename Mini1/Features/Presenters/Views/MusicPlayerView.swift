@@ -7,26 +7,25 @@
 import SwiftUI
 
 struct PausableRotation: GeometryEffect {
-  
     @Binding var currentAngle: CGFloat
     private var currentAngleValue: CGFloat = 0.0
-
+    
     var animatableData: CGFloat {
         get { currentAngleValue }
         set { currentAngleValue = newValue }
     }
-
+    
     init(desiredAngle: CGFloat, currentAngle: Binding<CGFloat>) {
         self.currentAngleValue = desiredAngle
         self._currentAngle = currentAngle
     }
-
+    
     func effectValue(size: CGSize) -> ProjectionTransform {
-
-    DispatchQueue.main.async {
-        self.currentAngle = currentAngleValue
-    }
-
+        
+        DispatchQueue.main.async {
+            self.currentAngle = currentAngleValue
+        }
+        
         let xOffset = size.width / 2
         let yOffset = size.height / 2
         let transform = CGAffineTransform(translationX: xOffset, y: yOffset)
@@ -47,23 +46,16 @@ struct MusicPlayerView: View {
     @Binding var playMusic: Bool
     @Binding var name: String
     
-//    //state
-//    @State var isRotating: Bool = false
     @State var desiredAngle: CGFloat = 0.0
-//    @State var currentAngle: CGFloat = 0.0
-    
-    //binding
     @Binding var isRotating: Bool
-//    @Binding var desiredAngle: CGFloat
     @Binding var currentAngle: CGFloat
     
     var foreverAnimation: Animation {
-      Animation.linear(duration: 1.8)
-        .repeatForever(autoreverses: false)
+        Animation.linear(duration: 1.8)
+            .repeatForever(autoreverses: false)
     }
     
     var body: some View {
-        // [Song Image]
         ZStack{
             Color("paleBlue").ignoresSafeArea()
             VStack{
@@ -98,14 +90,12 @@ struct MusicPlayerView: View {
                         playAnim()
                         isRotating = true
                         playAnim()
-//                      Di toggle 2x soalnya kl gak bakal makin cepat setiap kali buka tutup
                     }
                 }
-                                
                 
                 Button(playMusic ? "⏹ Stop" : " ▶ Play") {
                     playMusic.toggle()
-        
+                    
                     if playMusic {
                         musicPlayerViewModel.playSong()
                     } else {
@@ -129,20 +119,13 @@ struct MusicPlayerView: View {
         let currentDate: Date = Date()
         let calendar: Calendar = Calendar.current
         
-        
-        // Check if last date is nil or if last date is the same as current date
         if (!calendar.isDate(lastDate, inSameDayAs: currentDate)) {
-            
             musicPlayerViewModel.musicPlayerModel.lastDate = currentDate
-            
             musicPlayerViewModel.musicPlayerModel.selectedSong = musicPlayerViewModel.musicPlayerModel.musicList.randomElement()!
-            
             return musicPlayerViewModel.musicPlayerModel
         } else {
             musicPlayerViewModel.musicPlayerModel.lastDate = lastDate
-            
             musicPlayerViewModel.musicPlayerModel.selectedSong = chosenMusic
-            
             return musicPlayerViewModel.musicPlayerModel
         }
     }
@@ -151,9 +134,7 @@ struct MusicPlayerView: View {
         let startAngle = currentAngle.truncatingRemainder(dividingBy: CGFloat.pi * 2)
         let angleDelta = isRotating ? CGFloat.pi * 2 : 0.0
         withAnimation(isRotating ? foreverAnimation : .linear(duration: 0)) {
-          self.desiredAngle = startAngle + angleDelta
+            self.desiredAngle = startAngle + angleDelta
         }
     }
-        
 }
-    

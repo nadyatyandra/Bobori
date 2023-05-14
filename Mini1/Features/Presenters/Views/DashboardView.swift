@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct DashboardView: View {
-    
     @State var isOnboardingCompleted = false
-    
     @StateObject var viewModel = DashboardViewModel()
-    
     @ObservedObject var entryViewModel = EntryViewModel()
     
     // Data for reminder
@@ -39,24 +36,21 @@ struct DashboardView: View {
             } else {
                 VStack {
                     TabView(selection: $viewModel.selectedTab) {
-                    NavigationView {
+                        NavigationView {
+                            ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), entryViewModel: entryViewModel, showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time, chosenMusic: $chosenMusic, lastDate: $lastDate, isRotating: $isRotating, currentAngle: $currentAngle)
+                        }
+                        .tabItem {
+                            Label("Progress", systemImage: "calendar")
+                        }
+                        .tag(0)
                         
-                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), entryViewModel: entryViewModel, showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time, chosenMusic: $chosenMusic, lastDate: $lastDate, isRotating: $isRotating, currentAngle: $currentAngle)
-                        
-                    }
-                    .tabItem {
-                        Label("Progress", systemImage: "calendar")
-                        
-                    }
-                    .tag(0)
-                    
-                    NavigationView {
-                        InformationComponent()
-                    }
-                    .tabItem {
-                        Label("Information", systemImage: "info")
-                    }
-                    .tag(1)
+                        NavigationView {
+                            InformationComponent()
+                        }
+                        .tabItem {
+                            Label("Information", systemImage: "info")
+                        }
+                        .tag(1)
                     }
                 }
             }

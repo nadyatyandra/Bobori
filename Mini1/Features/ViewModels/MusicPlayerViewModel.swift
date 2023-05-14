@@ -10,10 +10,7 @@ import AVFoundation
 
 class MusicPlayerViewModel: ObservableObject {
     @Published var musicPlayerModel = MusicPlayerModel()
-    
     var songPlayer: AVAudioPlayer?
-    
-    
     
     func playSong() {
         guard let url = Bundle.main.url(forResource: musicPlayerModel.selectedSong, withExtension: "mp3") else { return }
@@ -26,11 +23,9 @@ class MusicPlayerViewModel: ObservableObject {
         } catch {
             print("Error playing sound: \(error.localizedDescription)")
         }
-        
     }
     
     func stopSong() {
         songPlayer?.stop()
     }
-    
 }

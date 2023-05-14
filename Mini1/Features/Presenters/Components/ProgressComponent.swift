@@ -20,7 +20,7 @@ struct ProgressComponent: View {
     @State var dailyIsFilled: Bool = false
     @State var formFilled: Bool = false
     
-    // Bool to toggle edit profile view
+    // Bool to Roggle Edit Profile View
     @State var showProfile: Bool = false
     
     // Music Variables
@@ -28,7 +28,7 @@ struct ProgressComponent: View {
     @Binding var playMusic: Bool
     @ObservedObject var musicPlayerViewModel: MusicPlayerViewModel
     
-    // Name Time for reminder
+    // Name Time for Reminder
     @Binding var name: String
     @Binding var time: Date
     
@@ -40,10 +40,7 @@ struct ProgressComponent: View {
     // For Music
     @Binding var chosenMusic: String
     @Binding var lastDate: Date
-    
-    //binding
     @Binding var isRotating: Bool
-//    @Binding var desiredAngle: CGFloat
     @Binding var currentAngle: CGFloat
     
     var body: some View {
@@ -57,7 +54,7 @@ struct ProgressComponent: View {
                                 .foregroundColor(Color("paleBlue"))
                                 .padding(.top, -50)
                         }
-
+                        
                         if currentStageIndex < 4 {
                             ForEach((0...(3-currentStageIndex)), id: \.self) {_ in
                                 RoundedRectangle(cornerRadius: 12)
@@ -68,29 +65,25 @@ struct ProgressComponent: View {
                         }
                     }
                     
-                    ZStack{
-                                               
+                    ZStack {
                         RoundedRectangle(cornerRadius: 12)
-                                .frame(width: 324, height: 144)
-                                .foregroundColor(Color("paleBlue"))
-                                .padding(.top, -30)
-
-                       
-                                
-                                               
-                        VStack{
+                            .frame(width: 324, height: 144)
+                            .foregroundColor(Color("paleBlue"))
+                            .padding(.top, -30)
+                        
+                        VStack {
                             Text("\(name) is currently at")
                                 .font(Font.custom("Nunito ExtraLight", size: 16))
                                 .foregroundColor(.white)
                                 .padding(.top, -60)
                                 .padding(.leading, -140)
-                                
+                            
                             Text("Stage \(currentStageIndex + 1)")
                                 .font(Font.custom("Nunito ExtraLight", size: 21))
-                                        .foregroundColor(.white)
-                                        .fontWeight(.bold)
-                                        .padding(.top, -50)
-                                        .padding(.leading, -140)
+                                .foregroundColor(.white)
+                                .fontWeight(.bold)
+                                .padding(.top, -50)
+                                .padding(.leading, -140)
                         }
                         
                         if(currentStageIndex == 0){
@@ -123,7 +116,7 @@ struct ProgressComponent: View {
                         }
                     }
                 }
-
+                
                 ZStack{
                     RoundedRectangle(cornerRadius: 12)
                         .foregroundColor(Color("terracotta"))
@@ -153,7 +146,7 @@ struct ProgressComponent: View {
                         .foregroundColor(Color("mustard"))
                         .frame(width: 324, height: 57)
                         .shadow(radius: 3)
-                        
+                    
                     Button("Music Recommendation") {
                         showMusic = true
                     } .font(.system(size: 16))
@@ -180,7 +173,7 @@ struct ProgressComponent: View {
                             .font(Font.custom("Comfortaa", size: 21))
                             .foregroundColor(Color("paleBlue"))
                             .padding(.leading, -270)
-                    
+                        
                     }
                     Button() {
                         showProfile = true
@@ -203,12 +196,12 @@ struct ProgressComponent: View {
         }
         .sheet(isPresented: $showSheet) {
             if isFilled {
-               HistoryView(entryViewModel: self.entryViewModel, entry: entryViewModel.getOneEntry(date: selectedDate)!)
+                HistoryView(entryViewModel: self.entryViewModel, entry: entryViewModel.getOneEntry(date: selectedDate)!)
             } else {
                 ProgressFormView(entryViewModel: self.entryViewModel, date: $selectedDate, name: $name, showSheet: $showSheet, isFilled: $isFilled, dailyIsFilled: $dailyIsFilled, dailyShowSheet: $dailyShowSheet, formFilled: $formFilled, currentStageIndex: $currentStageIndex, maxStageIndex: $maxStageIndex, distances: distances)
                     .onDisappear {
                         dailyShowSheet = false
-                }
+                    }
             }
         }
     }

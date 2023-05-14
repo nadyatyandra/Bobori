@@ -11,7 +11,6 @@ import SwiftUI
 class ProgressViewModel: ObservableObject {
     @Binding var selectedTab: Int
     
-    
     init(selectedTab: Binding<Int>) {
         _selectedTab = selectedTab
     }

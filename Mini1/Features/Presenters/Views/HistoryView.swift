@@ -14,7 +14,7 @@ struct HistoryView: View {
     @State var entry: SleepRoutine
     
     var body: some View {
-        ZStack{
+        ZStack {
             Color("paleBlue").ignoresSafeArea()
             VStack {
                 LottieView(state: LUStateData(type: .name("empat", .main), loopMode: .loop))
@@ -30,37 +30,31 @@ struct HistoryView: View {
                     .padding(.leading, -165)
                     .padding(.top, -320)
                 
-                
-                    FormattedTime(time: entry.bedTime!).bold()
-                        .frame(width: 350, height: 50)
-                        .overlay(
+                FormattedTime(time: entry.bedTime!).bold()
+                    .frame(width: 350, height: 50)
+                    .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(.white, lineWidth: 1)
-                        )
-                        .padding(.top, -300)
-                    
+                    )
+                    .padding(.top, -300)
                 
                 Text("Chair Distance")
                     .font(Font.custom("Comfortaa", size: 16))
                     .foregroundColor(.white)
                     .padding(.leading, -165)
                     .padding(.top, -230)
-        
+                
                 Text(entry.distance ?? "ga ada distance" )
-                        .font(Font.custom("Nunito ExtraLight", size: 18))
-                        .frame(width: 350, height: 50)
-                        .foregroundColor(Color.white)
-                        .bold()
-                        .overlay(
+                    .font(Font.custom("Nunito ExtraLight", size: 18))
+                    .frame(width: 350, height: 50)
+                    .foregroundColor(Color.white)
+                    .bold()
+                    .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(.white, lineWidth: 1)
-                        )
-                        .padding(.top, -210)
-
-                    
-                    
-                } .padding(.top, -4)
-            }
+                    )
+                    .padding(.top, -210)
+            } .padding(.top, -4)
         }
     }
-
+}
