@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @State var isOnboardingCompleted: Bool = false
+    // Check if onboarding is completed
+    @State var isOnboardingCompleted: Bool = true
     
     @StateObject var viewModel = DashboardViewModel()
     
+    // Data for reminder
     @State private var name: String = ""
     @State private var time: Date = Date()
     
+    // Music Variables
+    @State var showMusic: Bool = false
+    @State var playMusic: Bool = false
+    @ObservedObject var musicPlayerViewModel = MusicPlayerViewModel()
     
     var body: some View {
         ZStack {
@@ -28,7 +34,7 @@ struct DashboardView: View {
             VStack {
                 TabView(selection: $viewModel.selectedTab) {
                 NavigationView {
-                    ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), name: $name, time: $time)
+                    ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time )
                 }
                 .tabItem {
                     Label("Progress", systemImage: "calendar")
