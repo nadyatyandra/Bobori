@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DashboardView: View {
     // Check if onboarding is completed
-    @State var isOnboardingCompleted: Bool = true
+    @State var isOnboardingCompleted: Bool = false
     
     @StateObject var viewModel = DashboardViewModel()
     
@@ -33,7 +33,7 @@ struct DashboardView: View {
                 VStack {
                     TabView(selection: $viewModel.selectedTab) {
                     NavigationView {
-                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), name: $name, time: $time)
+                        ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time)
                     }
                     .tabItem {
                         Label("Progress", systemImage: "calendar")
@@ -50,29 +50,9 @@ struct DashboardView: View {
                     }
                 }
             }
-        } 
-            VStack {
-                TabView(selection: $viewModel.selectedTab) {
-                NavigationView {
-                    ProgressComponent(viewModel: ProgressViewModel(selectedTab: $viewModel.selectedTab), showMusic: $showMusic, playMusic: $playMusic, musicPlayerViewModel: musicPlayerViewModel, name: $name, time: $time )
-                }
-                .tabItem {
-                    Label("Progress", systemImage: "calendar")
-                }
-                .tag(0)
-                
-                NavigationView {
-                    InformationComponent()
-                }
-                .tabItem {
-                    Label("Information", systemImage: "info")
-                }
-                .tag(1)
-                }
-            }
+        }
         }
     }
-}
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
