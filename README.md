@@ -10,8 +10,8 @@ Sleep training allows baby to learn to self-soothe and settle to sleep independ
 Creating an app that ***provides information and assistance*** for ***first-time mothers*** when ***the child is doing sleep training using Chair Method***, so ***the child could sleep on their own*** and ***the parents have more time for themselves***.
 
 ## Contributors
-- [Nadya Tyandra](https://github.com/nadyatyandra)
-- [Leo Harnadi Marlin](https://github.com/TrotskyLeon)
-- [Jessica Rachel Santoso](https://github.com/jessicarachel)
-- [Randy Julian Gunawan](https://github.com/randjg)
-- [Rahel Kristhea Supandi](https://www.behance.net/rahelkristhea)
+- [Nadya Tyandra](https://github.com/nadyatyandra) - iOS Developer
+- [Leo Harnadi Marlin](https://github.com/TrotskyLeon) - iOS Developer
+- [Jessica Rachel Santoso](https://github.com/jessicarachel) - iOS Developer, Project Manager
+- [Randy Julian Gunawan](https://github.com/randjg) - iOS Developer
+- [Rahel Kristhea Supandi](https://www.behance.net/rahelkristhea) - Designer
