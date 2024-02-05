@@ -1,5 +1,7 @@
 # Bobori
-“Bobori” was obtained from "Bobo Sendiri", which can be translated as "Sleep Alone" in English. This application aims to help parents with tracking and implementing their baby’s sleep training using chair method. The parents need to fill in a daily form about their child's sleep training progress (baby's bedtime and distance between the baby and the parents).
+“Bobori” was obtained from "Bobo Sendiri", which can be translated as "Sleep Alone" in English. This application aims to help parents with tracking and implementing their baby’s sleep training using chair method. The parents need to fill in a daily form about their child's sleep training progress (baby's bedtime and distance between the baby and the parents). The explanation of the project can be accessed from [this link](https://nadyatyandra.notion.site/Bobori-c86eb484100e4d2fac4249f329711739?pvs=4).
+
+![Result](https://github.com/nadyatyandra/Bobori/assets/84224607/6ab9bd9d-9cf8-47bc-9144-f6ca30670fbc?raw=true)
 
 ## Why?
 First-time mothers need to take care of their baby 24/7 even while they are asleep, depriving any semblance of parents' personal time. Sleeping is a basic need for all of us, including babies who need to be trained to sleep independently, however, this training requires time and effort from the parents.
